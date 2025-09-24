@@ -1,0 +1,6 @@
+pyproject.toml
+hci_bga_server.egg-info/PKG-INFO
+hci_bga_server.egg-info/SOURCES.txt
+hci_bga_server.egg-info/dependency_links.txt
+hci_bga_server.egg-info/requires.txt
+hci_bga_server.egg-info/top_level.txt

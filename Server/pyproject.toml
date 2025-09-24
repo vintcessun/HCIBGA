@@ -1,0 +1,18 @@
+[project]
+name = "hci-bga-server"
+version = "0.1.0"
+description = "HCI BGA Server Backend"
+requires-python = ">=3.8"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "python-multipart",
+    "sqlalchemy",
+    "pydantic",
+    "python-jose[cryptography]",
+    "passlib[bcrypt]"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

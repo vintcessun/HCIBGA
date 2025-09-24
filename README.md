@@ -1,2 +1,2 @@
 # HCIBGA
-Assistant
+Human-Computer Interaction-Bonus-Graduate-Assistant
