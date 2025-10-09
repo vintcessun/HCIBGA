@@ -22,6 +22,7 @@ import localeUserSetting from '@/views/user/setting/locale/zh-CN'
 import localeSettings from './zh-CN/settings'
 
 export default {
+  'menu.user.batch.list': '批次列表',
   'menu.dashboard': '仪表盘',
   'menu.server.dashboard': '仪表盘-服务端',
   'menu.server.workplace': '工作台-服务端',
@@ -33,6 +34,9 @@ export default {
   'menu.profile': '详情页',
   'menu.visualization': '数据可视化',
   'menu.user': '个人中心',
+  'menu.user.import': '从第三方导入',
+  'menu.user.import.qicai': '七彩信息',
+  'menu.user.import.jiaowu': '教务系统',
   'menu.arcoWebsite': 'Arco Design',
   'menu.faq': '常见问题',
   'menu.material': '材料管理',
@@ -40,6 +44,15 @@ export default {
   'menu.material.list': '材料列表',
   'menu.material.review': '材料审核',
   'menu.material.statistics': '材料统计',
+  'menu.material.submit': '批次管理',
+  'menu.material.submit.manage': '管理批次',
+  'menu.material.submit.review': '审核批次',
+  'menu.user.submit': '提交材料',
+  'menu.user.submit.list': '提交列表',
+  'menu.user.submit.create': '发起提交',
+  'menu.info': '信息管理',
+  'menu.info.import': '学生信息导入',
+  'menu.info.export': '学生信息导出',
   'material.upload.files': '上传文件',
   'material.upload.materialInfo': '材料信息',
   'material.upload.uploadedFiles': '已上传文件',

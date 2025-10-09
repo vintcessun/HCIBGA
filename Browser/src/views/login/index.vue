@@ -17,7 +17,7 @@
             alt="二维码"
             style="width: 200px; height: 200px; display: block; margin: 0 auto"
           />
-          <div style="text-align: center; margin-top: 12px; color: #888">请使用微信/钉钉等扫码登录</div>
+          <div style="text-align: center; margin-top: 12px; color: #888">请使用企业微信扫码登录</div>
         </div>
       </a-modal>
       <div class="logo">

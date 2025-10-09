@@ -50,13 +50,18 @@
       <!-- 操作按钮区域 -->
       <div class="action-section">
         <a-space>
-          <a-button v-if="userStore.role === 'admin'" type="primary" @click="handleBatchDelete" :disabled="selectedMaterials.length === 0">
+          <a-button
+            v-if="userStore.role === 'admin' || userStore.role === 'user'"
+            type="primary"
+            @click="handleBatchDelete"
+            :disabled="selectedMaterials.length === 0"
+          >
             <template #icon>
               <icon-delete />
             </template>
             {{ $t('material.list.batchDelete') }}
           </a-button>
-          <a-button v-if="userStore.role === 'admin'" @click="handleExport">
+          <a-button v-if="userStore.role === 'admin' || userStore.role === 'user'" @click="handleExport">
             <template #icon>
               <icon-download />
             </template>
@@ -98,7 +103,13 @@
               查看
             </a-button>
 
-            <a-button v-if="userStore.role === 'admin'" type="text" size="small" status="danger" @click="handleDelete(record)">
+            <a-button
+              v-if="userStore.role === 'admin' || userStore.role === 'user'"
+              type="text"
+              size="small"
+              status="danger"
+              @click="handleDelete(record)"
+            >
               <template #icon>
                 <icon-delete />
               </template>
@@ -295,7 +306,7 @@ const columns = computed(() => [
   {
     title: '操作',
     slotName: 'actions',
-    width: userStore.role === 'admin' ? 300 : 200,
+    width: userStore.role === 'admin' || userStore.role === 'user' ? 300 : 200,
     fixed: 'right',
   },
 ])

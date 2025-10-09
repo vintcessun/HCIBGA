@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts" setup>
-import { queryMyTeamList, MyTeamRecord } from '@/api/user-center'
+import { MyTeamRecord, queryMyTeamList } from '@/api/user-center'
 import useRequest from '@/hooks/request'
 
 const defaultValue: MyTeamRecord[] = new Array(4).fill({})

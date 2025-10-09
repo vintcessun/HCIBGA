@@ -57,8 +57,32 @@
     </a-card>
 
     <!-- 查看详情模态框 -->
-    <a-modal v-model:visible="showDetailModal" :title="currentMaterial?.title" :footer="false" width="800px">
-      <MaterialDetail :material="currentMaterial" v-if="currentMaterial" />
+    <a-modal v-model:visible="showDetailModal" :title="currentMaterial?.title" :footer="false" width="95%">
+      <div class="detail-modal-layout">
+        <!-- 左栏原大小 -->
+        <div class="left-panel">
+          <MaterialDetail :material="currentMaterial" v-if="currentMaterial" />
+        </div>
+        <!-- 右栏 -->
+        <div class="right-panel">
+          <div class="preview-section">
+            <div class="section-title">材料预览</div>
+            <MaterialPreview :material="currentMaterial" v-if="currentMaterial" />
+          </div>
+          <div class="support-section">
+            <div class="section-title">支撑条款</div>
+            <SupportClauses :material="currentMaterial" v-if="currentMaterial" />
+          </div>
+        </div>
+      </div>
+      <div class="detail-footer">
+        <a-space>
+          <a-button type="secondary" @click="viewPrevious">上一条</a-button>
+          <a-button type="primary" @click="approveCurrent">同意</a-button>
+          <a-button status="danger" @click="rejectCurrent">拒绝</a-button>
+          <a-button type="secondary" @click="viewNext">下一条</a-button>
+        </a-space>
+      </div>
     </a-modal>
 
     <!-- 审核模态框 -->
@@ -348,9 +372,88 @@ const handleBatchReject = async () => {
 onMounted(() => {
   fetchPendingMaterials()
 })
+const viewPrevious = () => {
+  // 简单示例，可按实际数据索引切换
+  const index = pendingMaterials.value.findIndex((m) => m.id === currentMaterial.value?.id)
+  if (index > 0) {
+    currentMaterial.value = pendingMaterials.value[index - 1]
+  }
+}
+
+const viewNext = () => {
+  const index = pendingMaterials.value.findIndex((m) => m.id === currentMaterial.value?.id)
+  if (index >= 0 && index < pendingMaterials.value.length - 1) {
+    currentMaterial.value = pendingMaterials.value[index + 1]
+  }
+}
+
+const approveCurrent = async () => {
+  if (!currentMaterial.value) return
+  try {
+    await reviewMaterial({
+      materialId: currentMaterial.value.id,
+      status: 'approved',
+      comment: '同意审核',
+    })
+    Message.success('已同意该材料')
+    fetchPendingMaterials()
+  } catch (error) {
+    Message.error('同意操作失败')
+  }
+}
+
+const rejectCurrent = () => {
+  if (!currentMaterial.value) return
+  // 打开拒绝理由输入框（使用审核模态框）
+  reviewForm.status = 'rejected'
+  reviewForm.comment = ''
+  selectedTemplate.value = ''
+  showReviewModal.value = true
+}
 </script>
 
 <style lang="less" scoped>
+.detail-modal-layout {
+  display: flex;
+  height: 70vh;
+}
+
+.left-panel {
+  flex: 0 0 300px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border-right: 1px solid #eee;
+  padding: 8px;
+}
+
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.preview-section {
+  flex: 3;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.support-section {
+  flex: 1;
+  padding: 8px;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.detail-footer {
+  margin-top: 12px;
+  text-align: center;
+}
 .material-review {
   padding: 20px;
 

@@ -13,17 +13,17 @@ setupMock({
       if (isLogin()) {
         const role = window.localStorage.getItem('userRole') || 'admin'
         return successResponseWrap({
-          name: '王立群',
+          name: '恒星',
           avatar: 'https://i.gtimg.cn/club/item/face/img/2/15922_100.gif',
           email: 'wangliqun@email.com',
           job: 'frontend',
-          jobName: '前端艺术家',
+          jobName: '学生',
           organization: 'Frontend',
           organizationName: '前端',
-          location: 'beijing',
-          locationName: '北京',
-          introduction: '人潇洒，性温存',
-          personalWebsite: 'https://www.arco.design',
+          location: 'xiamen',
+          locationName: '厦门',
+          introduction: '',
+          personalWebsite: '',
           phone: '150****0000',
           registrationDate: '2013-05-10 12:10:00',
           accountId: '15012312300',

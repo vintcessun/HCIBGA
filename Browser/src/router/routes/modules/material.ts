@@ -13,13 +13,45 @@ const MATERIAL: AppRouteRecordRaw = {
   },
   children: [
     {
+      path: 'import',
+      name: 'MaterialImport',
+      component: DEFAULT_LAYOUT,
+      meta: {
+        locale: 'menu.user.import',
+        requiresAuth: true,
+        roles: ['*'],
+      },
+      children: [
+        {
+          path: 'qicai',
+          name: 'MaterialImportQicai',
+          component: () => import('@/views/user/import/qicai.vue'),
+          meta: {
+            locale: 'menu.user.import.qicai',
+            requiresAuth: true,
+            roles: ['*'],
+          },
+        },
+        {
+          path: 'jiaowu',
+          name: 'MaterialImportJiaowu',
+          component: () => import('@/views/user/import/jiaowu.vue'),
+          meta: {
+            locale: 'menu.user.import.jiaowu',
+            requiresAuth: true,
+            roles: ['*'],
+          },
+        },
+      ],
+    },
+    {
       path: 'upload',
       name: 'MaterialUpload',
       component: () => import('@/views/material/upload/index.vue'),
       meta: {
         locale: 'menu.material.upload',
         requiresAuth: true,
-        roles: ['user'], // 只有普通用户可以上传
+        roles: ['user'],
       },
     },
     {
@@ -29,7 +61,7 @@ const MATERIAL: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.material.list',
         requiresAuth: true,
-        roles: ['admin', 'reviewer'],
+        roles: ['admin', 'reviewer', 'user'],
       },
     },
     {
@@ -49,7 +81,7 @@ const MATERIAL: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.material.statistics',
         requiresAuth: true,
-        roles: ['admin'],
+        roles: ['admin', 'user'],
       },
     },
   ],

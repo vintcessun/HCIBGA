@@ -22,6 +22,7 @@ import localeUserSetting from '@/views/user/setting/locale/en-US'
 import localeSettings from './en-US/settings'
 
 export default {
+  'menu.user.batch.list': 'Batch List',
   'menu.dashboard': 'Dashboard',
   'menu.server.dashboard': 'Dashboard-Server',
   'menu.server.workplace': 'Workplace-Server',
@@ -33,7 +34,16 @@ export default {
   'menu.profile': 'Profile',
   'menu.visualization': 'Data Visualization',
   'menu.user': 'User Center',
+  'menu.user.import': 'Import from Third Party',
+  'menu.user.import.qicai': 'Qicai Information',
+  'menu.user.import.jiaowu': 'Academic System',
   'menu.arcoWebsite': 'Arco Design',
+  'menu.material.submit': 'Batch Management',
+  'menu.material.submit.manage': 'Manage Batches',
+  'menu.material.submit.review': 'Review Batches',
+  'menu.user.submit': 'Submit Material',
+  'menu.user.submit.list': 'Submission List',
+  'menu.user.submit.create': 'Initiate Submission',
   'menu.faq': 'FAQ',
   'navbar.docs': 'Docs',
   'navbar.action.locale': 'Switch to English',
