@@ -1,0 +1,1026 @@
+{
+  "name": "HCIBGAGetInformation",
+  "node_trigger_mode": "AnyPredecessor",
+  "input_type": {
+    "title": "*[]schema.Message"
+  },
+  "output_type": {
+    "title": "MaterialInformation"
+  },
+  "gen_local_state": {},
+  "id": "jLwxXS",
+  "component": "Graph",
+  "nodes": [
+    {
+      "id": "start",
+      "key": "start",
+      "name": "Start",
+      "type": "start",
+      "layoutData": {
+        "position": {
+          "x": -570.31,
+          "y": -37.43
+        }
+      }
+    },
+    {
+      "id": "end",
+      "key": "end",
+      "name": "End",
+      "type": "end",
+      "layoutData": {
+        "position": {
+          "x": 1348.31,
+          "y": 78.66
+        }
+      }
+    },
+    {
+      "id": "YKjs1M",
+      "key": "InformationTemplate",
+      "name": "",
+      "type": "ChatTemplate",
+      "component_schema": {
+        "name": "chatTemplate",
+        "component": "ChatTemplate",
+        "component_source": "official",
+        "identifier": "github.com/cloudwego/eino/components/prompt",
+        "input_type": {
+          "title": "map[string]any",
+          "description": ""
+        },
+        "output_type": {
+          "title": "[]*schema.Message",
+          "description": ""
+        },
+        "config": {
+          "description": "github.com/cloudwego/eino/blob/main/components/prompt/chat_template.go",
+          "schema": {
+            "type": "object",
+            "description": "",
+            "properties": {
+              "FormatType": {
+                "type": "number",
+                "description": "",
+                "enum": [
+                  "0",
+                  "1",
+                  "2"
+                ],
+                "goDefinition": {
+                  "libraryRef": {
+                    "version": "",
+                    "module": "",
+                    "pkgPath": ""
+                  },
+                  "typeName": "schema.FormatType",
+                  "kind": "uint8",
+                  "isPtr": false
+                }
+              }
+            },
+            "propertyOrder": [
+              "FormatType"
+            ],
+            "goDefinition": {
+              "libraryRef": {
+                "version": "",
+                "module": "",
+                "pkgPath": ""
+              },
+              "typeName": "Config",
+              "kind": "struct",
+              "isPtr": false
+            }
+          },
+          "config_input": "{}"
+        },
+        "is_io_type_mutable": false,
+        "version": "1.0.0"
+      },
+      "node_option": {},
+      "layoutData": {
+        "position": {
+          "x": -177.19,
+          "y": -78.82
+        }
+      }
+    },
+    {
+      "id": "Bbs91G",
+      "key": "GenerateInformation",
+      "name": "",
+      "type": "ChatModel",
+      "component_schema": {
+        "name": "ChatModel",
+        "component": "ChatModel",
+        "component_source": "custom",
+        "input_type": {
+          "title": "[]*schema.Message",
+          "description": ""
+        },
+        "output_type": {
+          "title": "*schema.Message",
+          "description": ""
+        },
+        "is_io_type_mutable": false,
+        "version": "1.0.0"
+      },
+      "node_option": {},
+      "layoutData": {
+        "position": {
+          "x": 334.95,
+          "y": -221.74
+        }
+      }
+    },
+    {
+      "id": "jxjRnW",
+      "key": "Search",
+      "name": "",
+      "type": "ToolsNode",
+      "component_schema": {
+        "name": "toolsNode",
+        "component": "ToolsNode",
+        "component_source": "official",
+        "input_type": {
+          "title": "*schema.Message",
+          "description": ""
+        },
+        "output_type": {
+          "title": "[]*schema.Message",
+          "description": ""
+        },
+        "slots": [
+          {
+            "component": "Tool",
+            "field_loc_path": "Tools",
+            "multiple": true,
+            "required": true,
+            "component_items": [
+              {
+                "name": "duckduckgo",
+                "component": "Tool",
+                "component_source": "official",
+                "identifier": "github.com/cloudwego/eino-ext/components/tool/duckduckgo",
+                "input_type": {
+                  "title": "string",
+                  "description": ""
+                },
+                "output_type": {
+                  "title": "string",
+                  "description": ""
+                },
+                "config": {
+                  "description": "github.com/cloudwego/eino-ext/blob/main/components/tool/duckduckgo/search.go",
+                  "schema": {
+                    "type": "object",
+                    "description": "",
+                    "properties": {
+                      "DDGConfig": {
+                        "type": "object",
+                        "description": "",
+                        "properties": {
+                          "Cache": {
+                            "type": "boolean",
+                            "description": "",
+                            "goDefinition": {
+                              "libraryRef": {
+                                "version": "",
+                                "module": "github.com/cloudwego/eino-ext/components/tool/duckduckgo",
+                                "pkgPath": "github.com/cloudwego/eino-ext/components/tool/duckduckgo/ddgsearch"
+                              },
+                              "typeName": "bool",
+                              "kind": "bool",
+                              "isPtr": false
+                            }
+                          },
+                          "Headers": {
+                            "type": "object",
+                            "description": "",
+                            "additionalProperties": {
+                              "type": "string",
+                              "description": "",
+                              "goDefinition": {
+                                "libraryRef": {
+                                  "version": "",
+                                  "module": "",
+                                  "pkgPath": ""
+                                },
+                                "typeName": "string",
+                                "kind": "string",
+                                "isPtr": false
+                              }
+                            },
+                            "goDefinition": {
+                              "libraryRef": {
+                                "version": "",
+                                "module": "github.com/cloudwego/eino-ext/components/tool/duckduckgo",
+                                "pkgPath": "github.com/cloudwego/eino-ext/components/tool/duckduckgo/ddgsearch"
+                              },
+                              "typeName": "map[string]string",
+                              "kind": "map",
+                              "isPtr": false
+                            }
+                          },
+                          "MaxRetries": {
+                            "type": "number",
+                            "description": "",
+                            "goDefinition": {
+                              "libraryRef": {
+                                "version": "",
+                                "module": "github.com/cloudwego/eino-ext/components/tool/duckduckgo",
+                                "pkgPath": "github.com/cloudwego/eino-ext/components/tool/duckduckgo/ddgsearch"
+                              },
+                              "typeName": "int",
+                              "kind": "int",
+                              "isPtr": false
+                            }
+                          },
+                          "Proxy": {
+                            "type": "string",
+                            "description": "",
+                            "goDefinition": {
+                              "libraryRef": {
+                                "version": "",
+                                "module": "github.com/cloudwego/eino-ext/components/tool/duckduckgo",
+                                "pkgPath": "github.com/cloudwego/eino-ext/components/tool/duckduckgo/ddgsearch"
+                              },
+                              "typeName": "string",
+                              "kind": "string",
+                              "isPtr": false
+                            }
+                          },
+                          "Timeout": {
+                            "type": "number",
+                            "description": "",
+                            "goDefinition": {
+                              "libraryRef": {
+                                "version": "",
+                                "module": "time",
+                                "pkgPath": "time"
+                              },
+                              "typeName": "time.Duration",
+                              "kind": "int64",
+                              "isPtr": false
+                            }
+                          }
+                        },
+                        "propertyOrder": [
+                          "Headers",
+                          "Proxy",
+                          "Timeout",
+                          "Cache",
+                          "MaxRetries"
+                        ],
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "github.com/cloudwego/eino-ext/components/tool/duckduckgo",
+                            "pkgPath": "github.com/cloudwego/eino-ext/components/tool/duckduckgo/ddgsearch"
+                          },
+                          "typeName": "ddgsearch.Config",
+                          "kind": "struct",
+                          "isPtr": true
+                        }
+                      },
+                      "MaxResults": {
+                        "type": "number",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "int",
+                          "kind": "int",
+                          "isPtr": false
+                        }
+                      },
+                      "Region": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "github.com/cloudwego/eino-ext/components/tool/duckduckgo",
+                            "pkgPath": "github.com/cloudwego/eino-ext/components/tool/duckduckgo/ddgsearch"
+                          },
+                          "typeName": "ddgsearch.Region",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "SafeSearch": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "github.com/cloudwego/eino-ext/components/tool/duckduckgo",
+                            "pkgPath": "github.com/cloudwego/eino-ext/components/tool/duckduckgo/ddgsearch"
+                          },
+                          "typeName": "ddgsearch.SafeSearch",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "TimeRange": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "github.com/cloudwego/eino-ext/components/tool/duckduckgo",
+                            "pkgPath": "github.com/cloudwego/eino-ext/components/tool/duckduckgo/ddgsearch"
+                          },
+                          "typeName": "ddgsearch.TimeRange",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "ToolDesc": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "string",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "ToolName": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "string",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      }
+                    },
+                    "propertyOrder": [
+                      "ToolName",
+                      "ToolDesc",
+                      "Region",
+                      "MaxResults",
+                      "SafeSearch",
+                      "TimeRange",
+                      "DDGConfig"
+                    ],
+                    "goDefinition": {
+                      "libraryRef": {
+                        "version": "",
+                        "module": "",
+                        "pkgPath": ""
+                      },
+                      "typeName": "duckduckgo.Config",
+                      "kind": "struct",
+                      "isPtr": false
+                    }
+                  },
+                  "config_input": ""
+                },
+                "is_io_type_mutable": false,
+                "version": "1.0.0",
+                "id": "TfcHZ1",
+                "layoutData": {
+                  "isSlotNode": true,
+                  "position": {
+                    "x": 1111.66,
+                    "y": -312.3
+                  }
+                }
+              },
+              {
+                "name": "googlesearch",
+                "component": "Tool",
+                "component_source": "official",
+                "identifier": "github.com/cloudwego/eino-ext/components/tool/googlesearch",
+                "input_type": {
+                  "title": "string",
+                  "description": ""
+                },
+                "output_type": {
+                  "title": "string",
+                  "description": ""
+                },
+                "config": {
+                  "description": "github.com/cloudwego/eino-ext/blob/main/components/tool/googlesearch/google_search.go",
+                  "schema": {
+                    "type": "object",
+                    "description": "",
+                    "properties": {
+                      "APIKey": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "string",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "BaseURL": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "string",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "Lang": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "string",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "Num": {
+                        "type": "number",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "int",
+                          "kind": "int",
+                          "isPtr": false
+                        }
+                      },
+                      "SearchEngineID": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "string",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "ToolDesc": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "string",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "ToolName": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "string",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      }
+                    },
+                    "propertyOrder": [
+                      "APIKey",
+                      "SearchEngineID",
+                      "BaseURL",
+                      "Num",
+                      "Lang",
+                      "ToolName",
+                      "ToolDesc"
+                    ],
+                    "goDefinition": {
+                      "libraryRef": {
+                        "version": "",
+                        "module": "",
+                        "pkgPath": ""
+                      },
+                      "typeName": "googlesearch.Config",
+                      "kind": "struct",
+                      "isPtr": false
+                    }
+                  },
+                  "config_input": ""
+                },
+                "is_io_type_mutable": false,
+                "version": "1.0.0",
+                "id": "c7HFXc",
+                "layoutData": {
+                  "isSlotNode": true,
+                  "position": {
+                    "x": 1116.55,
+                    "y": -198.04
+                  }
+                }
+              },
+              {
+                "name": "bingsearch",
+                "component": "Tool",
+                "component_source": "official",
+                "identifier": "github.com/cloudwego/eino-ext/components/tool/bingsearch",
+                "input_type": {
+                  "title": "string",
+                  "description": ""
+                },
+                "output_type": {
+                  "title": "string",
+                  "description": ""
+                },
+                "config": {
+                  "description": "/blob/main/github.com/cloudwego/eino-ext/components/tool/bingsearch/bing_search.go",
+                  "schema": {
+                    "type": "object",
+                    "description": "",
+                    "properties": {
+                      "APIKey": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "string",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "Cache": {
+                        "type": "number",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "time.Duration",
+                          "kind": "int64",
+                          "isPtr": false
+                        }
+                      },
+                      "Headers": {
+                        "type": "object",
+                        "description": "",
+                        "additionalProperties": {
+                          "type": "string",
+                          "description": "",
+                          "goDefinition": {
+                            "libraryRef": {
+                              "version": "",
+                              "module": "",
+                              "pkgPath": ""
+                            },
+                            "typeName": "string",
+                            "kind": "string",
+                            "isPtr": false
+                          }
+                        },
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "map[string]string",
+                          "kind": "map",
+                          "isPtr": false
+                        }
+                      },
+                      "MaxResults": {
+                        "type": "number",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "int",
+                          "kind": "int",
+                          "isPtr": false
+                        }
+                      },
+                      "MaxRetries": {
+                        "type": "number",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "int",
+                          "kind": "int",
+                          "isPtr": false
+                        }
+                      },
+                      "ProxyURL": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "string",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "Region": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "bingsearch.Region",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "SafeSearch": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "bingsearch.SafeSearch",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "TimeRange": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "bingsearch.TimeRange",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "Timeout": {
+                        "type": "number",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "time.Duration",
+                          "kind": "int64",
+                          "isPtr": false
+                        }
+                      },
+                      "ToolDesc": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "string",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      },
+                      "ToolName": {
+                        "type": "string",
+                        "description": "",
+                        "goDefinition": {
+                          "libraryRef": {
+                            "version": "",
+                            "module": "",
+                            "pkgPath": ""
+                          },
+                          "typeName": "string",
+                          "kind": "string",
+                          "isPtr": false
+                        }
+                      }
+                    },
+                    "propertyOrder": [
+                      "ToolName",
+                      "ToolDesc",
+                      "APIKey",
+                      "Region",
+                      "MaxResults",
+                      "SafeSearch",
+                      "TimeRange",
+                      "Headers",
+                      "Timeout",
+                      "ProxyURL",
+                      "Cache",
+                      "MaxRetries"
+                    ],
+                    "goDefinition": {
+                      "libraryRef": {
+                        "version": "",
+                        "module": "",
+                        "pkgPath": ""
+                      },
+                      "typeName": "bingsearch.Config",
+                      "kind": "struct",
+                      "isPtr": false
+                    }
+                  },
+                  "config_input": ""
+                },
+                "is_io_type_mutable": false,
+                "version": "1.0.0",
+                "id": "Rglwis",
+                "layoutData": {
+                  "isSlotNode": true,
+                  "position": {
+                    "x": 1107.66,
+                    "y": -65.55
+                  }
+                }
+              }
+            ],
+            "go_definition": {
+              "libraryRef": {
+                "version": "v0.3.4",
+                "module": "github.com/cloudwego/eino",
+                "pkgPath": "github.com/cloudwego/eino/components/tool"
+              },
+              "typeName": "tool.BaseTool",
+              "kind": "interface",
+              "isPtr": false
+            }
+          }
+        ],
+        "is_io_type_mutable": false,
+        "version": "1.0.0"
+      },
+      "node_option": {},
+      "layoutData": {
+        "position": {
+          "x": 802.4,
+          "y": -256.27
+        }
+      }
+    },
+    {
+      "id": "7-aHM8",
+      "key": "Lambda4",
+      "name": "",
+      "type": "Lambda",
+      "component_schema": {
+        "name": "Lambda",
+        "component": "Lambda",
+        "component_source": "custom",
+        "input_type": {
+          "title": "[]*schema.Message",
+          "description": ""
+        },
+        "output_type": {
+          "title": "MaterialInformation",
+          "description": ""
+        },
+        "extra_property": {
+          "schema": {
+            "type": "object",
+            "description": "",
+            "properties": {
+              "has_option": {
+                "type": "boolean",
+                "description": ""
+              },
+              "interaction_type": {
+                "type": "string",
+                "description": "",
+                "enum": [
+                  "invoke",
+                  "stream",
+                  "collect",
+                  "transform"
+                ]
+              },
+              "option_package_path": {
+                "type": "string",
+                "description": ""
+              },
+              "option_type_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "interaction_type",
+              "has_option"
+            ]
+          },
+          "extra_property_input": "{\"interaction_type\":\"invoke\"}"
+        },
+        "is_io_type_mutable": true,
+        "version": "1.0.0"
+      },
+      "node_option": {},
+      "layoutData": {
+        "position": {
+          "x": 769.27,
+          "y": 4.82
+        }
+      }
+    },
+    {
+      "id": "UPlPgW",
+      "key": "InformationLibrary",
+      "name": "",
+      "type": "ToolsNode",
+      "component_schema": {
+        "name": "toolsNode",
+        "component": "ToolsNode",
+        "component_source": "official",
+        "input_type": {
+          "title": "*schema.Message",
+          "description": ""
+        },
+        "output_type": {
+          "title": "[]*schema.Message",
+          "description": ""
+        },
+        "slots": [
+          {
+            "component": "Tool",
+            "field_loc_path": "Tools",
+            "multiple": true,
+            "required": true,
+            "component_items": [
+              {
+                "name": "Tool",
+                "component": "Tool",
+                "component_source": "custom",
+                "extra_property": {
+                  "schema": {
+                    "type": "object",
+                    "description": "",
+                    "properties": {
+                      "interaction_type": {
+                        "type": "string",
+                        "description": "",
+                        "enum": [
+                          "invoke",
+                          "stream"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "interaction_type"
+                    ]
+                  },
+                  "extra_property_input": "{\"interaction_type\":\"invoke\"}"
+                },
+                "is_io_type_mutable": false,
+                "version": "1.0.0",
+                "input_type": {},
+                "output_type": {},
+                "id": "Px8vR0",
+                "layoutData": {
+                  "isSlotNode": true,
+                  "position": {
+                    "x": 1109.37,
+                    "y": -444.18
+                  }
+                }
+              }
+            ],
+            "go_definition": {
+              "libraryRef": {
+                "version": "v0.3.4",
+                "module": "github.com/cloudwego/eino",
+                "pkgPath": "github.com/cloudwego/eino/components/tool"
+              },
+              "typeName": "tool.BaseTool",
+              "kind": "interface",
+              "isPtr": false
+            }
+          }
+        ],
+        "is_io_type_mutable": false,
+        "version": "1.0.0"
+      },
+      "node_option": {},
+      "layoutData": {
+        "position": {
+          "x": 791.37,
+          "y": -573.26
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "start",
+      "targetWorkflowNodeId": "YKjs1M",
+      "source_node_key": "start",
+      "target_node_key": "InformationTemplate"
+    },
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "7-aHM8",
+      "targetWorkflowNodeId": "end",
+      "source_node_key": "Lambda4",
+      "target_node_key": "end"
+    },
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "YKjs1M",
+      "targetWorkflowNodeId": "Bbs91G",
+      "source_node_key": "InformationTemplate",
+      "target_node_key": "GenerateInformation"
+    },
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "Bbs91G",
+      "targetWorkflowNodeId": "jxjRnW",
+      "source_node_key": "GenerateInformation",
+      "target_node_key": "Search"
+    },
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "Bbs91G",
+      "targetWorkflowNodeId": "UPlPgW",
+      "source_node_key": "GenerateInformation",
+      "target_node_key": "InformationLibrary"
+    },
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "Bbs91G",
+      "targetWorkflowNodeId": "7-aHM8",
+      "source_node_key": "GenerateInformation",
+      "target_node_key": "Lambda4"
+    }
+  ],
+  "branches": [],
+  "nodeCounter": {
+    "ChatTemplate": 2,
+    "Lambda": 6,
+    "default": 3,
+    "Tool": 4
+  }
+}

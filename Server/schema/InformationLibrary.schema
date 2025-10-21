@@ -1,0 +1,145 @@
+{
+  "name": "HCIBGAInformationLibrary",
+  "node_trigger_mode": "AnyPredecessor",
+  "input_type": {
+    "title": "[]*schema.Message"
+  },
+  "output_type": {
+    "title": "[]*schema.Message"
+  },
+  "gen_local_state": {},
+  "id": "bqWuZk",
+  "component": "Graph",
+  "nodes": [
+    {
+      "id": "start",
+      "key": "start",
+      "name": "Start",
+      "type": "start",
+      "layoutData": {
+        "position": {
+          "x": -213.35,
+          "y": 2.22
+        }
+      }
+    },
+    {
+      "id": "end",
+      "key": "end",
+      "name": "End",
+      "type": "end",
+      "layoutData": {
+        "position": {
+          "x": 516.42,
+          "y": 163.65
+        }
+      }
+    },
+    {
+      "id": "IKtO9n",
+      "key": "LocalInformation",
+      "name": "",
+      "type": "ToolsNode",
+      "component_schema": {
+        "name": "toolsNode",
+        "component": "ToolsNode",
+        "component_source": "official",
+        "input_type": {
+          "title": "*schema.Message",
+          "description": ""
+        },
+        "output_type": {
+          "title": "[]*schema.Message",
+          "description": ""
+        },
+        "slots": [
+          {
+            "component": "Tool",
+            "field_loc_path": "Tools",
+            "multiple": true,
+            "required": true,
+            "component_items": [],
+            "go_definition": {
+              "libraryRef": {
+                "version": "v0.3.4",
+                "module": "github.com/cloudwego/eino",
+                "pkgPath": "github.com/cloudwego/eino/components/tool"
+              },
+              "typeName": "tool.BaseTool",
+              "kind": "interface",
+              "isPtr": false
+            }
+          }
+        ],
+        "is_io_type_mutable": false,
+        "version": "1.0.0"
+      },
+      "node_option": {},
+      "layoutData": {
+        "position": {
+          "x": 624.65,
+          "y": -178.43
+        }
+      }
+    },
+    {
+      "id": "7E5_TA",
+      "key": "GetLocalInformationTemplate",
+      "name": "",
+      "type": "ChatTemplate",
+      "component_schema": {
+        "name": "ChatTemplate",
+        "component": "ChatTemplate",
+        "component_source": "custom",
+        "input_type": {
+          "title": "map[string]any",
+          "description": ""
+        },
+        "output_type": {
+          "title": "[]*schema.Message",
+          "description": ""
+        },
+        "is_io_type_mutable": false,
+        "version": "1.0.0"
+      },
+      "node_option": {},
+      "layoutData": {
+        "position": {
+          "x": 195.83,
+          "y": -159.29
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "start",
+      "targetWorkflowNodeId": "7E5_TA",
+      "source_node_key": "start",
+      "target_node_key": "GetLocalInformationTemplate"
+    },
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "7E5_TA",
+      "targetWorkflowNodeId": "end",
+      "source_node_key": "GetLocalInformationTemplate",
+      "target_node_key": "end"
+    },
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "7E5_TA",
+      "targetWorkflowNodeId": "IKtO9n",
+      "source_node_key": "GetLocalInformationTemplate",
+      "target_node_key": "LocalInformation"
+    }
+  ],
+  "branches": [],
+  "nodeCounter": {
+    "default": 2,
+    "Lambda": 2
+  }
+}

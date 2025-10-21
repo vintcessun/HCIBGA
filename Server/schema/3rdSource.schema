@@ -1,0 +1,306 @@
+{
+  "name": "HCIBGA3rdSource",
+  "input_type": {},
+  "output_type": {},
+  "gen_local_state": {},
+  "id": "sZl7UQ",
+  "component": "Graph",
+  "nodes": [
+    {
+      "id": "start",
+      "key": "start",
+      "name": "Start",
+      "type": "start",
+      "layoutData": {
+        "position": {
+          "x": -182,
+          "y": -336
+        }
+      }
+    },
+    {
+      "id": "end",
+      "key": "end",
+      "name": "End",
+      "type": "end",
+      "layoutData": {
+        "position": {
+          "x": 864.1,
+          "y": 277.19
+        }
+      }
+    },
+    {
+      "id": "HyXDFT",
+      "key": "ChooseTemplate",
+      "name": "",
+      "type": "ChatTemplate",
+      "component_schema": {
+        "name": "ChatTemplate",
+        "component": "ChatTemplate",
+        "component_source": "custom",
+        "input_type": {
+          "title": "map[string]any",
+          "description": ""
+        },
+        "output_type": {
+          "title": "[]*schema.Message",
+          "description": ""
+        },
+        "is_io_type_mutable": false,
+        "version": "1.0.0"
+      },
+      "node_option": {},
+      "layoutData": {
+        "position": {
+          "x": 138,
+          "y": -88
+        }
+      }
+    },
+    {
+      "id": "8VQn0D",
+      "key": "ChooseModel",
+      "name": "",
+      "type": "ChatModel",
+      "component_schema": {
+        "name": "ChatModel",
+        "component": "ChatModel",
+        "component_source": "custom",
+        "input_type": {
+          "title": "[]*schema.Message",
+          "description": ""
+        },
+        "output_type": {
+          "title": "*schema.Message",
+          "description": ""
+        },
+        "is_io_type_mutable": false,
+        "version": "1.0.0"
+      },
+      "node_option": {},
+      "layoutData": {
+        "position": {
+          "x": 466,
+          "y": -86
+        }
+      }
+    },
+    {
+      "id": "4m8aUx",
+      "key": "QicaiTool",
+      "name": "",
+      "type": "ToolsNode",
+      "component_schema": {
+        "name": "toolsNode",
+        "component": "ToolsNode",
+        "component_source": "official",
+        "input_type": {
+          "title": "*schema.Message",
+          "description": ""
+        },
+        "output_type": {
+          "title": "[]*schema.Message",
+          "description": ""
+        },
+        "slots": [
+          {
+            "component": "Tool",
+            "field_loc_path": "Tools",
+            "multiple": true,
+            "required": true,
+            "component_items": [
+              {
+                "name": "Tool",
+                "component": "Tool",
+                "component_source": "custom",
+                "extra_property": {
+                  "schema": {
+                    "type": "object",
+                    "description": "",
+                    "properties": {
+                      "interaction_type": {
+                        "type": "string",
+                        "description": "",
+                        "enum": [
+                          "invoke",
+                          "stream"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "interaction_type"
+                    ]
+                  },
+                  "extra_property_input": "{\"interaction_type\":\"invoke\"}"
+                },
+                "is_io_type_mutable": false,
+                "version": "1.0.0",
+                "input_type": {},
+                "output_type": {},
+                "id": "CTTY58",
+                "layoutData": {
+                  "isSlotNode": true,
+                  "position": {
+                    "x": 1092.94,
+                    "y": -135
+                  }
+                }
+              }
+            ],
+            "go_definition": {
+              "libraryRef": {
+                "version": "v0.3.4",
+                "module": "github.com/cloudwego/eino",
+                "pkgPath": "github.com/cloudwego/eino/components/tool"
+              },
+              "typeName": "tool.BaseTool",
+              "kind": "interface",
+              "isPtr": false
+            }
+          }
+        ],
+        "is_io_type_mutable": false,
+        "version": "1.0.0"
+      },
+      "node_option": {},
+      "layoutData": {
+        "position": {
+          "x": 791,
+          "y": -234
+        }
+      }
+    },
+    {
+      "id": "uhbzT7",
+      "key": "JwTool",
+      "name": "",
+      "type": "ToolsNode",
+      "component_schema": {
+        "name": "toolsNode",
+        "component": "ToolsNode",
+        "component_source": "official",
+        "input_type": {
+          "title": "*schema.Message",
+          "description": ""
+        },
+        "output_type": {
+          "title": "[]*schema.Message",
+          "description": ""
+        },
+        "slots": [
+          {
+            "component": "Tool",
+            "field_loc_path": "Tools",
+            "multiple": true,
+            "required": true,
+            "component_items": [
+              {
+                "name": "Tool",
+                "component": "Tool",
+                "component_source": "custom",
+                "extra_property": {
+                  "schema": {
+                    "type": "object",
+                    "description": "",
+                    "properties": {
+                      "interaction_type": {
+                        "type": "string",
+                        "description": "",
+                        "enum": [
+                          "invoke",
+                          "stream"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "interaction_type"
+                    ]
+                  },
+                  "extra_property_input": "{\"interaction_type\":\"invoke\"}"
+                },
+                "is_io_type_mutable": false,
+                "version": "1.0.0",
+                "id": "M-cB3Z",
+                "layoutData": {
+                  "isSlotNode": true,
+                  "position": {
+                    "x": 1102,
+                    "y": -351
+                  }
+                }
+              }
+            ],
+            "go_definition": {
+              "libraryRef": {
+                "version": "v0.3.4",
+                "module": "github.com/cloudwego/eino",
+                "pkgPath": "github.com/cloudwego/eino/components/tool"
+              },
+              "typeName": "tool.BaseTool",
+              "kind": "interface",
+              "isPtr": false
+            }
+          }
+        ],
+        "is_io_type_mutable": false,
+        "version": "1.0.0"
+      },
+      "node_option": {},
+      "layoutData": {
+        "position": {
+          "x": 786.75,
+          "y": -509.25
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "start",
+      "targetWorkflowNodeId": "HyXDFT",
+      "source_node_key": "start",
+      "target_node_key": "ChooseTemplate"
+    },
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "8VQn0D",
+      "targetWorkflowNodeId": "end",
+      "source_node_key": "ChooseModel",
+      "target_node_key": "end"
+    },
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "HyXDFT",
+      "targetWorkflowNodeId": "8VQn0D",
+      "source_node_key": "ChooseTemplate",
+      "target_node_key": "ChooseModel"
+    },
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "8VQn0D",
+      "targetWorkflowNodeId": "4m8aUx",
+      "source_node_key": "ChooseModel",
+      "target_node_key": "QicaiTool"
+    },
+    {
+      "id": "",
+      "name": "",
+      "sourceWorkflowNodeId": "8VQn0D",
+      "targetWorkflowNodeId": "uhbzT7",
+      "source_node_key": "ChooseModel",
+      "target_node_key": "JwTool"
+    }
+  ],
+  "branches": [],
+  "nodeCounter": {
+    "Lambda": 5,
+    "Graph": 2,
+    "default": 3
+  }
+}
