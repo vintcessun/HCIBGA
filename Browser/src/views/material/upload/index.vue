@@ -23,7 +23,9 @@
                 {{ $t('material.upload.clickToUpload') }}
               </div>
               <div class="upload-hint">
-                {{ $t('material.upload.supportFormat') }}
+                支持格式: PDF, DOC, DOCX,
+                <br />
+                PPT, PPTX, XLS, XLSX, PNG, JPG等
               </div>
             </div>
           </template>
@@ -303,7 +305,7 @@ const handleSubmit = async () => {
   padding: 20px;
 
   .upload-card {
-    max-width: 800px;
+    min-width: 800px;
     margin: 0 auto;
   }
 
@@ -315,6 +317,7 @@ const handleSubmit = async () => {
   }
 
   .upload-section {
+    text-align: center;
     margin-bottom: 24px;
   }
 
@@ -349,6 +352,7 @@ const handleSubmit = async () => {
     }
 
     .upload-hint {
+      width: 500px;
       font-size: 14px;
       color: #86909c;
     }
@@ -406,10 +410,12 @@ const handleSubmit = async () => {
   }
 
   .form-section {
+    text-align: center;
     margin-bottom: 24px;
   }
 
   .upload-form {
+    max-width: 1000px;
     margin-top: 16px;
   }
 
@@ -420,6 +426,8 @@ const handleSubmit = async () => {
   }
 
   .upload-actions {
+    text-align: center;
+    min-width: 1200px;
     display: flex;
     justify-content: center;
     gap: 12px;

@@ -1,4 +1,4 @@
-module github.com/vintcessun/HCIBGA
+module github.com/vintcessun/HCIBGA/Server
 
 go 1.25.0
 

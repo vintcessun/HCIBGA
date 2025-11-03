@@ -86,9 +86,11 @@ const handleDownloadTxt = () => {
 
 <style scoped lang="less">
 .info-export {
+  text-align: center;
   padding: 20px;
 
   .upload-section {
+    text-align: center;
     margin-bottom: 24px;
   }
 

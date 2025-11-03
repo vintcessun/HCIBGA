@@ -1,4 +1,4 @@
-package 3rd
+package third
 
 import (
 	"context"

@@ -79,9 +79,11 @@ const handleTxtUpload = async (options: UploadRequestOption) => {
 
 <style lang="less" scoped>
 .info-import {
+  text-align: center;
   padding: 20px;
 
   .upload-section {
+    text-align: center;
     margin-bottom: 24px;
   }
 
