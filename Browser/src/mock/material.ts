@@ -64,7 +64,7 @@ setupMock({
     // 上传材料 - 总是返回成功
     Mock.mock(new RegExp('/api/material/upload'), (params: MockParams) => {
       const data = JSON.parse(params.body)
-      
+
       const newMaterial = {
         id: Mock.mock('@guid'),
         title: data.title || '示例材料',
@@ -84,6 +84,44 @@ setupMock({
       }
       mockMaterials.list.push(newMaterial)
       return successResponseWrap(newMaterial)
+    })
+
+    // 检查文件是否存在
+    Mock.mock(new RegExp('/api/upload/check'), (params: MockParams) => {
+      const { md5, filename } = JSON.parse(params.body)
+      const existsFile = mockMaterials.list.find((item: MaterialItem) => item.fileName === filename)
+      if (existsFile) {
+        return successResponseWrap({
+          exists: true,
+          fileId: existsFile.id,
+          url: existsFile.fileUrl,
+        })
+      }
+      return successResponseWrap({
+        exists: false,
+        fileId: '',
+        url: '',
+      })
+    })
+
+    // 上传文件
+    Mock.mock(new RegExp('/api/upload/file'), () => {
+      return successResponseWrap({
+        fileId: Mock.mock('@guid'),
+        url: Mock.mock('@url'),
+        md5: Mock.mock('@string("lower", 32)'),
+      })
+    })
+
+    // 调用LLM自动填写材料信息
+    Mock.mock(new RegExp('/api/material/llm-fill'), (params: MockParams) => {
+      const { file_id, metadata } = JSON.parse(params.body)
+      return successResponseWrap({
+        title: metadata?.title || '项目申报材料（自动生成）',
+        description: metadata?.description || '包含项目预算与团队信息，由LLM自动生成。',
+        category: metadata?.category || 'document',
+        tags: metadata?.tags?.length ? metadata.tags : ['自动生成', '待确认'],
+      })
     })
 
     // 获取材料列表

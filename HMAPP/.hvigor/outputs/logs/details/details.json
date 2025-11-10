@@ -1,0 +1,78 @@
+{
+  "HVIGOR_OHOS_PLUGIN": {
+    "MODULES": [
+      {
+        "MODULE_NAME": "1043bfc77febe75fafec0c4309faccf1",
+        "API_TYPE": "stageMode",
+        "INCREMENTAL_TASKS": {
+          "COMPILE_ARKTS": true
+        }
+      }
+    ],
+    "NATIVE_COMPILER": "Default",
+    "BUILD_MODE": "debug",
+    "USE_NORMALIZED_OHMURL": true
+  },
+  "HVIGOR": {
+    "IS_INCREMENTAL": true,
+    "IS_DAEMON": true,
+    "IS_PARALLEL": true,
+    "IS_HVIGORFILE_TYPE_CHECK": false,
+    "TASK_TIME": {
+      "1043bfc77febe75fafec0c4309faccf1": {
+        "init": 180300,
+        "PreBuild": 9495100,
+        "CreateModuleInfo": 429300,
+        "ConfigureCmake": 173700,
+        "MergeProfile": 2506800,
+        "CreateBuildProfile": 1307400,
+        "PreCheckSyscap": 211100,
+        "ProcessIntegratedHsp": 489100,
+        "BuildNativeWithCmake": 465700,
+        "MakePackInfo": 3093400,
+        "SyscapTransform": 1570300,
+        "ProcessProfile": 86792300,
+        "ProcessStartupConfig": 1113600,
+        "BuildNativeWithNinja": 319200,
+        "ProcessLibs": 3409900,
+        "CompileResource": 352403700,
+        "BuildJS": 1412000,
+        "CompileArkTS": 741828900,
+        "GeneratePkgModuleJson": 2465300,
+        "ProcessCompiledResources": 619300,
+        "PackageHap": 24540400,
+        "PackingCheck": 2370600,
+        "SignHap": 97868000,
+        "CollectDebugSymbol": 755100,
+        "assembleHap": 148700
+      },
+      "APP": {
+        "init": 277400
+      }
+    },
+    "APIS": [
+      "getHvigorConfig",
+      "getRootNodeDescriptor",
+      "getChildNode",
+      "getNodeByName",
+      "getAllNodes",
+      "getRootNode",
+      "getNodeName",
+      "getNodePath",
+      "subNodes",
+      "getExtraOption",
+      "getExtParam",
+      "getExtParams",
+      "getProperty",
+      "getProperties",
+      "getParameter",
+      "getProductName",
+      "nodesEvaluated",
+      "getCommandEntryTask",
+      "getStartParams"
+    ],
+    "CONFIG_PROPERTIES": {},
+    "TOTAL_TIME": 1451098800,
+    "BUILD_ID": "202511102037340090"
+  }
+}

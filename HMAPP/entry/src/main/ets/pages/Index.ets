@@ -7,11 +7,7 @@ import { IAbstractDownloadHandler } from '../delegate/IWebDownloadFile'
 import { WebDownloadFileHelper } from '../delegate/WebDownloadFileImpl'
 import { EmitterUtil } from '../utiles/EmitterUtil'
 
-const url = "https://web.feishu.cn"; //飞书
-//const url = "https://music.163.com";  //网易云音乐
-//const url = "https://www.bilibili.com";  //B站
-//const url = "https://chat.deepseek.com";  //deepseek
-//const url = "https://www.iconfont.cn";  //阿里巴巴矢量图库
+const url = "https://www.baidu.com";
 
 const setPCUserAgent = false;  //是否强制使用PC的UA,false为自适应UA
 const titleBlankHeight = 40;  //空白标题栏的高度，如果你的网页最上面一排没有按钮和需要点击的内容，可以设置为0

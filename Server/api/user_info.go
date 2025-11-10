@@ -1,8 +1,11 @@
 package api
 
 import (
+	"database/sql"
 	"encoding/json"
 	"net/http"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
 // Project 表示用户项目
@@ -31,9 +34,33 @@ func UserProjectsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	projects := []Project{
-		{ID: "P001", Name: "项目一"},
-		{ID: "P002", Name: "项目二"},
+	db, err := sql.Open("sqlite3", "./user_info.db")
+	if err != nil {
+		http.Error(w, "Database connection failed: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer db.Close()
+
+	rows, err := db.Query("SELECT id, name FROM user_projects")
+	if err != nil {
+		http.Error(w, "Query failed: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
+
+	var projects []Project
+	for rows.Next() {
+		var p Project
+		if err := rows.Scan(&p.ID, &p.Name); err != nil {
+			http.Error(w, "Row scan failed: "+err.Error(), http.StatusInternalServerError)
+			return
+		}
+		projects = append(projects, p)
+	}
+
+	if err := rows.Err(); err != nil {
+		http.Error(w, "Rows iteration error: "+err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	w.Header().Set("Content-Type", "application/json")
@@ -51,9 +78,40 @@ func UserActivitiesHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	activities := []Activity{
-		{ID: "A001", Content: "提交了材料", Time: "2025-11-01 10:00"},
-		{ID: "A002", Content: "审核通过", Time: "2025-11-02 15:30"},
+	type Activity struct {
+		ID      string `json:"id"`
+		Content string `json:"content"`
+		Time    string `json:"time"`
+	}
+
+	// 连接 SQLite 数据库
+	db, err := sql.Open("sqlite3", "./user_info.db")
+	if err != nil {
+		http.Error(w, "Database connection failed: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer db.Close()
+
+	rows, err := db.Query("SELECT id, content, time FROM user_activities")
+	if err != nil {
+		http.Error(w, "Query failed: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
+
+	var activities []Activity
+	for rows.Next() {
+		var a Activity
+		if err := rows.Scan(&a.ID, &a.Content, &a.Time); err != nil {
+			http.Error(w, "Row scan failed: "+err.Error(), http.StatusInternalServerError)
+			return
+		}
+		activities = append(activities, a)
+	}
+
+	if err := rows.Err(); err != nil {
+		http.Error(w, "Rows iteration error: "+err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	w.Header().Set("Content-Type", "application/json")
@@ -71,9 +129,33 @@ func UserTeamsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	teams := []Team{
-		{ID: "T001", Name: "团队一"},
-		{ID: "T002", Name: "团队二"},
+	db, err := sql.Open("sqlite3", "./user_info.db")
+	if err != nil {
+		http.Error(w, "Database connection failed: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer db.Close()
+
+	rows, err := db.Query("SELECT id, name FROM user_teams")
+	if err != nil {
+		http.Error(w, "Query failed: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
+
+	var teams []Team
+	for rows.Next() {
+		var t Team
+		if err := rows.Scan(&t.ID, &t.Name); err != nil {
+			http.Error(w, "Row scan failed: "+err.Error(), http.StatusInternalServerError)
+			return
+		}
+		teams = append(teams, t)
+	}
+
+	if err := rows.Err(); err != nil {
+		http.Error(w, "Rows iteration error: "+err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	w.Header().Set("Content-Type", "application/json")
