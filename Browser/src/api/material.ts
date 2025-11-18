@@ -1,3 +1,4 @@
+import { getToken } from '@/utils/auth'
 import axios from 'axios'
 
 export interface AIReviewResult {
@@ -13,9 +14,11 @@ export interface Material {
   description: string
   category: string
   tags: string[]
-  fileUrl: string
-  fileName: string
-  fileSize: number
+  files: {
+    fileUrl: string
+    fileName: string
+    fileSize: number
+  }[]
   status: 'pending' | 'approved' | 'rejected'
   uploader: string
   uploadTime: string
@@ -83,50 +86,73 @@ export interface LlmFillResponse {
 
 // 检查文件是否存在
 export function checkFileExists(data: CheckFileExistsRequest) {
-  return axios.post<CheckFileExistsResponse>('/api/upload/check', data)
+  const accountId = getToken() || ''
+  const finalData = { ...data, accountId }
+  return axios.post<CheckFileExistsResponse>('/api/upload/check', finalData)
 }
 
 // 上传文件
 export function uploadFile(formData: FormData) {
+  const accountId = getToken() || ''
+  formData.append('accountId', accountId)
   return axios.post<UploadFileResponse>('/api/upload/file', formData)
 }
 
 // 调用LLM自动填写材料信息
 export function llmFillMaterialInfo(data: LlmFillRequest) {
-  return axios.post<LlmFillResponse>('/api/material/llm-fill', data)
+  const accountId = getToken() || ''
+  const finalData = { ...data, accountId }
+  return axios.post<LlmFillResponse>('/api/material/llm-fill', finalData)
 }
 
 // 上传材料
 export function uploadMaterial(data: UploadMaterialRequest) {
-  return axios.post<Material>('/api/material/upload', data)
+  const accountId = getToken() || ''
+  const finalData = { ...data, accountId }
+  return axios.post<Material>('/api/material/upload', finalData)
 }
 
 // 获取材料列表
 export function getMaterialList(params?: MaterialFilter) {
-  return axios.get<Material[]>('/api/material/list', { params })
+  const accountId = getToken() || ''
+  const finalParams = { ...params, accountId }
+  return axios.get<Material[]>('/api/material/list', { params: finalParams })
 }
 
 // 获取待审核材料
 export function getPendingMaterials() {
-  return axios.post<Material[]>('/api/material/pending')
+  const accountId = getToken() || ''
+  return axios.post<Material[]>('/api/material/pending', { accountId })
 }
 
 // 审核材料
 export function reviewMaterial(data: ReviewMaterialRequest) {
-  return axios.post<Material>('/api/material/review', data)
+  const accountId = getToken() || ''
+  const finalData = { ...data, accountId }
+  return axios.post<Material>('/api/material/review', finalData)
 }
 
 // 获取材料统计
 export function getMaterialStatistics() {
-  return axios.post<any>('/api/material/statistics')
+  const accountId = getToken() || ''
+
+  return axios.post<any>('/api/material/statistics', { accountId })
 }
 
 // 删除材料
 export function deleteMaterial(materialId: string) {
-  return axios.delete(`/api/material/${materialId}`)
+  const accountId = getToken() || ''
+  return axios.delete(`/api/material/${materialId}`, { data: { accountId } })
 }
 
-// 批量审核
 export function batchReviewMaterials(materialIds: string[], status: 'approved' | 'rejected', comment?: string) {
-  return axios.post('/api/material/batch-review', { materialIds, status, comment })
+  const accountId = getToken() || ''
+  const finalData = { materialIds, status, comment, accountId }
+  return axios.post('/api/material/batch-review', finalData)
+}
+
+// 获取材料文件下载/预览地址（返回完整链接）
+export function getMaterialFileUrl(fileId: string) {
+  const baseUrl = import.meta.env.VITE_API_BASE_URL || ''
+  return `${baseUrl}/upload/${fileId}`
 }

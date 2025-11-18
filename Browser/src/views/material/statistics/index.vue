@@ -24,9 +24,9 @@
         </a-row>
       </div>
 
-      <!-- 分类统计 -->
+      <!-- 根据角色显示不同标题 -->
       <div class="category-section">
-        <a-card title="分类统计" class="category-card">
+        <a-card :title="userStore.role === 'user' ? '加分统计' : '分类统计'" class="category-card">
           <a-row :gutter="16">
             <a-col :xs="24" :lg="12">
               <div class="chart-container">
@@ -91,13 +91,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted } from 'vue'
+import { getMaterialStatistics } from '@/api/material'
+import { useUserStore } from '@/store'
+import { LineChart, PieChart } from 'echarts/charts'
+import { GridComponent, LegendComponent, TitleComponent, TooltipComponent } from 'echarts/components'
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
-import { PieChart, LineChart } from 'echarts/charts'
-import { TitleComponent, TooltipComponent, LegendComponent, GridComponent } from 'echarts/components'
+import { onMounted, ref } from 'vue'
 import VChart from 'vue-echarts'
-import { getMaterialStatistics, type Material } from '@/api/material'
 
 use([CanvasRenderer, PieChart, LineChart, TitleComponent, TooltipComponent, LegendComponent, GridComponent])
 
@@ -122,6 +123,7 @@ interface EfficiencyStat {
   rejectionRate: number
 }
 
+const userStore = useUserStore()
 const overviewStats = ref<OverviewStat[]>([])
 const categoryStats = ref<CategoryStat[]>([])
 const efficiencyStats = ref<EfficiencyStat>({

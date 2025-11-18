@@ -7,7 +7,7 @@ import { IAbstractDownloadHandler } from '../delegate/IWebDownloadFile'
 import { WebDownloadFileHelper } from '../delegate/WebDownloadFileImpl'
 import { EmitterUtil } from '../utiles/EmitterUtil'
 
-const url = "https://www.baidu.com";
+const url = "http://vintces.icu";
 
 const setPCUserAgent = false;  //是否强制使用PC的UA,false为自适应UA
 const titleBlankHeight = 40;  //空白标题栏的高度，如果你的网页最上面一排没有按钮和需要点击的内容，可以设置为0

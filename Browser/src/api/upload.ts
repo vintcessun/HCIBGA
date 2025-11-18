@@ -1,3 +1,4 @@
+import { getToken } from '@/utils/auth'
 import axios from 'axios'
 
 export interface FileCheckRequest {
@@ -36,14 +37,18 @@ export interface FileInfo {
 
 // 检查文件是否存在
 export function checkFileExists(data: FileCheckRequest) {
-  return axios.post<FileCheckResponse>('/api/upload/check', data)
+  const accountId = getToken() || ''
+  const finalData = { ...data, accountId }
+  return axios.post<FileCheckResponse>('/api/upload/check', finalData)
 }
 
 // 上传单个文件
 export function uploadFile(file: File, onProgress?: (progress: number) => void) {
+  const accountId = getToken() || ''
   const formData = new FormData()
   formData.append('file', file)
-  
+  formData.append('accountId', accountId)
+
   return axios.post<UploadFileResponse>('/api/upload/file', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
@@ -63,7 +68,7 @@ export function batchUploadFiles(files: File[], onProgress?: (progress: number) 
   files.forEach((file, index) => {
     formData.append(`files`, file)
   })
-  
+
   return axios.post<BatchUploadResponseItem[]>('/api/upload/batch', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',

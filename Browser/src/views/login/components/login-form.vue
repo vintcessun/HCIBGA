@@ -43,63 +43,96 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import type { LoginData } from '@/api/user'
 import useLoading from '@/hooks/loading'
 import { useUserStore } from '@/store'
 import { Message } from '@arco-design/web-vue'
 import { ValidatedError } from '@arco-design/web-vue/es/form/interface'
 import { useStorage } from '@vueuse/core'
-import { reactive, ref } from 'vue'
+import { defineComponent, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
-const router = useRouter()
-const { t } = useI18n()
-const errorMessage = ref('')
-const { loading, setLoading } = useLoading()
-const userStore = useUserStore()
+export default defineComponent({
+  name: 'LoginForm',
+  setup() {
+    const router = useRouter()
+    const { t } = useI18n()
+    const errorMessage = ref('')
+    const { loading, setLoading } = useLoading()
+    const userStore = useUserStore()
 
-const loginConfig = useStorage('login-config', {
-  rememberPassword: true,
-  username: 'admin', // 演示默认值
-  password: 'admin', // demo default value
-})
-const userInfo = reactive({
-  username: loginConfig.value.username,
-  password: loginConfig.value.password,
-})
+    const loginConfig = useStorage('login-config', {
+      rememberPassword: true,
+      username: 'admin', // 演示默认值
+      password: 'admin', // demo default value
+    })
+    const userInfo = reactive({
+      username: loginConfig.value.username,
+      password: loginConfig.value.password,
+    })
 
-const handleSubmit = async ({ errors, values }: { errors: Record<string, ValidatedError> | undefined; values: Record<string, any> }) => {
-  if (loading.value) return
-  if (!errors) {
-    setLoading(true)
-    try {
-      await userStore.login(values as LoginData)
-      const { redirect, ...othersQuery } = router.currentRoute.value.query
-      router.push({
-        name: (redirect as string) || 'MaterialList',
-        query: {
-          ...othersQuery,
-        },
-      })
-      Message.success(t('login.form.login.success'))
-      const { rememberPassword } = loginConfig.value
-      const { username, password } = values
-      // 实际生产环境需要进行加密存储。
-      // The actual production environment requires encrypted storage.
-      loginConfig.value.username = rememberPassword ? username : ''
-      loginConfig.value.password = rememberPassword ? password : ''
-    } catch (err) {
-      errorMessage.value = (err as Error).message
-    } finally {
-      setLoading(false)
+    const handleSubmit = async ({
+      errors,
+      values,
+    }: {
+      errors: Record<string, ValidatedError> | undefined
+      values: Record<string, any>
+    }) => {
+      if (loading.value) return
+      if (!errors) {
+        setLoading(true)
+        try {
+          console.log('[LoginForm] 开始调用 userStore.login', values)
+          await userStore.login(values as LoginData)
+          console.log('[LoginForm] userStore.login 完成，当前路由 query:', router.currentRoute.value.query)
+          const { redirect, ...othersQuery } = router.currentRoute.value.query
+          console.log('[LoginForm] 准备跳转到:', (redirect as string) || 'MaterialList', 'query:', othersQuery)
+          router
+            .push({
+              name: (redirect as string) || 'MaterialList',
+              query: {
+                ...othersQuery,
+              },
+            })
+            .then(() => {
+              console.log('[LoginForm] router.push 完成')
+            })
+            .catch((err) => {
+              console.error('[LoginForm] router.push 出错', err)
+            })
+          Message.success(t('login.form.login.success'))
+          console.log('[LoginForm] Message.success 已提示')
+          const { rememberPassword } = loginConfig.value
+          const { username, password } = values
+          console.log('[LoginForm] 更新 loginConfig', { rememberPassword, username, password })
+          // 实际生产环境需要进行加密存储。
+          // The actual production environment requires encrypted storage.
+          loginConfig.value.username = rememberPassword ? username : ''
+          loginConfig.value.password = rememberPassword ? password : ''
+        } catch (err) {
+          errorMessage.value = (err as Error).message
+        } finally {
+          setLoading(false)
+        }
+      }
     }
-  }
-}
-const setRememberPassword = (value: boolean) => {
-  loginConfig.value.rememberPassword = value
-}
+    const setRememberPassword = (value: boolean) => {
+      loginConfig.value.rememberPassword = value
+    }
+
+    return {
+      userInfo,
+      errorMessage,
+      loginConfig,
+      loading,
+      handleSubmit,
+      setRememberPassword,
+      t,
+    }
+  },
+})
 </script>
 
 <style lang="less" scoped>

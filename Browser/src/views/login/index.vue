@@ -1,7 +1,7 @@
 <template>
   <div class="login-bg">
     <div class="container">
-      <div class="scan-login-btn" @click="showQr = true">
+      <div class="scan-login-btn" @click="handleScanLogin">
         <svg class="scan-icon" viewBox="0 0 24 24" width="20" height="20">
           <rect x="3" y="3" width="7" height="7" rx="2" fill="none" stroke="#00308f" stroke-width="2" />
           <rect x="14" y="3" width="7" height="7" rx="2" fill="none" stroke="#00308f" stroke-width="2" />
@@ -12,11 +12,7 @@
       </div>
       <a-modal v-model:visible="showQr" title="扫码登录" :footer="false" width="320px">
         <div class="qr-modal-content">
-          <img
-            src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=login-demo"
-            alt="二维码"
-            style="width: 200px; height: 200px; display: block; margin: 0 auto"
-          />
+          <img :src="qrUrl" alt="二维码" style="width: 200px; height: 200px; display: block; margin: 0 auto" />
           <div style="text-align: center; margin-top: 12px; color: #888">请使用企业微信扫码登录</div>
         </div>
       </a-modal>
@@ -35,7 +31,10 @@
 </template>
 
 <script lang="ts">
+import { getQrAuthResult, getQrCode, pollQrStatus } from '@/api/user'
+import useUserStore from '@/store/modules/user'
 import { defineComponent, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import LoginBanner from './components/banner.vue'
 import LoginForm from './components/login-form.vue'
 
@@ -46,7 +45,73 @@ export default defineComponent({
   },
   setup() {
     const showQr = ref(false)
-    return { showQr }
+    const qrUrl = ref('')
+    const qrId = ref('')
+    let pollingTimer: ReturnType<typeof setInterval> | null = null
+    const userStore = useUserStore()
+    const router = useRouter()
+
+    const startPolling = () => {
+      if (pollingTimer) {
+        clearInterval(pollingTimer)
+      }
+      pollingTimer = setInterval(async () => {
+        try {
+          const statusRes = await pollQrStatus(qrId.value)
+          if (statusRes.data.status === 'done') {
+            clearInterval(pollingTimer as ReturnType<typeof setInterval>)
+            const authRes = await getQrAuthResult(qrId.value)
+            console.log('[ScanLogin] authRes', authRes)
+            try {
+              await userStore.loginToken(authRes.data.token, authRes.data.role)
+              console.log('[ScanLogin] userStore.login 完成，开始跳转')
+              console.log('[ScanLogin] 获取 router 实例')
+              console.log('[ScanLogin] 当前路由 query:', router?.currentRoute?.value?.query)
+              const { redirect, ...othersQuery } = router?.currentRoute?.value?.query || {}
+              console.log('[ScanLogin] 准备跳转到:', redirect || 'MaterialList', 'query:', othersQuery)
+              router
+                .push({
+                  name: (redirect as string) || 'MaterialList',
+                  query: {
+                    ...othersQuery,
+                  },
+                })
+                .then(() => {
+                  console.log('[ScanLogin] 跳转完成')
+                })
+                .catch((err: any) => {
+                  console.error('[ScanLogin] 跳转出错', err)
+                })
+            } catch (err) {
+              console.error('[ScanLogin] 登录错误', err)
+            }
+            showQr.value = false
+          } else if (statusRes.data.status === 'expired') {
+            clearInterval(pollingTimer as ReturnType<typeof setInterval>)
+            console.warn('二维码已过期，请重新扫码登录')
+            qrUrl.value = ''
+            qrId.value = ''
+            showQr.value = false
+          }
+        } catch (err) {
+          console.error('轮询二维码状态失败', err)
+        }
+      }, 3000)
+    }
+
+    const handleScanLogin = async () => {
+      try {
+        const res = await getQrCode()
+        qrUrl.value = res.data.qrUrl
+        qrId.value = res.data.qrId
+        showQr.value = true
+        startPolling()
+      } catch (err) {
+        console.error('获取二维码失败', err)
+      }
+    }
+
+    return { showQr, qrUrl, handleScanLogin }
   },
 })
 </script>

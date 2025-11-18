@@ -34,18 +34,27 @@
         <!-- 已上传文件列表 -->
         <div v-if="uploadedFiles.length > 0" class="uploaded-files">
           <h4 class="files-title">{{ $t('material.upload.uploadedFiles') }}</h4>
-          <div v-for="file in uploadedFiles" :key="file.file_id" class="file-item">
+          <div v-for="(file, index) in uploadedFiles" :key="file.file_id" class="file-item">
             <icon-file />
-            <span class="file-name">{{ file.name }}</span>
+            <a class="file-name" :href="fileList.find((f) => f.name === file.name)?.url" target="_blank">
+              {{ file.name }}
+            </a>
             <span class="file-status" :class="file.status">
               {{ file.status === 'uploaded' ? '已上传' : '已存在' }}
             </span>
+            <!-- 上移按钮 -->
+            <a-button size="mini" type="text" @click="moveFileUp(index)" :disabled="index === 0">↑</a-button>
+            <!-- 下移按钮 -->
+            <a-button size="mini" type="text" @click="moveFileDown(index)" :disabled="index === uploadedFiles.length - 1">↓</a-button>
+            <!-- 删除按钮 -->
+            <a-button size="mini" type="text" status="danger" @click="deleteUploadedFile(index)">删除</a-button>
           </div>
         </div>
       </div>
 
       <!-- 材料信息表单 -->
       <div class="form-section">
+        <a-button type="primary" style="margin-bottom: 12px" @click="handleStartRecognition">开始识别</a-button>
         <h3 class="section-title">{{ $t('material.upload.materialInfo') }}</h3>
         <a-form
           :model="form"
@@ -73,19 +82,94 @@
 
           <a-form-item :label="$t('material.upload.category')" field="category">
             <a-select v-model="form.category" :placeholder="$t('material.upload.categoryPlaceholder')" allow-clear>
-              <a-option value="document">文档</a-option>
-              <a-option value="image">图片</a-option>
-              <a-option value="video">视频</a-option>
-              <a-option value="audio">音频</a-option>
-              <a-option value="other">其他</a-option>
+              <a-option value="学术专长成绩-科研成果">学术专长成绩-科研成果</a-option>
+              <a-option value="学术专长成绩-学业竞赛">学术专长成绩-学业竞赛</a-option>
+              <a-option value="学术专长成绩-创新创业训练">学术专长成绩-创新创业训练</a-option>
+              <a-option value="综合表现加分-国际组织实习">综合表现加分-国际组织实习</a-option>
+              <a-option value="综合表现加分-参军入伍服兵役">综合表现加分-参军入伍服兵役</a-option>
+              <a-option value="综合表现加分-志愿服务">综合表现加分-志愿服务</a-option>
+              <a-option value="综合表现加分-荣誉称号">综合表现加分-荣誉称号</a-option>
+              <a-option value="综合表现加分-社会工作">综合表现加分-社会工作</a-option>
+              <a-option value="综合表现加分-体育比赛">综合表现加分-体育比赛</a-option>
             </a-select>
           </a-form-item>
 
           <a-form-item :label="$t('material.upload.tags')" field="tags">
             <a-select v-model="form.tags" multiple :placeholder="$t('material.upload.tagsPlaceholder')" allow-clear>
-              <a-option value="important">重要</a-option>
-              <a-option value="urgent">紧急</a-option>
-              <a-option value="normal">普通</a-option>
+              <a-option value="期刊论文发表（A 类）">期刊论文发表（A 类）</a-option>
+              <a-option value="会议论文收录（B 类）">会议论文收录（B 类）</a-option>
+              <a-option value="会议论文收录（C 类）">会议论文收录（C 类）</a-option>
+              <a-option value="Nature/Science/Cell 主刊论文">Nature/Science/Cell 主刊论文</a-option>
+              <a-option value="Cell 子刊论文（IF≥10）">Cell 子刊论文（IF≥10）</a-option>
+              <a-option value="国家发明专利授权（第一作者）">国家发明专利授权（第一作者）</a-option>
+              <a-option value="国家发明专利授权（独立作者）">国家发明专利授权（独立作者）</a-option>
+              <a-option value="高水平中文学术期刊论文">高水平中文学术期刊论文</a-option>
+              <a-option value="信息与通信工程国际期刊论文">信息与通信工程国际期刊论文</a-option>
+              <a-option value="国家级 A + 类竞赛一等奖及以上">国家级 A + 类竞赛一等奖及以上</a-option>
+              <a-option value="国家级 A 类竞赛二等奖">国家级 A 类竞赛二等奖</a-option>
+              <a-option value="省级 A 类竞赛一等奖及以上">省级 A 类竞赛一等奖及以上</a-option>
+              <a-option value="省级 A - 类竞赛二等奖">省级 A - 类竞赛二等奖</a-option>
+              <a-option value="ICPC 亚洲区域赛获奖">ICPC 亚洲区域赛获奖</a-option>
+              <a-option value="CCPC 竞赛获奖">CCPC 竞赛获奖</a-option>
+              <a-option value="ICPC 全球总决赛获奖">ICPC 全球总决赛获奖</a-option>
+              <a-option value="CCF CSP 认证前 0.2%（等同国一）">CCF CSP 认证前 0.2%（等同国一）</a-option>
+              <a-option value="CCF CSP 认证前 1.5%（等同国二）">CCF CSP 认证前 1.5%（等同国二）</a-option>
+              <a-option value="中国国际大学生创新大赛团体获奖">中国国际大学生创新大赛团体获奖</a-option>
+              <a-option value="挑战杯学术科技作品竞赛个人获奖">挑战杯学术科技作品竞赛个人获奖</a-option>
+              <a-option value="挑战杯创业计划大赛团队获奖">挑战杯创业计划大赛团队获奖</a-option>
+              <a-option value="国家级创新实验计划项目（组长）">国家级创新实验计划项目（组长）</a-option>
+              <a-option value="国家级创新实验计划项目（成员）">国家级创新实验计划项目（成员）</a-option>
+              <a-option value="省级创新实验计划项目（组长）">省级创新实验计划项目（组长）</a-option>
+              <a-option value="省级创新实验计划项目（成员）">省级创新实验计划项目（成员）</a-option>
+              <a-option value="校级创新实验计划项目（组长）">校级创新实验计划项目（组长）</a-option>
+              <a-option value="校级创新实验计划项目（成员）">校级创新实验计划项目（成员）</a-option>
+              <a-option value="创新创业训练项目结项（教务处证明）">创新创业训练项目结项（教务处证明）</a-option>
+              <a-option value="创新创业训练项目结项（创新网截图）">创新创业训练项目结项（创新网截图）</a-option>
+              <a-option value="国际组织一学年实习">国际组织一学年实习</a-option>
+              <a-option value="国际组织半年（超一学期）实习">国际组织半年（超一学期）实习</a-option>
+              <a-option value="国际组织实习证明（满学年）">国际组织实习证明（满学年）</a-option>
+              <a-option value="国际组织实习证明（半年）">国际组织实习证明（半年）</a-option>
+              <a-option value="参军入伍满 1 年（含）服兵役">参军入伍满 1 年（含）服兵役</a-option>
+              <a-option value="参军入伍满 2 年（含）服兵役">参军入伍满 2 年（含）服兵役</a-option>
+              <a-option value="服兵役证明（1-2 年）">服兵役证明（1-2 年）</a-option>
+              <a-option value="服兵役证明（2 年以上）">服兵役证明（2 年以上）</a-option>
+              <a-option value="志愿服务时长">志愿服务时长</a-option>
+              <a-option value="国家级志愿服务个人表彰">国家级志愿服务个人表彰</a-option>
+              <a-option value="省级志愿服务团队表彰（队长）">省级志愿服务团队表彰（队长）</a-option>
+              <a-option value="省级志愿服务团队表彰（队员）">省级志愿服务团队表彰（队员）</a-option>
+              <a-option value="校级志愿服务个人表彰">校级志愿服务个人表彰</a-option>
+              <a-option value="抢险救灾志愿服务突出表现">抢险救灾志愿服务突出表现</a-option>
+              <a-option value="国家级优秀三好学生">国家级优秀三好学生</a-option>
+              <a-option value="国家级优秀共产党员">国家级优秀共产党员</a-option>
+              <a-option value="国家级‘自强之星’">国家级‘自强之星’</a-option>
+              <a-option value="省级优秀学生干部">省级优秀学生干部</a-option>
+              <a-option value="省级优秀团员">省级优秀团员</a-option>
+              <a-option value="省级社会实践优秀个人">省级社会实践优秀个人</a-option>
+              <a-option value="校级三好学生">校级三好学生</a-option>
+              <a-option value="校级优秀学生干部">校级优秀学生干部</a-option>
+              <a-option value="国家级五四红旗团支部（集体）">国家级五四红旗团支部（集体）</a-option>
+              <a-option value="省级优秀班集体（集体）">省级优秀班集体（集体）</a-option>
+              <a-option value="校级优秀团支部书记">校级优秀团支部书记</a-option>
+              <a-option value="院学生会执行主席（任职 1 学年）">院学生会执行主席（任职 1 学年）</a-option>
+              <a-option value="团总支书记（任职 1 学年）">团总支书记（任职 1 学年）</a-option>
+              <a-option value="校学生会主席团成员（任职 1 学年）">校学生会主席团成员（任职 1 学年）</a-option>
+              <a-option value="班长（任职 1 学年）">班长（任职 1 学年）</a-option>
+              <a-option value="团支部书记（任职半学年）">团支部书记（任职半学年）</a-option>
+              <a-option value="党支部书记（任职 1 学年）">党支部书记（任职 1 学年）</a-option>
+              <a-option value="社团社长（任职 1 学年）">社团社长（任职 1 学年）</a-option>
+              <a-option value="院学生会部长（辅导员打分 90+）">院学生会部长（辅导员打分 90+）</a-option>
+              <a-option value="班委（任职 1 学年）">班委（任职 1 学年）</a-option>
+              <a-option value="系团总支副书记（任职 1 学年）">系团总支副书记（任职 1 学年）</a-option>
+              <a-option value="国际级体育团体冠军">国际级体育团体冠军</a-option>
+              <a-option value="国际级体育团体亚军">国际级体育团体亚军</a-option>
+              <a-option value="国家级体育团体冠军">国家级体育团体冠军</a-option>
+              <a-option value="国家级体育团体季军">国家级体育团体季军</a-option>
+              <a-option value="国际级体育比赛第四至八名">国际级体育比赛第四至八名</a-option>
+              <a-option value="国家级体育个人亚军">国家级体育个人亚军</a-option>
+              <a-option value="国家级体育个人季军">国家级体育个人季军</a-option>
+              <a-option value="厦门大学代表国际体育比赛获奖">厦门大学代表国际体育比赛获奖</a-option>
+              <a-option value="厦门大学代表国家级体育比赛获奖">厦门大学代表国家级体育比赛获奖</a-option>
+              <a-option value="体育团体项目（5 人以内）获奖">体育团体项目（5 人以内）获奖</a-option>
             </a-select>
           </a-form-item>
         </a-form>
@@ -120,6 +204,7 @@
 </template>
 
 <script lang="ts" setup>
+import { llmFormRecognition } from '@/api/form'
 import { uploadMaterial } from '@/api/material'
 import { type UploadFileResponse, checkFileExists, uploadFile } from '@/api/upload'
 import { Message } from '@arco-design/web-vue'
@@ -206,23 +291,44 @@ const handleFileRemove = (file: FileItem) => {
   }
 }
 
-const handleFileUpload = async (options: UploadRequestOption) => {
-  const { file, onProgress, onSuccess, onError } = options
-  const fileObj = file as File
+const handleFileUpload = async (options: UploadRequestOption & { fileItem?: any }) => {
+  console.log('[handleFileUpload] start', options)
+  const { file, fileItem, onProgress, onSuccess, onError } = options
+  let fileObj: File
+
+  // 根据 Arco 官方文档，优先取 option.file
+  if (file) {
+    fileObj = file as File
+    console.log('[handleFileUpload] using option.file', fileObj.name)
+  } else if (fileItem?.file) {
+    fileObj = fileItem.file as File
+    console.log('[handleFileUpload] using fileItem.file', fileObj.name)
+  } else if ((fileItem as any)?.originFile) {
+    fileObj = (fileItem as any).originFile as File
+    console.log('[handleFileUpload] using fileItem.originFile', fileObj.name)
+  } else {
+    console.error('[handleFileUpload] No valid file found', options)
+    onError?.(new Error('No valid file provided for upload'))
+    return
+  }
 
   try {
+    console.log('[handleFileUpload] calculating MD5 for', fileObj.name)
     // 计算文件MD5
     const md5 = await calculateFileMD5(fileObj)
+    console.log('[handleFileUpload] MD5 calculated:', md5)
 
     // 先检查文件是否存在
+    console.log('[handleFileUpload] checking if file exists')
     const checkResponse = await checkFileExists({ md5, filename: fileObj.name })
-    const fileExists = checkResponse.data.exists
+    console.log('[handleFileUpload] checkFileExists response:', checkResponse)
+    const { exists: fileExists, file_id: existingFileId, url: existingFileUrl } = checkResponse.data
 
     if (fileExists) {
       // 文件已存在，直接返回成功
       const response: UploadFileResponse = {
-        file_id: checkResponse.data.file_id!,
-        url: checkResponse.data.url!,
+        file_id: existingFileId!,
+        url: existingFileUrl!,
         md5,
       }
 
@@ -234,13 +340,27 @@ const handleFileUpload = async (options: UploadRequestOption) => {
         status: 'exists',
       })
 
-      onSuccess?.(response)
+      // 同步更新 fileList 中对应文件状态为 done，以显示 √
+      const target = fileList.value.find((f) => f.name === fileObj.name)
+      if (target) {
+        target.status = 'done'
+      }
+
+      console.log('[handleFileUpload] file exists, skipping upload')
       return
     }
 
     // 文件不存在，调用真正的上传API
+    console.log('[handleFileUpload] file not exists, starting upload')
     const uploadResponse = await uploadFile(fileObj, (progress: number) => {
-      onProgress?.(progress)
+      console.log('[handleFileUpload] upload progress:', progress)
+      // 上传完成后将 fileList 中对应文件状态改为 done，以显示 √
+      if (progress === 100) {
+        const target = fileList.value.find((f) => f.name === fileObj.name)
+        if (target) {
+          target.status = 'done'
+        }
+      }
     })
 
     // 添加到已上传文件列表
@@ -248,13 +368,33 @@ const handleFileUpload = async (options: UploadRequestOption) => {
       file_id: uploadResponse.data.file_id,
       name: fileObj.name,
       size: fileObj.size,
-      status: 'uploaded',
+      status: 'uploaded', // 状态保持类型兼容，并可在界面通过已上传样式显示√
     })
 
-    onSuccess?.(uploadResponse.data)
+    console.log('[handleFileUpload] upload finished:', uploadResponse.data)
   } catch (error) {
-    onError?.(error as Error)
+    console.error('[handleFileUpload] error:', error)
   }
+}
+
+const moveFileUp = (index: number) => {
+  if (index > 0) {
+    const temp = uploadedFiles.value[index]
+    uploadedFiles.value.splice(index, 1)
+    uploadedFiles.value.splice(index - 1, 0, temp)
+  }
+}
+
+const moveFileDown = (index: number) => {
+  if (index < uploadedFiles.value.length - 1) {
+    const temp = uploadedFiles.value[index]
+    uploadedFiles.value.splice(index, 1)
+    uploadedFiles.value.splice(index + 1, 0, temp)
+  }
+}
+
+const deleteUploadedFile = (index: number) => {
+  uploadedFiles.value.splice(index, 1)
 }
 
 const handleReset = () => {
@@ -265,6 +405,33 @@ const handleReset = () => {
   form.category = ''
   form.tags = []
   formRef.value?.resetFields()
+}
+
+const handleStartRecognition = async () => {
+  if (uploadedFiles.value.length === 0) {
+    Message.error('请先上传文件')
+    return
+  }
+  try {
+    uploading.value = true
+    const fileIds = uploadedFiles.value.map((f) => f.file_id)
+    const res = await llmFormRecognition({ files: fileIds })
+    if (res && typeof res.data === 'object') {
+      const { title, category, tags, description } = res.data
+      form.title = title || ''
+      form.category = category || ''
+      form.tags = Array.isArray(tags) ? tags : []
+      form.description = description || ''
+      Message.success('识别完成，已填充表单')
+    } else {
+      Message.error('识别结果格式不正确')
+    }
+  } catch (err) {
+    console.error(err)
+    Message.error('识别失败，请重试')
+  } finally {
+    uploading.value = false
+  }
 }
 
 const handleSubmit = async () => {

@@ -1,0 +1,1 @@
+{"name":"Local: user_info","url":"d:\\Scripts\\HCIBGA\\Server\\api\\user_info.go","tests":[{"id":1763183106470,"input":"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Scripts\\HCIBGA\\Server\\api\\user_info.go","group":"local","local":true}

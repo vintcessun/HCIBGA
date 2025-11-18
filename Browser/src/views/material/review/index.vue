@@ -14,10 +14,6 @@
           <a-tag color="orange">待审核</a-tag>
         </template>
 
-        <template #fileSize="{ record }">
-          {{ formatFileSize(record.fileSize) }}
-        </template>
-
         <template #uploadTime="{ record }">
           {{ formatDate(record.uploadTime) }}
         </template>
@@ -57,32 +53,23 @@
     </a-card>
 
     <!-- 查看详情模态框 -->
-    <a-modal v-model:visible="showDetailModal" :title="currentMaterial?.title" :footer="false" width="95%">
-      <div class="detail-modal-layout">
-        <!-- 左栏原大小 -->
-        <div class="left-panel">
-          <MaterialDetail :material="currentMaterial" v-if="currentMaterial" />
+    <a-modal v-model:visible="showDetailModal" :title="currentMaterial?.title" :footer="false" :width="detailModalWidth">
+      <template v-if="currentMaterial">
+        <div class="detail-modal-content">
+          <MaterialDetail :material="currentMaterial" />
         </div>
-        <!-- 右栏 -->
-        <div class="right-panel">
-          <div class="preview-section">
-            <div class="section-title">材料预览</div>
-            <MaterialPreview :material="currentMaterial" v-if="currentMaterial" />
-          </div>
-          <div class="support-section">
-            <div class="section-title">支撑条款</div>
-            <SupportClauses :material="currentMaterial" v-if="currentMaterial" />
-          </div>
+        <div class="detail-footer">
+          <a-space size="large">
+            <a-button type="secondary" @click="viewPrevious">上一条</a-button>
+            <a-button type="primary" @click="approveCurrent">同意</a-button>
+            <a-button status="danger" @click="rejectCurrent">拒绝</a-button>
+            <a-button type="secondary" @click="viewNext">下一条</a-button>
+          </a-space>
         </div>
-      </div>
-      <div class="detail-footer">
-        <a-space>
-          <a-button type="secondary" @click="viewPrevious">上一条</a-button>
-          <a-button type="primary" @click="approveCurrent">同意</a-button>
-          <a-button status="danger" @click="rejectCurrent">拒绝</a-button>
-          <a-button type="secondary" @click="viewNext">下一条</a-button>
-        </a-space>
-      </div>
+      </template>
+      <template v-else>
+        <a-empty description="暂无材料" />
+      </template>
     </a-modal>
 
     <!-- 审核模态框 -->
@@ -112,7 +99,7 @@
         <a-form-item v-if="reviewForm.status === 'rejected'" label="拒绝原因模板">
           <a-select v-model="selectedTemplate" placeholder="选择拒绝原因模板" @change="applyTemplate" allow-clear>
             <a-option value="content_issue">内容不符合要求</a-option>
-            <a-option value="quality_issue">质量不达标</a-option>
+            <a-option value="quality_issue">材料质量不达标</a-option>
             <a-option value="format_issue">格式不正确</a-option>
             <a-option value="copyright_issue">版权问题</a-option>
             <a-option value="other">其他原因</a-option>
@@ -129,6 +116,12 @@
         </a-form-item>
       </a-form>
     </a-modal>
+
+    <!-- 预览抽屉 -->
+    <a-drawer v-model:visible="showPreviewDrawer" :title="currentMaterial?.title" :width="drawerWidth" placement="right">
+      <iframe v-if="currentMaterial && previewFileUrl" :src="previewFileUrl" style="width: 100%; height: 100%; border: none"></iframe>
+      <a-empty v-else description="暂无可预览文件" />
+    </a-drawer>
 
     <!-- 批量操作区域 -->
     <div class="batch-actions" v-if="selectedMaterials.length > 0">
@@ -161,7 +154,7 @@
 import { batchReviewMaterials, getPendingMaterials, reviewMaterial, type Material } from '@/api/material'
 import { useUserStore } from '@/store'
 import { Message } from '@arco-design/web-vue'
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, onUnmounted, reactive, ref } from 'vue'
 import MaterialDetail from '../list/components/MaterialDetail.vue'
 
 const userStore = useUserStore()
@@ -170,7 +163,9 @@ const pendingMaterials = ref<Material[]>([])
 const selectedMaterials = ref<string[]>([])
 const showDetailModal = ref(false)
 const showReviewModal = ref(false)
+const showPreviewDrawer = ref(false)
 const currentMaterial = ref<Material | null>(null)
+const previewFileUrl = ref('')
 const selectedTemplate = ref('')
 
 const pagination = reactive({
@@ -182,6 +177,14 @@ const pagination = reactive({
 const reviewForm = reactive({
   status: 'approved' as 'approved' | 'rejected',
   comment: '',
+})
+
+const detailModalWidth = computed(() => {
+  return window.innerWidth < 768 ? '95%' : '600px'
+})
+
+const drawerWidth = computed(() => {
+  return window.innerWidth < 768 ? '95%' : '800px'
 })
 
 const columns = computed(() => [
@@ -216,12 +219,6 @@ const columns = computed(() => [
     dataIndex: 'status',
     width: 100,
     slotName: 'status',
-  },
-  {
-    title: '文件大小',
-    dataIndex: 'fileSize',
-    width: 100,
-    slotName: 'fileSize',
   },
   {
     title: '上传者',
@@ -369,11 +366,22 @@ const handleBatchReject = async () => {
   }
 }
 
+const handleOpenPreviewDrawer = (e: Event) => {
+  const url = (e as CustomEvent<string>).detail
+  previewFileUrl.value = url
+  showPreviewDrawer.value = true
+}
+
 onMounted(() => {
   fetchPendingMaterials()
+  window.addEventListener('openPreviewDrawer', handleOpenPreviewDrawer)
 })
+
+onUnmounted(() => {
+  window.removeEventListener('openPreviewDrawer', handleOpenPreviewDrawer)
+})
+
 const viewPrevious = () => {
-  // 简单示例，可按实际数据索引切换
   const index = pendingMaterials.value.findIndex((m) => m.id === currentMaterial.value?.id)
   if (index > 0) {
     currentMaterial.value = pendingMaterials.value[index - 1]
@@ -404,7 +412,6 @@ const approveCurrent = async () => {
 
 const rejectCurrent = () => {
   if (!currentMaterial.value) return
-  // 打开拒绝理由输入框（使用审核模态框）
   reviewForm.status = 'rejected'
   reviewForm.comment = ''
   selectedTemplate.value = ''
@@ -413,47 +420,19 @@ const rejectCurrent = () => {
 </script>
 
 <style lang="less" scoped>
-.detail-modal-layout {
-  display: flex;
-  height: 70vh;
-}
-
-.left-panel {
-  flex: 0 0 300px;
+.detail-modal-content {
+  max-height: 65vh;
   overflow-y: auto;
-  overflow-x: auto;
-  border-right: 1px solid #eee;
-  padding: 8px;
-}
-
-.right-panel {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  overflow-x: auto;
-}
-
-.preview-section {
-  flex: 3;
-  padding: 8px;
-  border-bottom: 1px solid #eee;
-}
-
-.support-section {
-  flex: 1;
-  padding: 8px;
-}
-
-.section-title {
-  font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+  padding-right: 4px;
 }
 
 .detail-footer {
-  margin-top: 12px;
   text-align: center;
+  padding: 8px 0 4px;
+  border-top: 1px solid #f2f3f5;
 }
+
 .material-review {
   padding: 20px;
 
@@ -493,6 +472,22 @@ const rejectCurrent = () => {
         width: 100%;
         margin-bottom: 8px;
       }
+    }
+  }
+
+  .detail-modal-content {
+    max-height: 55vh;
+  }
+
+  .detail-footer {
+    .arco-btn {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+
+    :deep(.arco-space) {
+      width: 100%;
+      flex-direction: column;
     }
   }
 }

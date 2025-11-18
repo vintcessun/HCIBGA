@@ -115,7 +115,7 @@ setupMock({
 
     // 调用LLM自动填写材料信息
     Mock.mock(new RegExp('/api/material/llm-fill'), (params: MockParams) => {
-      const { file_id, metadata } = JSON.parse(params.body)
+      const { fileId, metadata } = JSON.parse(params.body)
       return successResponseWrap({
         title: metadata?.title || '项目申报材料（自动生成）',
         description: metadata?.description || '包含项目预算与团队信息，由LLM自动生成。',

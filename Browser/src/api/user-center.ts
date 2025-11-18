@@ -1,5 +1,8 @@
 import axios from 'axios'
 
+import { HttpResponse } from '@/api/interceptor'
+import { getToken } from '@/utils/auth'
+
 export interface MyProjectRecord {
   id: number
   name: string
@@ -12,7 +15,9 @@ export interface MyProjectRecord {
   }[]
 }
 export function queryMyProjectList() {
-  return axios.post('/api/user/my-project/list')
+  return axios.post<HttpResponse<MyProjectRecord[]>>('/api/user/my-project/list', {
+    accountId: getToken(),
+  })
 }
 
 export interface MyTeamRecord {
@@ -22,7 +27,9 @@ export interface MyTeamRecord {
   peopleNumber: number
 }
 export function queryMyTeamList() {
-  return axios.post('/api/user/my-team/list')
+  return axios.post<HttpResponse<MyTeamRecord[]>>('/api/user/my-team/list', {
+    accountId: getToken(),
+  })
 }
 
 export interface LatestActivity {
@@ -32,7 +39,9 @@ export interface LatestActivity {
   avatar: string
 }
 export function queryLatestActivity() {
-  return axios.post<LatestActivity[]>('/api/user/latest-activity')
+  return axios.post<HttpResponse<LatestActivity[]>>('/api/user/latest-activity', {
+    accountId: getToken(),
+  })
 }
 
 export interface BasicInfoModel {
@@ -67,7 +76,9 @@ export interface UnitCertification {
 }
 
 export function queryCertification() {
-  return axios.post<UnitCertification>('/api/user/certification')
+  return axios.post<UnitCertification>('/api/user/certification', {
+    accountId: getToken(),
+  })
 }
 
 export function userUploadApi(
@@ -77,6 +88,5 @@ export function userUploadApi(
     onUploadProgress?: (progressEvent: any) => void
   }
 ) {
-  // const controller = new AbortController();
   return axios.post('/api/user/upload', data, config)
 }

@@ -10,7 +10,15 @@
             {{ getStatusText(material.status) }}
           </a-tag>
         </a-descriptions-item>
-        <a-descriptions-item label="文件大小">{{ formatFileSize(material.fileSize) }}</a-descriptions-item>
+        <a-descriptions-item label="文件信息">
+          <div v-if="material.files && material.files.length > 0">
+            <div v-for="(file, idx) in material.files" :key="idx" style="margin-bottom: 8px">
+              <div>文件名：{{ file.fileName }}</div>
+              <div>大小：{{ formatFileSize(file.fileSize) }}</div>
+            </div>
+          </div>
+          <span v-else>-</span>
+        </a-descriptions-item>
         <a-descriptions-item label="上传者">{{ material.uploader }}</a-descriptions-item>
         <a-descriptions-item label="上传时间">{{ formatDate(material.uploadTime) }}</a-descriptions-item>
         <a-descriptions-item label="标签">
@@ -57,30 +65,187 @@
       </a-descriptions>
     </div>
 
-    <div class="detail-section">
+    <div class="detail-section" v-if="material.files && material.files.length > 0">
       <h3>文件操作</h3>
       <div class="file-actions">
-        <a-button type="primary" @click="handleDownload">
-          <template #icon>
-            <icon-download />
-          </template>
-          下载文件
-        </a-button>
-        <a-button v-if="material.fileUrl" @click="handlePreview" style="margin-left: 8px">
-          <template #icon>
-            <icon-eye />
-          </template>
-          预览文件
-        </a-button>
+        <div
+          v-for="(file, idx) in material.files"
+          :key="idx"
+          style="margin-bottom: 12px; padding: 12px; background: #fff; border: 1px solid #e5e6eb; border-radius: 6px"
+        >
+          <div style="font-weight: 600; margin-bottom: 8px">{{ file.fileName }}</div>
+          <div style="margin-top: 8px">
+            <a-space>
+              <a-button type="primary" @click="() => handleDownloadFile(file)">
+                <template #icon>
+                  <icon-download />
+                </template>
+                下载
+              </a-button>
+              <a-button @click="() => handlePreviewFile(file)">
+                <template #icon>
+                  <icon-eye />
+                </template>
+                预览
+              </a-button>
+            </a-space>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import type { Material } from '@/api/material'
+import { getMaterialFileUrl } from '@/api/material'
 import { Message } from '@arco-design/web-vue'
-import { PropType } from 'vue'
+import { PropType, defineComponent, defineOptions, defineProps } from 'vue'
+
+export default defineComponent({
+  name: 'MaterialDetail',
+  props: {
+    material: {
+      type: Object as PropType<Material>,
+      required: true,
+    },
+  },
+  setup(props) {
+    const getCategoryText = (category: string) => {
+      const categoryMap: Record<string, string> = {
+        document: '文档',
+        image: '图片',
+        video: '视频',
+        audio: '音频',
+        other: '其他',
+      }
+      return categoryMap[category] || category
+    }
+
+    const getStatusColor = (status: string) => {
+      const colors: Record<string, string> = {
+        pending: 'orange',
+        approved: 'green',
+        rejected: 'red',
+      }
+      return colors[status] || 'gray'
+    }
+
+    const getStatusText = (status: string) => {
+      const texts: Record<string, string> = {
+        pending: '待审核',
+        approved: '已通过',
+        rejected: '已拒绝',
+      }
+      return texts[status] || status
+    }
+
+    const getRiskLevelColor = (riskLevel: string) => {
+      const colors: Record<string, string> = {
+        low: 'green',
+        medium: 'orange',
+        high: 'red',
+      }
+      return colors[riskLevel] || 'gray'
+    }
+
+    const getRiskLevelText = (riskLevel: string) => {
+      const texts: Record<string, string> = {
+        low: '低风险',
+        medium: '中风险',
+        high: '高风险',
+      }
+      return texts[riskLevel] || riskLevel
+    }
+
+    const formatFileSize = (bytes: number) => {
+      if (bytes === 0) return '0 B'
+      const k = 1024
+      const sizes = ['B', 'KB', 'MB', 'GB']
+      const i = Math.floor(Math.log(bytes) / Math.log(k))
+      return `${parseFloat((bytes / k ** i).toFixed(2))} ${sizes[i]}`
+    }
+
+    const formatDate = (dateString: string) => {
+      return new Date(dateString).toLocaleString('zh-CN')
+    }
+
+    const handleDownloadFile = (file: { fileUrl: string; fileName: string }) => {
+      if (file.fileName) {
+        fetch(getMaterialFileUrl(file.fileName))
+          .then((res) => res.blob())
+          .then((blob) => {
+            const url = window.URL.createObjectURL(blob)
+            const link = document.createElement('a')
+            link.href = url
+            link.download = file.fileName
+            document.body.appendChild(link)
+            link.click()
+            document.body.removeChild(link)
+            window.URL.revokeObjectURL(url)
+            Message.success('开始下载文件')
+          })
+          .catch(() => {
+            Message.error('下载文件失败')
+          })
+      } else {
+        Message.error('文件链接无效')
+      }
+    }
+
+    const handlePreviewFile = (file: { fileUrl: string; fileName: string }) => {
+      if (file.fileUrl) {
+        // 触发父组件的 Drawer 打开逻辑
+        const event = new CustomEvent('openPreviewDrawer', { detail: getMaterialFileUrl(file.fileName) })
+        window.dispatchEvent(event)
+      } else {
+        Message.error('文件链接无效')
+      }
+    }
+
+    const handleDownload = () => {
+      if (props.material.files && props.material.files.length > 0) {
+        props.material.files.forEach((file) => {
+          if (file.fileUrl) {
+            const link = document.createElement('a')
+            link.href = file.fileUrl
+            link.download = file.fileName
+            link.click()
+          }
+        })
+        Message.success('开始下载所有文件')
+      } else {
+        Message.error('没有可下载的文件')
+      }
+    }
+
+    const handlePreview = () => {
+      if (props.material.files && props.material.files.length > 0) {
+        props.material.files.forEach((file) => {
+          if (file.fileUrl) {
+            window.open(file.fileUrl, '_blank')
+          }
+        })
+      } else {
+        Message.error('没有可预览的文件')
+      }
+    }
+
+    return {
+      getCategoryText,
+      getStatusColor,
+      getStatusText,
+      getRiskLevelColor,
+      getRiskLevelText,
+      formatFileSize,
+      formatDate,
+      handleDownloadFile,
+      handlePreviewFile,
+      handleDownload,
+      handlePreview,
+    }
+  },
+})
 
 defineOptions({
   name: 'MaterialDetail',
@@ -153,23 +318,30 @@ const formatDate = (dateString: string) => {
 }
 
 const handleDownload = () => {
-  if (props.material.fileUrl) {
-    // 模拟下载操作
-    const link = document.createElement('a')
-    link.href = props.material.fileUrl
-    link.download = props.material.fileName
-    link.click()
-    Message.success('开始下载文件')
+  if (props.material.files && props.material.files.length > 0) {
+    props.material.files.forEach((file) => {
+      if (file.fileUrl) {
+        const link = document.createElement('a')
+        link.href = file.fileUrl
+        link.download = file.fileName
+        link.click()
+      }
+    })
+    Message.success('开始下载所有文件')
   } else {
-    Message.error('文件链接无效')
+    Message.error('没有可下载的文件')
   }
 }
 
 const handlePreview = () => {
-  if (props.material.fileUrl) {
-    window.open(props.material.fileUrl, '_blank')
+  if (props.material.files && props.material.files.length > 0) {
+    props.material.files.forEach((file) => {
+      if (file.fileUrl) {
+        window.open(file.fileUrl, '_blank')
+      }
+    })
   } else {
-    Message.error('文件链接无效')
+    Message.error('没有可预览的文件')
   }
 }
 </script>

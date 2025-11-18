@@ -38,8 +38,11 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   (response: any) => {
     const res = response.data
-    // if the custom code is not 20000, it is judged as an error.
-    if (res.code !== 20000) {
+    // 调整判断条件：登录接口成功 code 可能是 200，而不是业务 20000
+    const isLoginApi = response.config.url === '/api/user/auth'
+    // eslint-disable-next-line no-console
+    console.log('Response URL:', response.config.url, 'responseCode', res.code)
+    if (res.code !== 200 && res.code !== 0) {
       Message.error({
         content: res.msg || 'Error',
         duration: 5 * 1000,

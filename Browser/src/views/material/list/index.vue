@@ -86,10 +86,6 @@
           </a-tag>
         </template>
 
-        <template #fileSize="{ record }">
-          {{ formatFileSize(record.fileSize) }}
-        </template>
-
         <template #uploadTime="{ record }">
           {{ formatDate(record.uploadTime) }}
         </template>
@@ -101,6 +97,19 @@
                 <icon-eye />
               </template>
               查看
+            </a-button>
+
+            <a-button
+              v-if="userStore.role === 'admin' || userStore.role === 'reviewer'"
+              type="text"
+              size="small"
+              status="warning"
+              @click="handleEdit(record)"
+            >
+              <template #icon>
+                <icon-edit />
+              </template>
+              修改
             </a-button>
 
             <a-button
@@ -170,6 +179,14 @@
         </a-form-item>
       </a-form>
     </a-modal>
+    <!-- 新增右侧预览抽屉 -->
+    <a-drawer v-model:visible="showPreviewDrawer" :title="currentMaterial?.title" :width="drawerWidth" placement="right">
+      <iframe
+        v-if="currentMaterial && currentMaterial.files && currentMaterial.files.length > 0"
+        :src="currentMaterial.files[0].fileUrl"
+        style="width: 100%; height: 100%; border: none"
+      ></iframe>
+    </a-drawer>
   </div>
 </template>
 
@@ -187,6 +204,7 @@ const selectedMaterials = ref<string[]>([])
 const showDetailModal = ref(false)
 const showReviewModal = ref(false)
 const currentMaterial = ref<Material | null>(null)
+const showPreviewDrawer = ref(false)
 
 const pagination = reactive({
   current: 1,
@@ -270,12 +288,7 @@ const columns = computed(() => [
     width: 100,
     slotName: 'status',
   },
-  {
-    title: '文件大小',
-    dataIndex: 'fileSize',
-    width: 100,
-    slotName: 'fileSize',
-  },
+  // 已移除文件大小列
   {
     title: '上传者',
     dataIndex: 'uploader',
@@ -322,6 +335,9 @@ const rowSelection = computed(() => ({
 // 响应式模态框宽度
 const modalWidth = computed(() => {
   return window.innerWidth < 768 ? '95%' : '600px'
+})
+const drawerWidth = computed(() => {
+  return window.innerWidth < 768 ? '95%' : '800px'
 })
 
 const fetchMaterials = async () => {
@@ -373,6 +389,16 @@ const handleView = (material: Material) => {
   showDetailModal.value = true
 }
 
+const handlePreviewDrawer = (material: Material) => {
+  currentMaterial.value = material
+  showPreviewDrawer.value = true
+}
+
+const handleEdit = (material: Material) => {
+  currentMaterial.value = material
+  showReviewModal.value = true
+}
+
 const handleDelete = async (material: Material) => {
   try {
     await deleteMaterial(material.id)
@@ -419,6 +445,18 @@ const handleConfirmReview = async () => {
 
 onMounted(() => {
   fetchMaterials()
+  // 监听来自 MaterialDetail 的预览事件
+  window.addEventListener('openPreviewDrawer', (e: Event) => {
+    const url = (e as CustomEvent).detail
+    if (currentMaterial.value) {
+      // 替换 iframe src 为点击的文件 URL
+      currentMaterial.value = {
+        ...currentMaterial.value,
+        files: [{ ...currentMaterial.value.files[0], fileUrl: url }],
+      }
+    }
+    showPreviewDrawer.value = true
+  })
 })
 </script>
 

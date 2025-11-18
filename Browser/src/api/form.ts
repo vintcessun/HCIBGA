@@ -19,3 +19,7 @@ export type UnitChannelModel = BaseInfoModel & ChannelInfoModel
 export function submitChannelForm(data: UnitChannelModel) {
   return axios.post('/api/channel-form/submit', { data })
 }
+
+export function llmFormRecognition(data: { files: string[] }) {
+  return axios.post('/api/llm/form', data)
+}
