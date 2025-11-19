@@ -39,6 +39,9 @@ func main() {
 	api.RegisterMaterialListRoutes(mux)
 	api.RegisterMaterialUploadRoutes(mux)
 	api.RegisterLLMRoutes(mux)
+	api.RegisterVolunteerRoutes(mux)
+	api.RegisterBonusRoutes(mux)
+	api.RegisterMessageRoutes(mux)
 
 	log.Println("Server started at :8000")
 	if err := http.ListenAndServe("127.0.0.1:8000", muxWithLogging); err != nil {

@@ -23,9 +23,7 @@
                 {{ $t('material.upload.clickToUpload') }}
               </div>
               <div class="upload-hint">
-                支持格式: PDF, DOC, DOCX,
-                <br />
-                PPT, PPTX, XLS, XLSX, PNG, JPG等
+                {{ $t('material.upload.supportFormat') }}
               </div>
             </div>
           </template>
@@ -40,21 +38,25 @@
               {{ file.name }}
             </a>
             <span class="file-status" :class="file.status">
-              {{ file.status === 'uploaded' ? '已上传' : '已存在' }}
+              {{ file.status === 'uploaded' ? $t('material.upload.status.uploaded') : $t('material.upload.status.exists') }}
             </span>
             <!-- 上移按钮 -->
             <a-button size="mini" type="text" @click="moveFileUp(index)" :disabled="index === 0">↑</a-button>
             <!-- 下移按钮 -->
             <a-button size="mini" type="text" @click="moveFileDown(index)" :disabled="index === uploadedFiles.length - 1">↓</a-button>
             <!-- 删除按钮 -->
-            <a-button size="mini" type="text" status="danger" @click="deleteUploadedFile(index)">删除</a-button>
+            <a-button size="mini" type="text" status="danger" @click="deleteUploadedFile(index)">
+              {{ $t('material.upload.delete') }}
+            </a-button>
           </div>
         </div>
       </div>
 
       <!-- 材料信息表单 -->
       <div class="form-section">
-        <a-button type="primary" style="margin-bottom: 12px" @click="handleStartRecognition">开始识别</a-button>
+        <a-button type="primary" style="margin-bottom: 12px" @click="handleStartRecognition">
+          {{ $t('material.upload.startRecognition') }}
+        </a-button>
         <h3 class="section-title">{{ $t('material.upload.materialInfo') }}</h3>
         <a-form
           :model="form"
@@ -68,7 +70,38 @@
             <a-input v-model="form.title" :placeholder="$t('material.upload.titlePlaceholder')" :max-length="100" />
           </a-form-item>
 
+          <a-form-item :label="$t('material.upload.category')" field="category">
+            <a-select v-model="form.category" :placeholder="$t('material.upload.categoryPlaceholder')" allow-clear>
+              <a-option value="学术专长成绩-科研成果">{{ $t('material.category.academic.research') }}</a-option>
+              <a-option value="学术专长成绩-学业竞赛">{{ $t('material.category.academic.competition') }}</a-option>
+              <a-option value="学术专长成绩-创新创业训练">{{ $t('material.category.academic.innovation') }}</a-option>
+              <a-option value="综合表现加分-国际组织实习">{{ $t('material.category.comprehensive.internship') }}</a-option>
+              <a-option value="综合表现加分-参军入伍服兵役">{{ $t('material.category.comprehensive.military') }}</a-option>
+              <a-option value="综合表现加分-志愿服务">{{ $t('material.category.comprehensive.volunteer') }}</a-option>
+              <a-option value="综合表现加分-荣誉称号">{{ $t('material.category.comprehensive.honor') }}</a-option>
+              <a-option value="综合表现加分-社会工作">{{ $t('material.category.comprehensive.social') }}</a-option>
+              <a-option value="综合表现加分-体育比赛">{{ $t('material.category.comprehensive.sports') }}</a-option>
+            </a-select>
+          </a-form-item>
+
+          <a-form-item v-if="isVolunteerCategory" label=" " class="volunteer-helper-item">
+            <div class="volunteer-helper">
+              <span class="volunteer-helper__desc">{{ $t('material.upload.fetchVolunteerHint') }}</span>
+              <a-button type="outline" size="small" @click="openVolunteerModal">
+                {{ $t('material.upload.fetchVolunteerInfo') }}
+              </a-button>
+            </div>
+          </a-form-item>
+
           <a-form-item :label="$t('material.upload.description')" field="description">
+            <template #extra>
+              <div v-if="isVolunteerCategory" class="volunteer-extra">
+                <span>{{ $t('material.upload.volunteerHoursRequired') }}</span>
+                <a-tag v-if="volunteerHours" color="arcoblue">
+                  {{ $t('material.upload.volunteerTotalHours', { hours: volunteerHours.total_hours }) }}h
+                </a-tag>
+              </div>
+            </template>
             <a-textarea
               v-model="form.description"
               :placeholder="$t('material.upload.descriptionPlaceholder')"
@@ -80,100 +113,108 @@
             />
           </a-form-item>
 
-          <a-form-item :label="$t('material.upload.category')" field="category">
-            <a-select v-model="form.category" :placeholder="$t('material.upload.categoryPlaceholder')" allow-clear>
-              <a-option value="学术专长成绩-科研成果">学术专长成绩-科研成果</a-option>
-              <a-option value="学术专长成绩-学业竞赛">学术专长成绩-学业竞赛</a-option>
-              <a-option value="学术专长成绩-创新创业训练">学术专长成绩-创新创业训练</a-option>
-              <a-option value="综合表现加分-国际组织实习">综合表现加分-国际组织实习</a-option>
-              <a-option value="综合表现加分-参军入伍服兵役">综合表现加分-参军入伍服兵役</a-option>
-              <a-option value="综合表现加分-志愿服务">综合表现加分-志愿服务</a-option>
-              <a-option value="综合表现加分-荣誉称号">综合表现加分-荣誉称号</a-option>
-              <a-option value="综合表现加分-社会工作">综合表现加分-社会工作</a-option>
-              <a-option value="综合表现加分-体育比赛">综合表现加分-体育比赛</a-option>
-            </a-select>
-          </a-form-item>
-
           <a-form-item :label="$t('material.upload.tags')" field="tags">
             <a-select v-model="form.tags" multiple :placeholder="$t('material.upload.tagsPlaceholder')" allow-clear>
-              <a-option value="期刊论文发表（A 类）">期刊论文发表（A 类）</a-option>
-              <a-option value="会议论文收录（B 类）">会议论文收录（B 类）</a-option>
-              <a-option value="会议论文收录（C 类）">会议论文收录（C 类）</a-option>
-              <a-option value="Nature/Science/Cell 主刊论文">Nature/Science/Cell 主刊论文</a-option>
-              <a-option value="Cell 子刊论文（IF≥10）">Cell 子刊论文（IF≥10）</a-option>
-              <a-option value="国家发明专利授权（第一作者）">国家发明专利授权（第一作者）</a-option>
-              <a-option value="国家发明专利授权（独立作者）">国家发明专利授权（独立作者）</a-option>
-              <a-option value="高水平中文学术期刊论文">高水平中文学术期刊论文</a-option>
-              <a-option value="信息与通信工程国际期刊论文">信息与通信工程国际期刊论文</a-option>
-              <a-option value="国家级 A + 类竞赛一等奖及以上">国家级 A + 类竞赛一等奖及以上</a-option>
-              <a-option value="国家级 A 类竞赛二等奖">国家级 A 类竞赛二等奖</a-option>
-              <a-option value="省级 A 类竞赛一等奖及以上">省级 A 类竞赛一等奖及以上</a-option>
-              <a-option value="省级 A - 类竞赛二等奖">省级 A - 类竞赛二等奖</a-option>
-              <a-option value="ICPC 亚洲区域赛获奖">ICPC 亚洲区域赛获奖</a-option>
-              <a-option value="CCPC 竞赛获奖">CCPC 竞赛获奖</a-option>
-              <a-option value="ICPC 全球总决赛获奖">ICPC 全球总决赛获奖</a-option>
-              <a-option value="CCF CSP 认证前 0.2%（等同国一）">CCF CSP 认证前 0.2%（等同国一）</a-option>
-              <a-option value="CCF CSP 认证前 1.5%（等同国二）">CCF CSP 认证前 1.5%（等同国二）</a-option>
-              <a-option value="中国国际大学生创新大赛团体获奖">中国国际大学生创新大赛团体获奖</a-option>
-              <a-option value="挑战杯学术科技作品竞赛个人获奖">挑战杯学术科技作品竞赛个人获奖</a-option>
-              <a-option value="挑战杯创业计划大赛团队获奖">挑战杯创业计划大赛团队获奖</a-option>
-              <a-option value="国家级创新实验计划项目（组长）">国家级创新实验计划项目（组长）</a-option>
-              <a-option value="国家级创新实验计划项目（成员）">国家级创新实验计划项目（成员）</a-option>
-              <a-option value="省级创新实验计划项目（组长）">省级创新实验计划项目（组长）</a-option>
-              <a-option value="省级创新实验计划项目（成员）">省级创新实验计划项目（成员）</a-option>
-              <a-option value="校级创新实验计划项目（组长）">校级创新实验计划项目（组长）</a-option>
-              <a-option value="校级创新实验计划项目（成员）">校级创新实验计划项目（成员）</a-option>
-              <a-option value="创新创业训练项目结项（教务处证明）">创新创业训练项目结项（教务处证明）</a-option>
-              <a-option value="创新创业训练项目结项（创新网截图）">创新创业训练项目结项（创新网截图）</a-option>
-              <a-option value="国际组织一学年实习">国际组织一学年实习</a-option>
-              <a-option value="国际组织半年（超一学期）实习">国际组织半年（超一学期）实习</a-option>
-              <a-option value="国际组织实习证明（满学年）">国际组织实习证明（满学年）</a-option>
-              <a-option value="国际组织实习证明（半年）">国际组织实习证明（半年）</a-option>
-              <a-option value="参军入伍满 1 年（含）服兵役">参军入伍满 1 年（含）服兵役</a-option>
-              <a-option value="参军入伍满 2 年（含）服兵役">参军入伍满 2 年（含）服兵役</a-option>
-              <a-option value="服兵役证明（1-2 年）">服兵役证明（1-2 年）</a-option>
-              <a-option value="服兵役证明（2 年以上）">服兵役证明（2 年以上）</a-option>
-              <a-option value="志愿服务时长">志愿服务时长</a-option>
-              <a-option value="国家级志愿服务个人表彰">国家级志愿服务个人表彰</a-option>
-              <a-option value="省级志愿服务团队表彰（队长）">省级志愿服务团队表彰（队长）</a-option>
-              <a-option value="省级志愿服务团队表彰（队员）">省级志愿服务团队表彰（队员）</a-option>
-              <a-option value="校级志愿服务个人表彰">校级志愿服务个人表彰</a-option>
-              <a-option value="抢险救灾志愿服务突出表现">抢险救灾志愿服务突出表现</a-option>
-              <a-option value="国家级优秀三好学生">国家级优秀三好学生</a-option>
-              <a-option value="国家级优秀共产党员">国家级优秀共产党员</a-option>
-              <a-option value="国家级‘自强之星’">国家级‘自强之星’</a-option>
-              <a-option value="省级优秀学生干部">省级优秀学生干部</a-option>
-              <a-option value="省级优秀团员">省级优秀团员</a-option>
-              <a-option value="省级社会实践优秀个人">省级社会实践优秀个人</a-option>
-              <a-option value="校级三好学生">校级三好学生</a-option>
-              <a-option value="校级优秀学生干部">校级优秀学生干部</a-option>
-              <a-option value="国家级五四红旗团支部（集体）">国家级五四红旗团支部（集体）</a-option>
-              <a-option value="省级优秀班集体（集体）">省级优秀班集体（集体）</a-option>
-              <a-option value="校级优秀团支部书记">校级优秀团支部书记</a-option>
-              <a-option value="院学生会执行主席（任职 1 学年）">院学生会执行主席（任职 1 学年）</a-option>
-              <a-option value="团总支书记（任职 1 学年）">团总支书记（任职 1 学年）</a-option>
-              <a-option value="校学生会主席团成员（任职 1 学年）">校学生会主席团成员（任职 1 学年）</a-option>
-              <a-option value="班长（任职 1 学年）">班长（任职 1 学年）</a-option>
-              <a-option value="团支部书记（任职半学年）">团支部书记（任职半学年）</a-option>
-              <a-option value="党支部书记（任职 1 学年）">党支部书记（任职 1 学年）</a-option>
-              <a-option value="社团社长（任职 1 学年）">社团社长（任职 1 学年）</a-option>
-              <a-option value="院学生会部长（辅导员打分 90+）">院学生会部长（辅导员打分 90+）</a-option>
-              <a-option value="班委（任职 1 学年）">班委（任职 1 学年）</a-option>
-              <a-option value="系团总支副书记（任职 1 学年）">系团总支副书记（任职 1 学年）</a-option>
-              <a-option value="国际级体育团体冠军">国际级体育团体冠军</a-option>
-              <a-option value="国际级体育团体亚军">国际级体育团体亚军</a-option>
-              <a-option value="国家级体育团体冠军">国家级体育团体冠军</a-option>
-              <a-option value="国家级体育团体季军">国家级体育团体季军</a-option>
-              <a-option value="国际级体育比赛第四至八名">国际级体育比赛第四至八名</a-option>
-              <a-option value="国家级体育个人亚军">国家级体育个人亚军</a-option>
-              <a-option value="国家级体育个人季军">国家级体育个人季军</a-option>
-              <a-option value="厦门大学代表国际体育比赛获奖">厦门大学代表国际体育比赛获奖</a-option>
-              <a-option value="厦门大学代表国家级体育比赛获奖">厦门大学代表国家级体育比赛获奖</a-option>
-              <a-option value="体育团体项目（5 人以内）获奖">体育团体项目（5 人以内）获奖</a-option>
+              <a-option value="期刊论文发表（A 类）">{{ $t('material.tag.paper.journalA') }}</a-option>
+              <a-option value="会议论文收录（B 类）">{{ $t('material.tag.paper.conferenceB') }}</a-option>
+              <a-option value="会议论文收录（C 类）">{{ $t('material.tag.paper.conferenceC') }}</a-option>
+              <a-option value="Nature/Science/Cell 主刊论文">{{ $t('material.tag.paper.nsc') }}</a-option>
+              <a-option value="Cell 子刊论文（IF≥10）">{{ $t('material.tag.paper.cellSub') }}</a-option>
+              <a-option value="国家发明专利授权（第一作者）">{{ $t('material.tag.patent.nationalFirst') }}</a-option>
+              <a-option value="国家发明专利授权（独立作者）">{{ $t('material.tag.patent.nationalIndep') }}</a-option>
+              <a-option value="高水平中文学术期刊论文">{{ $t('material.tag.paper.chineseHigh') }}</a-option>
+              <a-option value="信息与通信工程国际期刊论文">{{ $t('material.tag.paper.iceInt') }}</a-option>
+              <a-option value="国家级 A + 类竞赛一等奖及以上">{{ $t('material.tag.competition.nationalAPlusFirst') }}</a-option>
+              <a-option value="国家级 A 类竞赛二等奖">{{ $t('material.tag.competition.nationalASecond') }}</a-option>
+              <a-option value="省级 A 类竞赛一等奖及以上">{{ $t('material.tag.competition.provincialAFirst') }}</a-option>
+              <a-option value="省级 A - 类竞赛二等奖">{{ $t('material.tag.competition.provincialAMinusSecond') }}</a-option>
+              <a-option value="ICPC 亚洲区域赛获奖">{{ $t('material.tag.competition.icpcAsia') }}</a-option>
+              <a-option value="CCPC 竞赛获奖">{{ $t('material.tag.competition.ccpc') }}</a-option>
+              <a-option value="ICPC 全球总决赛获奖">{{ $t('material.tag.competition.icpcWorld') }}</a-option>
+              <a-option value="CCF CSP 认证前 0.2%（等同国一）">{{ $t('material.tag.csp.top02') }}</a-option>
+              <a-option value="CCF CSP 认证前 1.5%（等同国二）">{{ $t('material.tag.csp.top15') }}</a-option>
+              <a-option value="中国国际大学生创新大赛团体获奖">{{ $t('material.tag.innovation.intlGroup') }}</a-option>
+              <a-option value="挑战杯学术科技作品竞赛个人获奖">{{ $t('material.tag.innovation.challengeCupIndividual') }}</a-option>
+              <a-option value="挑战杯创业计划大赛团队获奖">{{ $t('material.tag.innovation.challengeCupGroup') }}</a-option>
+              <a-option value="国家级创新实验计划项目（组长）">{{ $t('material.tag.project.nationalLeader') }}</a-option>
+              <a-option value="国家级创新实验计划项目（成员）">{{ $t('material.tag.project.nationalMember') }}</a-option>
+              <a-option value="省级创新实验计划项目（组长）">{{ $t('material.tag.project.provincialLeader') }}</a-option>
+              <a-option value="省级创新实验计划项目（成员）">{{ $t('material.tag.project.provincialMember') }}</a-option>
+              <a-option value="校级创新实验计划项目（组长）">{{ $t('material.tag.project.schoolLeader') }}</a-option>
+              <a-option value="校级创新实验计划项目（成员）">{{ $t('material.tag.project.schoolMember') }}</a-option>
+              <a-option value="创新创业训练项目结项（教务处证明）">{{ $t('material.tag.project.completionJiaowu') }}</a-option>
+              <a-option value="创新创业训练项目结项（创新网截图）">{{ $t('material.tag.project.completionScreenshot') }}</a-option>
+              <a-option value="国际组织一学年实习">{{ $t('material.tag.internship.intlYear') }}</a-option>
+              <a-option value="国际组织半年（超一学期）实习">{{ $t('material.tag.internship.intlHalfYearPlus') }}</a-option>
+              <a-option value="国际组织实习证明（满学年）">{{ $t('material.tag.internship.intlProofYear') }}</a-option>
+              <a-option value="国际组织实习证明（半年）">{{ $t('material.tag.internship.intlProofHalfYear') }}</a-option>
+              <a-option value="参军入伍满 1 年（含）服兵役">{{ $t('material.tag.military.oneYear') }}</a-option>
+              <a-option value="参军入伍满 2 年（含）服兵役">{{ $t('material.tag.military.twoYears') }}</a-option>
+              <a-option value="服兵役证明（1-2 年）">{{ $t('material.tag.military.proofOneTwo') }}</a-option>
+              <a-option value="服兵役证明（2 年以上）">{{ $t('material.tag.military.proofTwoPlus') }}</a-option>
+              <a-option value="志愿服务时长">{{ $t('material.tag.volunteer.hours') }}</a-option>
+              <a-option value="国家级志愿服务个人表彰">{{ $t('material.tag.volunteer.nationalIndividual') }}</a-option>
+              <a-option value="省级志愿服务团队表彰（队长）">{{ $t('material.tag.volunteer.provincialTeamLeader') }}</a-option>
+              <a-option value="省级志愿服务团队表彰（队员）">{{ $t('material.tag.volunteer.provincialTeamMember') }}</a-option>
+              <a-option value="校级志愿服务个人表彰">{{ $t('material.tag.volunteer.schoolIndividual') }}</a-option>
+              <a-option value="抢险救灾志愿服务突出表现">{{ $t('material.tag.volunteer.disasterRelief') }}</a-option>
+              <a-option value="国家级优秀三好学生">{{ $t('material.tag.honor.nationalMeritStudent') }}</a-option>
+              <a-option value="国家级优秀共产党员">{{ $t('material.tag.honor.nationalPartyMember') }}</a-option>
+              <a-option value="国家级‘自强之星’">{{ $t('material.tag.honor.nationalSelfImprovement') }}</a-option>
+              <a-option value="省级优秀学生干部">{{ $t('material.tag.honor.provincialStudentCadre') }}</a-option>
+              <a-option value="省级优秀团员">{{ $t('material.tag.honor.provincialLeagueMember') }}</a-option>
+              <a-option value="省级社会实践优秀个人">{{ $t('material.tag.honor.provincialSocialPractice') }}</a-option>
+              <a-option value="校级三好学生">{{ $t('material.tag.honor.schoolMeritStudent') }}</a-option>
+              <a-option value="校级优秀学生干部">{{ $t('material.tag.honor.schoolStudentCadre') }}</a-option>
+              <a-option value="国家级五四红旗团支部（集体）">{{ $t('material.tag.honor.nationalRedFlag') }}</a-option>
+              <a-option value="省级优秀班集体（集体）">{{ $t('material.tag.honor.provincialClass') }}</a-option>
+              <a-option value="校级优秀团支部书记">{{ $t('material.tag.honor.schoolLeagueSecretary') }}</a-option>
+              <a-option value="院学生会执行主席（任职 1 学年）">{{ $t('material.tag.work.collegeChair') }}</a-option>
+              <a-option value="团总支书记（任职 1 学年）">{{ $t('material.tag.work.leagueSecretary') }}</a-option>
+              <a-option value="校学生会主席团成员（任职 1 学年）">{{ $t('material.tag.work.schoolPresidium') }}</a-option>
+              <a-option value="班长（任职 1 学年）">{{ $t('material.tag.work.monitor') }}</a-option>
+              <a-option value="团支部书记（任职半学年）">{{ $t('material.tag.work.branchSecretaryHalf') }}</a-option>
+              <a-option value="党支部书记（任职 1 学年）">{{ $t('material.tag.work.partySecretary') }}</a-option>
+              <a-option value="社团社长（任职 1 学年）">{{ $t('material.tag.work.clubPresident') }}</a-option>
+              <a-option value="院学生会部长（辅导员打分 90+）">{{ $t('material.tag.work.collegeMinister') }}</a-option>
+              <a-option value="班委（任职 1 学年）">{{ $t('material.tag.work.classCommittee') }}</a-option>
+              <a-option value="系团总支副书记（任职 1 学年）">{{ $t('material.tag.work.deptDeputySecretary') }}</a-option>
+              <a-option value="国际级体育团体冠军">{{ $t('material.tag.sports.intlTeamChamp') }}</a-option>
+              <a-option value="国际级体育团体亚军">{{ $t('material.tag.sports.intlTeamRunnerUp') }}</a-option>
+              <a-option value="国家级体育团体冠军">{{ $t('material.tag.sports.nationalTeamChamp') }}</a-option>
+              <a-option value="国家级体育团体季军">{{ $t('material.tag.sports.nationalTeamThird') }}</a-option>
+              <a-option value="国际级体育比赛第四至八名">{{ $t('material.tag.sports.intlTop8') }}</a-option>
+              <a-option value="国家级体育个人亚军">{{ $t('material.tag.sports.nationalIndepRunnerUp') }}</a-option>
+              <a-option value="国家级体育个人季军">{{ $t('material.tag.sports.nationalIndepThird') }}</a-option>
+              <a-option value="厦门大学代表国际体育比赛获奖">{{ $t('material.tag.sports.xmuIntl') }}</a-option>
+              <a-option value="厦门大学代表国家级体育比赛获奖">{{ $t('material.tag.sports.xmuNational') }}</a-option>
+              <a-option value="体育团体项目（5 人以内）获奖">{{ $t('material.tag.sports.teamSmall') }}</a-option>
             </a-select>
           </a-form-item>
         </a-form>
       </div>
+
+      <a-modal
+        v-model:visible="showVolunteerModal"
+        :title="$t('material.upload.fetchVolunteerHours')"
+        @ok="handleFetchVolunteerHours"
+        :confirm-loading="volunteerLoading"
+      >
+        <a-form :model="volunteerForm" layout="vertical">
+          <a-form-item field="username" :label="$t('material.upload.volunteerUsername')">
+            <a-input v-model="volunteerForm.username" :placeholder="$t('material.upload.volunteerUsernamePlaceholder')" />
+          </a-form-item>
+          <a-form-item field="password" :label="$t('material.upload.volunteerPassword')">
+            <a-input-password v-model="volunteerForm.password" :placeholder="$t('material.upload.volunteerPasswordPlaceholder')" />
+          </a-form-item>
+        </a-form>
+        <template #footer>
+          <a-button @click="showVolunteerModal = false">{{ $t('material.upload.cancel') }}</a-button>
+          <a-button type="primary" :loading="volunteerLoading" @click="handleFetchVolunteerHours">
+            {{ $t('material.upload.confirm') }}
+          </a-button>
+        </template>
+      </a-modal>
 
       <!-- 操作按钮 -->
       <div class="actions-section">
@@ -206,11 +247,13 @@
 <script lang="ts" setup>
 import { llmFormRecognition } from '@/api/form'
 import { uploadMaterial } from '@/api/material'
-import { type UploadFileResponse, checkFileExists, uploadFile } from '@/api/upload'
+import { checkFileExists, uploadFile, type UploadFileResponse } from '@/api/upload'
+import { fetchVolunteerHours, type VolunteerHoursResponse } from '@/api/volunteer'
 import { Message } from '@arco-design/web-vue'
 import type { UploadRequestOption } from '@arco-design/web-vue/es/upload'
 import SparkMD5 from 'spark-md5'
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 interface FileItem {
   uid: string
@@ -227,11 +270,16 @@ interface UploadedFile {
   status: 'uploaded' | 'exists'
 }
 
+const VOLUNTEER_CATEGORY = '综合表现加分-志愿服务'
+
 const fileList = ref<FileItem[]>([])
 const uploadedFiles = ref<UploadedFile[]>([])
 const uploading = ref(false)
 const showSuccessModal = ref(false)
+const showVolunteerModal = ref(false)
+const volunteerLoading = ref(false)
 const formRef = ref()
+const { t } = useI18n()
 
 const form = reactive({
   title: '',
@@ -240,16 +288,45 @@ const form = reactive({
   tags: [] as string[],
 })
 
-const formRules = {
-  title: [{ required: true, message: '请输入材料标题' }],
-  category: [{ required: true, message: '请选择材料类别' }],
-}
-
-const formValid = computed(() => {
-  return form.title.trim() && form.category
+const volunteerForm = reactive({
+  username: '',
+  password: '',
 })
 
-// 计算文件MD5
+const volunteerHours = ref<VolunteerHoursResponse | null>(null)
+
+const formRules = {
+  title: [{ required: true, message: t('material.upload.rules.title') }],
+  category: [{ required: true, message: t('material.upload.rules.category') }],
+  description: [
+    {
+      validator: (value: string, cb: (message?: string) => void) => {
+        if (form.category === VOLUNTEER_CATEGORY) {
+          if (!volunteerHours.value) {
+            cb(t('material.upload.validator.volunteerInfo'))
+            return
+          }
+          if (!value?.trim()) {
+            cb(t('material.upload.validator.description'))
+            return
+          }
+        }
+        cb()
+      },
+    },
+  ],
+}
+
+const isVolunteerCategory = computed(() => form.category === VOLUNTEER_CATEGORY)
+
+const formValid = computed(() => {
+  if (!form.title.trim() || !form.category) return false
+  if (isVolunteerCategory.value) {
+    return Boolean(volunteerHours.value) && Boolean(form.description.trim())
+  }
+  return true
+})
+
 const calculateFileMD5 = (file: File): Promise<string> => {
   return new Promise((resolve, reject) => {
     const spark = new SparkMD5.ArrayBuffer()
@@ -268,7 +345,7 @@ const calculateFileMD5 = (file: File): Promise<string> => {
 const beforeUpload = (file: File) => {
   const isLt10M = file.size / 1024 / 1024 < 10
   if (!isLt10M) {
-    Message.error('文件大小不能超过10MB')
+    Message.error(t('material.upload.error.fileSize'))
     return false
   }
   return true
@@ -284,7 +361,6 @@ const handleFileRemove = (file: FileItem) => {
     fileList.value.splice(index, 1)
   }
 
-  // 同时从已上传文件列表中移除
   const uploadedIndex = uploadedFiles.value.findIndex((item) => item.name === file.name)
   if (uploadedIndex !== -1) {
     uploadedFiles.value.splice(uploadedIndex, 1)
@@ -293,46 +369,32 @@ const handleFileRemove = (file: FileItem) => {
 
 const handleFileUpload = async (options: UploadRequestOption & { fileItem?: any }) => {
   console.log('[handleFileUpload] start', options)
-  const { file, fileItem, onProgress, onSuccess, onError } = options
+  const { file, fileItem } = options
   let fileObj: File
 
-  // 根据 Arco 官方文档，优先取 option.file
   if (file) {
     fileObj = file as File
-    console.log('[handleFileUpload] using option.file', fileObj.name)
   } else if (fileItem?.file) {
     fileObj = fileItem.file as File
-    console.log('[handleFileUpload] using fileItem.file', fileObj.name)
   } else if ((fileItem as any)?.originFile) {
     fileObj = (fileItem as any).originFile as File
-    console.log('[handleFileUpload] using fileItem.originFile', fileObj.name)
   } else {
-    console.error('[handleFileUpload] No valid file found', options)
-    onError?.(new Error('No valid file provided for upload'))
+    Message.error(t('material.upload.error.missingFile'))
     return
   }
 
   try {
-    console.log('[handleFileUpload] calculating MD5 for', fileObj.name)
-    // 计算文件MD5
     const md5 = await calculateFileMD5(fileObj)
-    console.log('[handleFileUpload] MD5 calculated:', md5)
-
-    // 先检查文件是否存在
-    console.log('[handleFileUpload] checking if file exists')
     const checkResponse = await checkFileExists({ md5, filename: fileObj.name })
-    console.log('[handleFileUpload] checkFileExists response:', checkResponse)
     const { exists: fileExists, file_id: existingFileId, url: existingFileUrl } = checkResponse.data
 
     if (fileExists) {
-      // 文件已存在，直接返回成功
       const response: UploadFileResponse = {
         file_id: existingFileId!,
         url: existingFileUrl!,
         md5,
       }
 
-      // 添加到已上传文件列表
       uploadedFiles.value.push({
         file_id: response.file_id,
         name: fileObj.name,
@@ -340,21 +402,14 @@ const handleFileUpload = async (options: UploadRequestOption & { fileItem?: any 
         status: 'exists',
       })
 
-      // 同步更新 fileList 中对应文件状态为 done，以显示 √
       const target = fileList.value.find((f) => f.name === fileObj.name)
       if (target) {
         target.status = 'done'
       }
-
-      console.log('[handleFileUpload] file exists, skipping upload')
       return
     }
 
-    // 文件不存在，调用真正的上传API
-    console.log('[handleFileUpload] file not exists, starting upload')
     const uploadResponse = await uploadFile(fileObj, (progress: number) => {
-      console.log('[handleFileUpload] upload progress:', progress)
-      // 上传完成后将 fileList 中对应文件状态改为 done，以显示 √
       if (progress === 100) {
         const target = fileList.value.find((f) => f.name === fileObj.name)
         if (target) {
@@ -363,17 +418,15 @@ const handleFileUpload = async (options: UploadRequestOption & { fileItem?: any 
       }
     })
 
-    // 添加到已上传文件列表
     uploadedFiles.value.push({
       file_id: uploadResponse.data.file_id,
       name: fileObj.name,
       size: fileObj.size,
-      status: 'uploaded', // 状态保持类型兼容，并可在界面通过已上传样式显示√
+      status: 'uploaded',
     })
-
-    console.log('[handleFileUpload] upload finished:', uploadResponse.data)
   } catch (error) {
     console.error('[handleFileUpload] error:', error)
+    Message.error(t('material.upload.error.uploadFailed'))
   }
 }
 
@@ -397,6 +450,40 @@ const deleteUploadedFile = (index: number) => {
   uploadedFiles.value.splice(index, 1)
 }
 
+const openVolunteerModal = () => {
+  volunteerForm.username = ''
+  volunteerForm.password = ''
+  showVolunteerModal.value = true
+}
+
+const prependVolunteerDescription = () => {
+  if (!volunteerHours.value) return ''
+  return t('material.upload.volunteerSummary', {
+    total: volunteerHours.value.total_hours,
+    credit: volunteerHours.value.credit_hours,
+    honor: volunteerHours.value.honor_hours,
+  })
+}
+
+const handleFetchVolunteerHours = async () => {
+  if (!volunteerForm.username || !volunteerForm.password) {
+    Message.error(t('material.upload.error.volunteerAuth'))
+    return
+  }
+  volunteerLoading.value = true
+  try {
+    const { data } = await fetchVolunteerHours({ ...volunteerForm })
+    volunteerHours.value = data
+    showVolunteerModal.value = false
+    console.log('[Zyh365] ', prependVolunteerDescription())
+    Message.success(t('material.upload.success.volunteerFetch'))
+  } catch (error) {
+    Message.error(t('material.upload.error.volunteerFetch'))
+  } finally {
+    volunteerLoading.value = false
+  }
+}
+
 const handleReset = () => {
   fileList.value = []
   uploadedFiles.value = []
@@ -404,12 +491,15 @@ const handleReset = () => {
   form.description = ''
   form.category = ''
   form.tags = []
+  volunteerHours.value = null
+  showVolunteerModal.value = false
+  volunteerLoading.value = false
   formRef.value?.resetFields()
 }
 
 const handleStartRecognition = async () => {
   if (uploadedFiles.value.length === 0) {
-    Message.error('请先上传文件')
+    Message.error(t('material.upload.error.noFile'))
     return
   }
   try {
@@ -422,45 +512,65 @@ const handleStartRecognition = async () => {
       form.category = category || ''
       form.tags = Array.isArray(tags) ? tags : []
       form.description = description || ''
-      Message.success('识别完成，已填充表单')
+      Message.success(t('material.upload.success.recognition'))
     } else {
-      Message.error('识别结果格式不正确')
+      Message.error(t('material.upload.error.recognitionFormat'))
     }
   } catch (err) {
     console.error(err)
-    Message.error('识别失败，请重试')
+    Message.error(t('material.upload.error.recognitionFailed'))
   } finally {
     uploading.value = false
   }
 }
 
+watch(
+  () => form.category,
+  (val) => {
+    if (val !== VOLUNTEER_CATEGORY) {
+      volunteerHours.value = null
+    }
+  }
+)
+
 const handleSubmit = async () => {
   if (uploadedFiles.value.length === 0) {
-    Message.error('请先上传文件')
+    Message.error(t('material.upload.error.noFile'))
     return
   }
 
   if (!formValid.value) {
-    Message.error('请填写完整的材料信息')
+    Message.error(t('material.upload.error.incompleteForm'))
     return
+  }
+
+  let descriptionToSubmit = form.description
+
+  if (isVolunteerCategory.value) {
+    const volunteerInfo = prependVolunteerDescription()
+    if (!volunteerInfo) {
+      Message.error(t('material.upload.error.volunteerSync'))
+      return
+    }
+    const userDescription = form.description?.trim() ?? ''
+    descriptionToSubmit = [volunteerInfo, userDescription].filter(Boolean).join('\n')
   }
 
   uploading.value = true
   try {
-    // 调用材料上传API
     await uploadMaterial({
       title: form.title,
-      description: form.description,
+      description: descriptionToSubmit,
       category: form.category,
       tags: form.tags,
       files: uploadedFiles.value.map((file) => file.file_id),
     })
 
-    Message.success('材料上传成功！')
+    Message.success(t('material.upload.success.upload'))
     showSuccessModal.value = true
     handleReset()
   } catch (error) {
-    Message.error('上传失败，请重试')
+    Message.error(t('material.upload.error.uploadFailed'))
   } finally {
     uploading.value = false
   }
@@ -519,7 +629,8 @@ const handleSubmit = async () => {
     }
 
     .upload-hint {
-      width: 500px;
+      max-width: 100%;
+      padding: 0 20px;
       font-size: 14px;
       color: #86909c;
     }
@@ -586,6 +697,26 @@ const handleSubmit = async () => {
     margin-top: 16px;
   }
 
+  .volunteer-helper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+
+    &__desc {
+      color: #86909c;
+      font-size: 12px;
+    }
+  }
+
+  .volunteer-extra {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #86909c;
+    font-size: 12px;
+  }
+
   .actions-section {
     margin-top: 24px;
     display: flex;
@@ -615,7 +746,6 @@ const handleSubmit = async () => {
   }
 }
 
-// 移动端适配
 @media (max-width: 768px) {
   .material-upload {
     padding: 12px;

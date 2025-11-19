@@ -48,7 +48,7 @@ func UserProjectsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer rows.Close()
 
-	var projects []Project
+	projects := make([]Project, 0)
 	for rows.Next() {
 		var p Project
 		if err := rows.Scan(&p.ID, &p.Name); err != nil {
@@ -99,7 +99,7 @@ func UserActivitiesHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer rows.Close()
 
-	var activities []Activity
+	activities := make([]Activity, 0)
 	for rows.Next() {
 		var a Activity
 		if err := rows.Scan(&a.ID, &a.Content, &a.Time); err != nil {
@@ -143,7 +143,7 @@ func UserTeamsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer rows.Close()
 
-	var teams []Team
+	teams := make([]Team, 0)
 	for rows.Next() {
 		var t Team
 		if err := rows.Scan(&t.ID, &t.Name); err != nil {
@@ -219,22 +219,34 @@ func UserInfoHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// 初始化三条记录（带完整信息）
+	// 初始化记录
 	db.Exec(`INSERT OR IGNORE INTO users (
-		username, password, name, avatar, job, organization, location, email, introduction, personalWebsite,
-		jobName, organizationName, locationName, phone, registrationDate, accountId, certification, role
-	) VALUES 
-		('admin', 'admin', '管理员', 'https://example.com/admin.png', '系统管理员', 'HCIBGA', '上海',
-		'admin@example.com', '系统管理员账户', 'https://hcibga.example.com', '管理员', 'HCIBGA公司', '上海市',
-		'13800138000', '2025-01-01', '1', 1, 'admin'),
+			username, password, name, avatar, job, organization, location, email, introduction, personalWebsite,
+			jobName, organizationName, locationName, phone, registrationDate, accountId, certification, role
+		) VALUES
+			('admin', 'admin', '管理员', 'https://example.com/admin.png', '系统管理员', 'HCIBGA', '上海',
+			'admin@example.com', '系统管理员账户', 'https://hcibga.example.com', '管理员', 'HCIBGA公司', '上海市',
+			'13800138000', '2025-01-01', '1', 1, 'admin'),
 
-		('reviewer', 'reviewer', '审核员', 'https://example.com/reviewer.png', '资料审核员', 'HCIBGA', '北京',
-		'reviewer@example.com', '负责审核材料的账户', 'https://hcibga.example.com', '审核员', 'HCIBGA公司', '北京市',
-		'13900139000', '2025-01-02', '2', 1, 'reviewer'),
+			('reviewer', 'reviewer', '审核员', 'https://example.com/reviewer.png', '资料审核员', 'HCIBGA', '北京',
+			'reviewer@example.com', '负责审核材料的账户', 'https://hcibga.example.com', '审核员', 'HCIBGA公司', '北京市',
+			'13900139000', '2025-01-02', '2', 1, 'reviewer'),
 
-		('user', 'user', '普通用户', 'https://example.com/user.png', '工程师', 'HCIBGA', '广州',
-		'user@example.com', '普通用户账户', 'https://hcibga.example.com', '前端工程师', 'HCIBGA公司', '广州市',
-		'13700137000', '2025-01-03', '3', 0, 'user')`)
+			('reviewer1', 'reviewer', '审核员', 'https://example.com/reviewer.png', '资料审核员', 'HCIBGA', '北京',
+			'reviewer@example.com', '负责审核材料的账户', 'https://hcibga.example.com', '审核员', 'HCIBGA公司', '北京市',
+			'13900139000', '2025-01-02', '21', 1, 'reviewer'),
+
+			('reviewer2', 'reviewer', '审核员', 'https://example.com/reviewer.png', '资料审核员', 'HCIBGA', '北京',
+			'reviewer@example.com', '负责审核材料的账户', 'https://hcibga.example.com', '审核员', 'HCIBGA公司', '北京市',
+			'13900139000', '2025-01-02', '22', 1, 'reviewer'),
+
+			('reviewer3', 'reviewer', '审核员', 'https://example.com/reviewer.png', '资料审核员', 'HCIBGA', '北京',
+			'reviewer@example.com', '负责审核材料的账户', 'https://hcibga.example.com', '审核员', 'HCIBGA公司', '北京市',
+			'13900139000', '2025-01-02', '23', 1, 'reviewer'),
+
+			('user', 'user', '普通用户', 'https://example.com/user.png', '工程师', 'HCIBGA', '广州',
+			'user@example.com', '普通用户账户', 'https://hcibga.example.com', '前端工程师', 'HCIBGA公司', '广州市',
+			'13700137000', '2025-01-03', '3', 0, 'user')`)
 
 	// 根据 accountId 查询完整用户记录
 	row := db.QueryRow(`SELECT 

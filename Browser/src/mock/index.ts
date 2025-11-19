@@ -4,6 +4,7 @@ import './material'
 import './message-box'
 import './upload'
 import './user'
+import './volunteer'
 
 import '@/views/list/card/mock'
 import '@/views/list/search-table/mock'

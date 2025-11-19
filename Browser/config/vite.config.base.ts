@@ -42,4 +42,7 @@ export default defineConfig({
       },
     },
   },
+  preview: {
+    allowedHosts: ['vintces.icu'],
+  },
 })

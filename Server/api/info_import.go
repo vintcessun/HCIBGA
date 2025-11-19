@@ -55,7 +55,7 @@ func ImportExcelHandler(w http.ResponseWriter, r *http.Request) {
 
 	// 解析 Excel 并写入数据库
 	importedRows := 0
-	var errors []string
+	errors := make([]string, 0)
 	func() {
 		// 打开 Excel 文件
 		xlFile, err := excelize.OpenFile(dstPath)
@@ -135,7 +135,7 @@ func ImportTxtHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var lines int
-	var errors []string
+	errors := make([]string, 0)
 
 	// splitLines 按行分割字符串
 	splitLines := func(s string) []string {

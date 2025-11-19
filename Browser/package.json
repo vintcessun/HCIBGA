@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite --config ./config/vite.config.dev.ts",
     "build": "vue-tsc --noEmit --skipLibCheck && vite build --config ./config/vite.config.prod.ts",
+    "pro": "npm run build && vite preview --config ./config/vite.config.prod.ts --host 0.0.0.0 --port 5173",
     "lint-staged": "npx lint-staged",
     "prepare": "husky install",
     "build:normal": "vite build --config ./config/vite.config.prod.ts",

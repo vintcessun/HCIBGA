@@ -495,12 +495,14 @@ func UserLatestActivityHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// 初始化示例活动数据（仅用于测试）
-	db.Exec(`INSERT OR IGNORE INTO user_activities (
-		id, userId, type, title, timestamp, description, status
-	) VALUES 
-	('act_001', ?, 'material', '提交了材料《项目计划书》', '2025-11-14T10:00:00Z', '提交了项目计划书用于评审', 'completed'),
-	('act_002', ?, 'review', '审核了材料《设计文档》', '2025-11-13T15:30:00Z', '设计文档审核通过', 'approved')`, req.AccountId, req.AccountId)
+	// 初始化示例活动数据（仅用于测试） - 已按要求注释
+	/*
+		 db.Exec(`INSERT OR IGNORE INTO user_activities (
+			id, userId, type, title, timestamp, description, status
+		) VALUES
+		('act_001', ?, 'material', '提交了材料《项目计划书》', '2025-11-14T10:00:00Z', '提交了项目计划书用于评审', 'completed'),
+		('act_002', ?, 'review', '审核了材料《设计文档》', '2025-11-13T15:30:00Z', '设计文档审核通过', 'approved')`, req.AccountId, req.AccountId)
+	*/
 
 	rows, err := db.Query(`SELECT id, type, title, timestamp, description, status 
 		FROM user_activities WHERE userId = ? ORDER BY timestamp DESC`, req.AccountId)
@@ -519,7 +521,7 @@ func UserLatestActivityHandler(w http.ResponseWriter, r *http.Request) {
 		Status      string `json:"status"`
 	}
 
-	var activities []Activity
+	activities := make([]Activity, 0)
 	for rows.Next() {
 		var a Activity
 		if err := rows.Scan(&a.ID, &a.Type, &a.Title, &a.Timestamp, &a.Description, &a.Status); err != nil {
@@ -602,14 +604,18 @@ func MyProjectListHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// 在查询前先写入一些示例数据
-	db.Exec(`INSERT OR REPLACE INTO projects (id, name, description, peopleNumber, ownerAccountId) VALUES
-		(1, '项目A', '这是项目A的描述', 5, ?),
-		(2, '项目B', '这是项目B的描述', 3, ?)`, req.AccountId, req.AccountId)
+	// 在查询前先写入一些示例数据 - 已按要求注释
+	/*
+		db.Exec(`INSERT OR REPLACE INTO projects (id, name, description, peopleNumber, ownerAccountId) VALUES
+			(1, '项目A', '这是项目A的描述', 5, ?),
+			(2, '项目B', '这是项目B的描述', 3, ?)`, req.AccountId, req.AccountId)
+	*/
 
-	db.Exec(`INSERT OR REPLACE INTO project_contributors (projectId, name, email, avatar) VALUES
-		(1, '张三', 'zhangsan@example.com', 'https://example.com/avatar1.png'),
-		(1, '李四', 'lisi@example.com', 'https://example.com/avatar2.png')`)
+	/*
+		db.Exec(`INSERT OR REPLACE INTO project_contributors (projectId, name, email, avatar) VALUES
+			(1, '张三', 'zhangsan@example.com', 'https://example.com/avatar1.png'),
+			(1, '李四', 'lisi@example.com', 'https://example.com/avatar2.png')`)
+	*/
 
 	// 查询项目
 	rows, err := db.Query(`SELECT id, name, description, peopleNumber FROM projects WHERE ownerAccountId = ?`, req.AccountId)
@@ -619,9 +625,10 @@ func MyProjectListHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer rows.Close()
 
-	var projects []MyProjectRecord
+	projects := make([]MyProjectRecord, 0)
 	for rows.Next() {
 		var p MyProjectRecord
+		p.Contributors = make([]UserSetting, 0)
 		if err := rows.Scan(&p.ID, &p.Name, &p.Description, &p.PeopleNumber); err != nil {
 			http.Error(w, "Row scan failed: "+err.Error(), http.StatusInternalServerError)
 			return
@@ -706,10 +713,12 @@ func MyTeamListHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// 在查询前先写入一些示例数据
-	db.Exec(`INSERT OR REPLACE INTO teams (id, avatar, name, peopleNumber, ownerAccountId) VALUES
-		(101, 'https://example.com/team1.png', '研发一组', 8, ?),
-		(102, 'https://example.com/team2.png', '设计团队', 5, ?)`, req.AccountId, req.AccountId)
+	// 在查询前先写入一些示例数据 - 已按要求注释
+	/*
+		db.Exec(`INSERT OR REPLACE INTO teams (id, avatar, name, peopleNumber, ownerAccountId) VALUES
+			(101, 'https://example.com/team1.png', '研发一组', 8, ?),
+			(102, 'https://example.com/team2.png', '设计团队', 5, ?)`, req.AccountId, req.AccountId)
+	*/
 
 	// 查询团队
 	rows, err := db.Query(`SELECT id, avatar, name, peopleNumber FROM teams WHERE ownerAccountId = ?`, req.AccountId)
@@ -719,7 +728,7 @@ func MyTeamListHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer rows.Close()
 
-	var teams []MyTeamRecord
+	teams := make([]MyTeamRecord, 0)
 	for rows.Next() {
 		var t MyTeamRecord
 		if err := rows.Scan(&t.ID, &t.Avatar, &t.Name, &t.PeopleNumber); err != nil {
@@ -821,13 +830,17 @@ func UserCertificationHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// 插入示例数据
-	db.Exec(`INSERT OR REPLACE INTO enterprise_certification (accountId, accountType, status, time, legalPerson, certificateType, authenticationNumber, enterpriseName) VALUES
-		(?, 1, 2, '2025-11-14 10:00:00', '王五', '营业执照', '91320100MA1X0XXXX', '示例科技有限公司')`, req.AccountId)
+	// 插入示例数据 - 已按要求注释
+	/*
+		db.Exec(`INSERT OR REPLACE INTO enterprise_certification (accountId, accountType, status, time, legalPerson, certificateType, authenticationNumber, enterpriseName) VALUES
+			(?, 1, 2, '2025-11-14 10:00:00', '王五', '营业执照', '91320100MA1X0XXXX', '示例科技有限公司')`, req.AccountId)
+	*/
 
-	db.Exec(`INSERT OR REPLACE INTO certification_records (accountId, certificationType, certificationContent, status, time) VALUES
-		(?, 1, '企业营业执照', 2, '2025-11-14 10:00:00'),
-		(?, 2, '税务登记证', 1, '2025-11-10 09:00:00')`, req.AccountId, req.AccountId)
+	/*
+		db.Exec(`INSERT OR REPLACE INTO certification_records (accountId, certificationType, certificationContent, status, time) VALUES
+			(?, 1, '企业营业执照', 2, '2025-11-14 10:00:00'),
+			(?, 2, '税务登记证', 1, '2025-11-10 09:00:00')`, req.AccountId, req.AccountId)
+	*/
 
 	// 查询企业认证信息
 	var enterpriseInfo EnterpriseCertificationModel
@@ -845,7 +858,7 @@ func UserCertificationHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer rows.Close()
 
-	var records []CertificationRecord
+	records := make([]CertificationRecord, 0)
 	for rows.Next() {
 		var rec CertificationRecord
 		if err := rows.Scan(&rec.CertificationType, &rec.CertificationContent, &rec.Status, &rec.Time); err != nil {
@@ -1043,7 +1056,7 @@ func QRAuthResultHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer conn.Close()
 
-	if err := conn.WriteMessage(websocket.TextMessage, []byte("profile "+data.Session)); err != nil {
+	if err := conn.WriteMessage(websocket.TextMessage, []byte("profile_lnt "+data.Session)); err != nil {
 		http.Error(w, "Failed to send profile: "+err.Error(), http.StatusInternalServerError)
 		return
 	}

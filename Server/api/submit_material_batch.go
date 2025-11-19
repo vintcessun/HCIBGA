@@ -49,7 +49,7 @@ func SubmitMaterialBatchHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer rows.Close()
 
-	var items []BatchItem
+	items := make([]BatchItem, 0)
 	for rows.Next() {
 		var item BatchItem
 		err := rows.Scan(&item.ID, &item.Name, &item.Status, &item.Reviewer)

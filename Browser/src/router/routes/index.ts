@@ -1,7 +1,7 @@
 import type { RouteRecordNormalized } from 'vue-router'
 
+import BONUS from './modules/bonus'
 import INFO_MANAGE from './modules/info'
-import SUBMIT_MATERIAL from './modules/submit-material'
 import USER from './modules/user'
 
 const modules = import.meta.glob('./modules/*.ts', { eager: true })
@@ -20,7 +20,7 @@ function formatModules(_modules: any, result: RouteRecordNormalized[]) {
 }
 
 export const appRoutes: RouteRecordNormalized[] = [
-  ...new Set([...formatModules(modules, []), USER as any, SUBMIT_MATERIAL as any, INFO_MANAGE as any]),
+  ...new Set([...formatModules(modules, []), USER as any, INFO_MANAGE as any, BONUS as any]),
 ]
 
 export const appExternalRoutes: RouteRecordNormalized[] = formatModules(externalModules, [])
