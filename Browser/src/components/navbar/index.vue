@@ -90,7 +90,7 @@
             <a-doption>
               <a-space @click="switchGit">
                 <icon-github />
-                <span>开源地址</span>
+                <span>{{ $t('navbar.action.github') }}</span>
               </a-space>
             </a-doption>
             <a-doption>

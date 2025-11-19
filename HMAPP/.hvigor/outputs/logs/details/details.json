@@ -10,7 +10,8 @@
       }
     ],
     "NATIVE_COMPILER": "Default",
-    "BUILD_MODE": "debug"
+    "BUILD_MODE": "debug",
+    "USE_NORMALIZED_OHMURL": true
   },
   "HVIGOR": {
     "IS_INCREMENTAL": true,
@@ -19,22 +20,24 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "1043bfc77febe75fafec0c4309faccf1": {
-        "CreateModuleInfo": 838800,
-        "ConfigureCmake": 302700,
-        "PreCheckSyscap": 524500,
-        "ProcessIntegratedHsp": 944200,
-        "BuildNativeWithCmake": 277600,
-        "SyscapTransform": 12137700,
-        "ProcessStartupConfig": 1949900,
-        "BuildNativeWithNinja": 597100,
-        "BuildJS": 1747700,
-        "CompileArkTS": 32259353900,
-        "ProcessCompiledResources": 674000,
-        "PackageHap": 343521200,
-        "PackingCheck": 6086100,
-        "SignHap": 785982100,
-        "CollectDebugSymbol": 1522500,
-        "assembleHap": 364500
+        "CreateModuleInfo": 585900,
+        "ConfigureCmake": 195800,
+        "PreCheckSyscap": 208900,
+        "ProcessIntegratedHsp": 780300,
+        "BuildNativeWithCmake": 218600,
+        "SyscapTransform": 1343200,
+        "ProcessStartupConfig": 1240100,
+        "BuildNativeWithNinja": 352000,
+        "CompileResource": 254796500,
+        "BuildJS": 1636400,
+        "CompileArkTS": 782890600,
+        "GeneratePkgModuleJson": 2354400,
+        "ProcessCompiledResources": 616000,
+        "PackageHap": 35622100,
+        "PackingCheck": 4156800,
+        "SignHap": 136254600,
+        "CollectDebugSymbol": 826200,
+        "assembleHap": 154600
       }
     },
     "APIS": [
@@ -45,8 +48,6 @@
       "getAllNodes",
       "getRootNode",
       "getNodeName",
-      "getStartParams",
-      "buildFinished",
       "getNodePath",
       "subNodes",
       "getExtraOption",
@@ -57,10 +58,11 @@
       "getParameter",
       "getProductName",
       "nodesEvaluated",
-      "getCommandEntryTask"
+      "getCommandEntryTask",
+      "getStartParams"
     ],
     "CONFIG_PROPERTIES": {},
-    "BUILD_ID": "202511121852258780",
-    "TOTAL_TIME": 80301761400
+    "TOTAL_TIME": 1370369600,
+    "BUILD_ID": "202511191414262790"
   }
 }

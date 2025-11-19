@@ -1,3 +1,4 @@
+import { getToken } from '@/utils/auth'
 import axios from 'axios'
 
 export interface MessageRecord {
@@ -14,7 +15,8 @@ export interface MessageRecord {
 export type MessageListType = MessageRecord[]
 
 export function queryMessageList() {
-  return axios.post<MessageListType>('/api/message/list')
+  const accountId = getToken() || ''
+  return axios.post<MessageListType>('/api/message/list', { accountId })
 }
 
 interface MessageStatus {
@@ -22,5 +24,6 @@ interface MessageStatus {
 }
 
 export function setMessageStatus(data: MessageStatus) {
-  return axios.post<MessageListType>('/api/message/read', data)
+  const accountId = getToken() || ''
+  return axios.post<MessageListType>('/api/message/read', { accountId, ...data })
 }

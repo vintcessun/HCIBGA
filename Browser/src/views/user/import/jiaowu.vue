@@ -1,6 +1,6 @@
 <template>
   <div class="import-page">
-    <a-card class="general-card" title="教务系统导入">
+    <a-card class="general-card" :title="t('user.import.jiaowu.title')">
       <a-upload
         :file-list="fileList"
         :before-upload="beforeUpload"
@@ -15,13 +15,15 @@
             <div class="upload-icon">
               <icon-upload />
             </div>
-            <div class="upload-text">点击上传</div>
+            <div class="upload-text">{{ t('user.import.jiaowu.upload.text') }}</div>
           </div>
         </template>
       </a-upload>
 
       <div class="actions-section">
-        <a-button type="primary" :loading="uploading" :disabled="uploadedFiles.length === 0" @click="handleSubmit">提交</a-button>
+        <a-button type="primary" :loading="uploading" :disabled="uploadedFiles.length === 0" @click="handleSubmit">
+          {{ t('user.import.jiaowu.submit') }}
+        </a-button>
       </div>
     </a-card>
   </div>
@@ -33,6 +35,9 @@ import { Message } from '@arco-design/web-vue'
 import type { UploadRequestOption } from '@arco-design/web-vue/es/upload'
 import SparkMD5 from 'spark-md5'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 interface FileItem {
   uid: string
@@ -69,7 +74,7 @@ const calculateFileMD5 = (file: File): Promise<string> => {
 const beforeUpload = (file: File) => {
   const isLt10M = file.size / 1024 / 1024 < 10
   if (!isLt10M) {
-    Message.error('文件大小不能超过10MB')
+    Message.error(t('user.import.jiaowu.error.fileSize'))
     return false
   }
   return true
@@ -129,16 +134,16 @@ const handleFileUpload = async (options: UploadRequestOption) => {
 
 const handleSubmit = async () => {
   if (uploadedFiles.value.length === 0) {
-    Message.error('请先上传文件')
+    Message.error(t('user.import.jiaowu.error.noFile'))
     return
   }
   uploading.value = true
   try {
-    Message.success('文件提交成功！')
+    Message.success(t('user.import.jiaowu.success.submit'))
     fileList.value = []
     uploadedFiles.value = []
   } catch (error) {
-    Message.error('提交失败，请重试')
+    Message.error(t('user.import.jiaowu.error.submit'))
   } finally {
     uploading.value = false
   }

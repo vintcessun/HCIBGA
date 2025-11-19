@@ -11024,3 +11024,2319 @@ Require stack:
 [2025-11-12T18:53:46.230] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
 [2025-11-12T18:53:46.230] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
 [2025-11-12T18:53:46.230] [DEBUG] debug-file - worker[14] exits with exit code 1.
+[2025-11-19T14:11:33.375] [DEBUG] debug-file - java daemon tryConnect failed Error: connect ECONNREFUSED 127.0.0.1:45050
+[2025-11-19T14:11:35.940] [DEBUG] debug-file - java daemon started at port 45050 pid 6612
+[2025-11-19T14:11:28.245] [DEBUG] debug-file - env: nodejsVersion=v18.20.1
+[2025-11-19T14:11:28.669] [DEBUG] debug-file - env: daemon=true
+[2025-11-19T14:11:28.249] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '5.1.0',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2025-11-19T14:11:36.582] [DEBUG] debug-file - session manager: set active socket. socketId=cSVNtgksubGDFoR6AAAB
+[2025-11-19T14:11:36.594] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-11-19T14:11:36.602] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined
+}
+[2025-11-19T14:11:36.605] [DEBUG] debug-file - Cache service initialization finished in 4 ms 
+[2025-11-19T14:11:36.607] [DEBUG] debug-file - hvigorfile, resolving D:\Scripts\HCIBGA\HMAPP\hvigorfile.ts
+[2025-11-19T14:12:14.561] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-11-19T14:12:14.562] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-11-19T14:12:14.720] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-11-19T14:12:14.721] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-11-19T14:12:14.721] [DEBUG] debug-file - Product 'default' build option initialized
+[2025-11-19T14:12:14.721] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-11-19T14:12:14.723] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2025-11-19T14:12:14.729] [DEBUG] debug-file - D:\Scripts\HCIBGA\HMAPP\build\cache\default\remote_hsp\remoteHspCache.json not exists.
+[2025-11-19T14:12:14.731] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2025-11-19T14:12:14.735] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2025-11-19T14:12:14.738] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-11-19T14:12:14.777] [DEBUG] debug-file - Sdk init in 48 ms 
+[2025-11-19T14:12:14.782] [DEBUG] debug-file - Project task initialization takes 4 ms 
+[2025-11-19T14:12:14.782] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-11-19T14:12:14.782] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\Scripts\HCIBGA\HMAPP\hvigorfile.ts
+[2025-11-19T14:12:14.782] [DEBUG] debug-file - hvigorfile, resolve finished D:\Scripts\HCIBGA\HMAPP\hvigorfile.ts
+[2025-11-19T14:12:14.782] [DEBUG] debug-file - hvigorfile, resolving D:\Scripts\HCIBGA\HMAPP\entry\hvigorfile.ts
+[2025-11-19T14:12:14.788] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-11-19T14:12:14.788] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-11-19T14:12:14.788] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js
+- D:\Scripts\HCIBGA\HMAPP\hvigorfile.ts
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor\src\base\boot\index.js
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\cluster\worker-process-lifecycle.js
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\process\daemon-process-boot-script.js
+[2025-11-19T14:12:14.799] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-11-19T14:12:14.799] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-19T14:12:14.800] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2025-11-19T14:12:14.800] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-11-19T14:12:14.800] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2025-11-19T14:12:14.800] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-11-19T14:12:14.800] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2025-11-19T14:12:14.800] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-19T14:12:14.800] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2025-11-19T14:12:14.800] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-11-19T14:12:14.800] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2025-11-19T14:12:14.801] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-11-19T14:12:14.801] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-11-19T14:12:14.801] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-19T14:12:14.801] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2025-11-19T14:12:14.801] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-11-19T14:12:14.801] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2025-11-19T14:12:14.801] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-11-19T14:12:14.801] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2025-11-19T14:12:14.805] [DEBUG] debug-file - Module entry task initialization takes 3 ms 
+[2025-11-19T14:12:14.805] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-11-19T14:12:14.805] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\Scripts\HCIBGA\HMAPP\entry\hvigorfile.ts
+[2025-11-19T14:12:14.805] [DEBUG] debug-file - hvigorfile, resolve finished D:\Scripts\HCIBGA\HMAPP\entry\hvigorfile.ts
+[2025-11-19T14:12:14.821] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 16 ms 
+[2025-11-19T14:12:14.821] [DEBUG] debug-file - project has submodules:entry
+[2025-11-19T14:12:14.822] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-11-19T14:12:14.826] [DEBUG] debug-file - load to the disk finished
+[2025-11-19T14:12:14.827] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-11-19T14:12:14.834] [DEBUG] debug-file - Module HMAPP Collected Dependency: 
+[2025-11-19T14:12:14.834] [DEBUG] debug-file - Module HMAPP's total dependency: 0
+[2025-11-19T14:12:14.835] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-11-19T14:12:14.837] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2025-11-19T14:12:14.837] [DEBUG] debug-file - Module entry's total dependency: 0
+[2025-11-19T14:12:14.840] [DEBUG] debug-file - Configuration phase cost:38 s 235 ms 
+[2025-11-19T14:12:14.842] [DEBUG] debug-file - Configuration task cost before running: 38 s 246 ms 
+[2025-11-19T14:12:14.847] [DEBUG] debug-file - Executing task :entry:default@PreBuild
+[2025-11-19T14:12:14.848] [DEBUG] debug-file - Task 'entry:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:14.852] [DEBUG] debug-file - entry:default@PreBuild is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\AppScope\app.json5' has been changed.
+[2025-11-19T14:12:14.852] [DEBUG] debug-file - Incremental task entry:default@PreBuild pre-execution cost: 3 ms .
+[2025-11-19T14:12:15.008] [DEBUG] debug-file - current product is not Atomic service.
+[2025-11-19T14:12:15.009] [DEBUG] debug-file - Use tool [win32: JAVA_HOME, CLASSPATH]
+ [
+  { JAVA_HOME: 'D:\\Software\\Huawei\\DevEco Studio\\jbr' },
+  { CLASSPATH: undefined }
+]
+[2025-11-19T14:12:15.009] [DEBUG] debug-file - Use tool [win32: NODE_HOME]
+ [ { NODE_HOME: 'D:\\Software\\Huawei\\DevEco Studio\\tools\\node' } ]
+[2025-11-19T14:12:15.009] [DEBUG] debug-file - entry : default@PreBuild cost memory 4.5277252197265625
+[2025-11-19T14:12:15.009] [DEBUG] debug-file - runTaskFromQueue task cost before running: 38 s 413 ms 
+[2025-11-19T14:12:15.011] [INFO] debug-file - Finished :entry:default@PreBuild... after 163 ms 
+[2025-11-19T14:12:15.012] [DEBUG] debug-file - Executing task :entry:default@CreateModuleInfo
+[2025-11-19T14:12:15.012] [DEBUG] debug-file - Task 'entry:default@CreateModuleInfo' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:15.012] [DEBUG] debug-file - entry : default@CreateModuleInfo cost memory 0.04151153564453125
+[2025-11-19T14:12:15.013] [DEBUG] debug-file - runTaskFromQueue task cost before running: 38 s 416 ms 
+[2025-11-19T14:12:15.013] [INFO] debug-file - Finished :entry:default@CreateModuleInfo... after 1 ms 
+[2025-11-19T14:12:15.015] [DEBUG] debug-file - Executing task :entry:default@GenerateMetadata
+[2025-11-19T14:12:15.016] [DEBUG] debug-file - Task 'entry:default@GenerateMetadata' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:15.016] [DEBUG] debug-file - entry:default@GenerateMetadata is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\src\main\module.json5' has been changed.
+[2025-11-19T14:12:15.016] [DEBUG] debug-file - Incremental task entry:default@GenerateMetadata pre-execution cost: 1 ms .
+[2025-11-19T14:12:15.017] [DEBUG] debug-file - entry : default@GenerateMetadata cost memory 0.10318756103515625
+[2025-11-19T14:12:15.017] [DEBUG] debug-file - runTaskFromQueue task cost before running: 38 s 421 ms 
+[2025-11-19T14:12:15.018] [INFO] debug-file - Finished :entry:default@GenerateMetadata... after 3 ms 
+[2025-11-19T14:12:15.018] [DEBUG] debug-file - Executing task :entry:default@ConfigureCmake
+[2025-11-19T14:12:15.019] [DEBUG] debug-file - entry : default@ConfigureCmake cost memory 0.01611328125
+[2025-11-19T14:12:15.019] [DEBUG] debug-file - runTaskFromQueue task cost before running: 38 s 423 ms 
+[2025-11-19T14:12:15.019] [INFO] debug-file - Finished :entry:default@ConfigureCmake... after 1 ms 
+[2025-11-19T14:12:15.020] [DEBUG] debug-file - Executing task :entry:default@MergeProfile
+[2025-11-19T14:12:15.021] [DEBUG] debug-file - Task 'entry:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:15.021] [DEBUG] debug-file - entry:default@MergeProfile is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\AppScope\app.json5' has been changed.
+[2025-11-19T14:12:15.021] [DEBUG] debug-file - Incremental task entry:default@MergeProfile pre-execution cost: 1 ms .
+[2025-11-19T14:12:15.022] [DEBUG] debug-file - Change app api release type with 'Release'
+[2025-11-19T14:12:15.022] [DEBUG] debug-file - Change app compile API version with '6.0.0.47'
+[2025-11-19T14:12:15.022] [DEBUG] debug-file - Change app target API version with '50100018'
+[2025-11-19T14:12:15.022] [DEBUG] debug-file - Change app minimum API version with '50003015'
+[2025-11-19T14:12:15.022] [DEBUG] debug-file - Use cli appEnvironment
+[2025-11-19T14:12:15.024] [DEBUG] debug-file - entry : default@MergeProfile cost memory 0.273468017578125
+[2025-11-19T14:12:15.024] [DEBUG] debug-file - runTaskFromQueue task cost before running: 38 s 428 ms 
+[2025-11-19T14:12:15.025] [INFO] debug-file - Finished :entry:default@MergeProfile... after 5 ms 
+[2025-11-19T14:12:15.026] [DEBUG] debug-file - Executing task :entry:default@CreateBuildProfile
+[2025-11-19T14:12:15.026] [DEBUG] debug-file - Task 'entry:default@CreateBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:15.027] [DEBUG] debug-file - entry:default@CreateBuildProfile is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\AppScope\app.json5' has been changed.
+[2025-11-19T14:12:15.027] [DEBUG] debug-file - Incremental task entry:default@CreateBuildProfile pre-execution cost: 1 ms .
+[2025-11-19T14:12:15.027] [DEBUG] debug-file - entry : default@CreateBuildProfile cost memory 0.10146331787109375
+[2025-11-19T14:12:15.027] [DEBUG] debug-file - runTaskFromQueue task cost before running: 38 s 431 ms 
+[2025-11-19T14:12:15.027] [INFO] debug-file - Finished :entry:default@CreateBuildProfile... after 2 ms 
+[2025-11-19T14:12:15.029] [DEBUG] debug-file - Executing task :entry:default@PreCheckSyscap
+[2025-11-19T14:12:15.029] [DEBUG] debug-file - entry : default@PreCheckSyscap cost memory 0.01634979248046875
+[2025-11-19T14:12:15.029] [DEBUG] debug-file - runTaskFromQueue task cost before running: 38 s 433 ms 
+[2025-11-19T14:12:15.030] [INFO] debug-file - Finished :entry:default@PreCheckSyscap... after 1 ms 
+[2025-11-19T14:12:15.031] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgContextInfo
+[2025-11-19T14:12:15.036] [DEBUG] debug-file - Task 'entry:default@GeneratePkgContextInfo' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:15.037] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgContextInfo pre-execution cost: 1 ms .
+[2025-11-19T14:12:15.037] [DEBUG] debug-file - entry : default@GeneratePkgContextInfo cost memory 0.2800750732421875
+[2025-11-19T14:12:15.037] [INFO] debug-file - UP-TO-DATE :entry:default@GeneratePkgContextInfo...  
+[2025-11-19T14:12:15.040] [DEBUG] debug-file - Executing task :entry:default@ProcessIntegratedHsp
+[2025-11-19T14:12:15.040] [DEBUG] debug-file - entry:default@ProcessIntegratedHsp is not up-to-date, since the output file 'D:\Scripts\HCIBGA\HMAPP\build\cache\default\integrated_hsp\integratedHspCache.json' does not exist.
+[2025-11-19T14:12:15.040] [DEBUG] debug-file - Incremental task entry:default@ProcessIntegratedHsp pre-execution cost: 1 ms .
+[2025-11-19T14:12:15.040] [DEBUG] debug-file - entry : default@ProcessIntegratedHsp cost memory 0.06418609619140625
+[2025-11-19T14:12:15.040] [DEBUG] debug-file - runTaskFromQueue task cost before running: 38 s 444 ms 
+[2025-11-19T14:12:15.041] [INFO] debug-file - Finished :entry:default@ProcessIntegratedHsp... after 1 ms 
+[2025-11-19T14:12:15.042] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithCmake
+[2025-11-19T14:12:15.042] [DEBUG] debug-file - entry : default@BuildNativeWithCmake cost memory 0.01753997802734375
+[2025-11-19T14:12:15.042] [DEBUG] debug-file - runTaskFromQueue task cost before running: 38 s 446 ms 
+[2025-11-19T14:12:15.042] [INFO] debug-file - Finished :entry:default@BuildNativeWithCmake... after 1 ms 
+[2025-11-19T14:12:15.043] [DEBUG] debug-file - Executing task :entry:default@MakePackInfo
+[2025-11-19T14:12:15.044] [DEBUG] debug-file - entry:default@MakePackInfo is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\AppScope\app.json5' has been changed.
+[2025-11-19T14:12:15.044] [DEBUG] debug-file - Incremental task entry:default@MakePackInfo pre-execution cost: 1 ms .
+[2025-11-19T14:12:15.045] [DEBUG] debug-file - Module Pack Info:  {
+  summary: {
+    app: { bundleName: 'c***A', bundleType: 'app', version: [Object] },
+    modules: [ [Object] ]
+  },
+  packages: [
+    {
+      deviceType: [Array],
+      moduleType: 'entry',
+      deliveryWithInstall: true,
+      name: 'entry-default'
+    }
+  ]
+}
+[2025-11-19T14:12:15.046] [DEBUG] debug-file - entry : default@MakePackInfo cost memory 0.15545654296875
+[2025-11-19T14:12:15.046] [DEBUG] debug-file - runTaskFromQueue task cost before running: 38 s 450 ms 
+[2025-11-19T14:12:15.047] [INFO] debug-file - Finished :entry:default@MakePackInfo... after 4 ms 
+[2025-11-19T14:12:15.047] [DEBUG] debug-file - Executing task :entry:default@SyscapTransform
+[2025-11-19T14:12:15.048] [DEBUG] debug-file - File: 'D:\Scripts\HCIBGA\HMAPP\entry\src\main\syscap.json' from 'sysCapJsonPath' is not exists, just ignore.
+[2025-11-19T14:12:15.048] [DEBUG] debug-file - Task 'entry:default@SyscapTransform' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:15.059] [DEBUG] debug-file - entry:default@SyscapTransform is not up-to-date, since the output file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\syscap\default\rpcid.sc' does not exist.
+[2025-11-19T14:12:15.059] [DEBUG] debug-file - Incremental task entry:default@SyscapTransform pre-execution cost: 11 ms .
+[2025-11-19T14:12:15.059] [DEBUG] debug-file - entry : default@SyscapTransform cost memory 0.1616363525390625
+[2025-11-19T14:12:15.059] [DEBUG] debug-file - runTaskFromQueue task cost before running: 38 s 463 ms 
+[2025-11-19T14:12:15.059] [INFO] debug-file - Finished :entry:default@SyscapTransform... after 12 ms 
+[2025-11-19T14:12:15.061] [DEBUG] debug-file - Executing task :entry:default@ProcessProfile
+[2025-11-19T14:12:15.061] [DEBUG] debug-file - Task 'entry:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:15.062] [DEBUG] debug-file - entry:default@ProcessProfile is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\merge_profile\default\module.json' has been changed.
+[2025-11-19T14:12:15.062] [DEBUG] debug-file - Incremental task entry:default@ProcessProfile pre-execution cost: 1 ms .
+[2025-11-19T14:12:15.063] [DEBUG] debug-file - [
+  'D:\\Software\\Huawei\\DevEco Studio\\tools\\node\\node.exe',
+  'D:\\Software\\Huawei\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\bin\\ark\\ts2abc.js',
+  '--target-api-version',
+  '15'
+]
+[2025-11-19T14:12:16.372] [DEBUG] debug-file - 12.0.6.0
+[2025-11-19T14:12:16.373] [DEBUG] debug-file - No need to add fake ui ability because of not in preview process.
+[2025-11-19T14:12:16.374] [DEBUG] debug-file - entry : default@ProcessProfile cost memory -9.100303649902344
+[2025-11-19T14:12:16.374] [DEBUG] debug-file - runTaskFromQueue task cost before running: 39 s 778 ms 
+[2025-11-19T14:12:16.374] [INFO] debug-file - Finished :entry:default@ProcessProfile... after 1 s 314 ms 
+[2025-11-19T14:12:16.375] [DEBUG] debug-file - Executing task :entry:default@ProcessRouterMap
+[2025-11-19T14:12:16.377] [DEBUG] debug-file - entry:default@ProcessRouterMap is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\src\main\module.json5' has been changed.
+[2025-11-19T14:12:16.377] [DEBUG] debug-file - Incremental task entry:default@ProcessRouterMap pre-execution cost: 2 ms .
+[2025-11-19T14:12:16.378] [DEBUG] debug-file - entry : default@ProcessRouterMap cost memory 0.13939666748046875
+[2025-11-19T14:12:16.378] [DEBUG] debug-file - runTaskFromQueue task cost before running: 39 s 782 ms 
+[2025-11-19T14:12:16.379] [INFO] debug-file - Finished :entry:default@ProcessRouterMap... after 4 ms 
+[2025-11-19T14:12:16.380] [DEBUG] debug-file - Executing task :entry:default@ProcessShareConfig
+[2025-11-19T14:12:16.381] [DEBUG] debug-file - entry:default@ProcessShareConfig is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\src\main\module.json5' has been changed.
+[2025-11-19T14:12:16.382] [DEBUG] debug-file - Incremental task entry:default@ProcessShareConfig pre-execution cost: 1 ms .
+[2025-11-19T14:12:16.382] [DEBUG] debug-file - entry : default@ProcessShareConfig cost memory 0.36013031005859375
+[2025-11-19T14:12:16.382] [DEBUG] debug-file - runTaskFromQueue task cost before running: 39 s 786 ms 
+[2025-11-19T14:12:16.383] [INFO] debug-file - Finished :entry:default@ProcessShareConfig... after 3 ms 
+[2025-11-19T14:12:16.383] [DEBUG] debug-file - Executing task :entry:default@ProcessStartupConfig
+[2025-11-19T14:12:16.383] [DEBUG] debug-file - Task 'entry:default@ProcessStartupConfig' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:16.384] [DEBUG] debug-file - entry:default@ProcessStartupConfig is not up-to-date, since the output file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\startup\default\startup_config.json' does not exist.
+[2025-11-19T14:12:16.384] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig pre-execution cost: 1 ms .
+[2025-11-19T14:12:16.385] [DEBUG] debug-file - entry : default@ProcessStartupConfig cost memory 0.15021514892578125
+[2025-11-19T14:12:16.385] [DEBUG] debug-file - runTaskFromQueue task cost before running: 39 s 789 ms 
+[2025-11-19T14:12:16.385] [INFO] debug-file - Finished :entry:default@ProcessStartupConfig... after 2 ms 
+[2025-11-19T14:12:16.386] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithNinja
+[2025-11-19T14:12:16.386] [DEBUG] debug-file - entry : default@BuildNativeWithNinja cost memory 0.02353668212890625
+[2025-11-19T14:12:16.386] [DEBUG] debug-file - runTaskFromQueue task cost before running: 39 s 790 ms 
+[2025-11-19T14:12:16.386] [INFO] debug-file - Finished :entry:default@BuildNativeWithNinja... after 1 ms 
+[2025-11-19T14:12:16.387] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@ProcessResource
+[2025-11-19T14:12:16.394] [DEBUG] debug-file - Executing task :entry:default@ProcessResource
+[2025-11-19T14:12:16.395] [DEBUG] debug-file - Task 'entry:default@ProcessResource' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:16.395] [DEBUG] debug-file - Incremental task entry:default@ProcessResource pre-execution cost: 1 ms .
+[2025-11-19T14:12:16.396] [DEBUG] debug-file - entry : default@ProcessResource cost memory 0.13592529296875
+[2025-11-19T14:12:16.397] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessResource...  
+[2025-11-19T14:12:16.398] [DEBUG] debug-file - Executing task :entry:default@GenerateLoaderJson
+[2025-11-19T14:12:16.399] [DEBUG] debug-file - Task 'entry:default@GenerateLoaderJson' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:16.403] [DEBUG] debug-file - entry:default@GenerateLoaderJson is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\router_map\default\temp-router-map.json' has been changed.
+[2025-11-19T14:12:16.403] [DEBUG] debug-file - Incremental task entry:default@GenerateLoaderJson pre-execution cost: 3 ms .
+[2025-11-19T14:12:16.406] [DEBUG] debug-file - entry : default@GenerateLoaderJson cost memory 0.6245803833007812
+[2025-11-19T14:12:16.406] [DEBUG] debug-file - runTaskFromQueue task cost before running: 39 s 810 ms 
+[2025-11-19T14:12:16.408] [INFO] debug-file - Finished :entry:default@GenerateLoaderJson... after 8 ms 
+[2025-11-19T14:12:16.408] [DEBUG] debug-file - Executing task :entry:default@ProcessLibs
+[2025-11-19T14:12:16.410] [DEBUG] debug-file - Incremental task entry:default@ProcessLibs pre-execution cost: 1 ms .
+[2025-11-19T14:12:16.410] [DEBUG] debug-file - entry : default@ProcessLibs cost memory 0.10790252685546875
+[2025-11-19T14:12:16.411] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessLibs...  
+[2025-11-19T14:12:16.411] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@CompileResource
+[2025-11-19T14:12:16.412] [DEBUG] debug-file - Executing task :entry:default@CompileResource
+[2025-11-19T14:12:16.415] [DEBUG] debug-file - entry:default@CompileResource is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\src\main\resources' has been changed.
+[2025-11-19T14:12:16.415] [DEBUG] debug-file - Incremental task entry:default@CompileResource pre-execution cost: 3 ms .
+[2025-11-19T14:12:16.418] [DEBUG] debug-file - Use tool [D:\Software\Huawei\DevEco Studio\sdk\default\openharmony\toolchains\restool.exe]
+ [
+  'D:\\Software\\Huawei\\DevEco Studio\\sdk\\default\\openharmony\\toolchains\\restool.exe',
+  '-l',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resConfig.json'
+]
+[2025-11-19T14:12:16.419] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 197902336,
+  heapTotal: 155807744,
+  heapUsed: 126245408,
+  external: 3057942,
+  arrayBuffers: 161355
+} os memoryUsage :39.12360763549805
+[2025-11-19T14:12:17.412] [DEBUG] debug-file - Info: Pack: normal pack mode
+
+[2025-11-19T14:12:18.029] [DEBUG] debug-file - Info: hardware concurrency count is : 16
+Info: thread count is : 16
+
+[2025-11-19T14:12:18.029] [DEBUG] debug-file - Info: thread pool is started
+
+[2025-11-19T14:12:18.030] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2025-11-19T14:12:18.034] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2025-11-19T14:12:18.034] [DEBUG] debug-file - Warning: 'D:\Scripts\HCIBGA\HMAPP\entry\src\main\resources\base\media\icon.png' is defined repeatedly.
+
+[2025-11-19T14:12:18.036] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2025-11-19T14:12:18.040] [DEBUG] debug-file - 11-19 14:12:18.040 53512  5768 E C01400/ImageTranscoderUtils: DecodeToRGBA IN
+11-19 14:12:18.040 53512  5768 E C01400/ImageTranscoderUtils: ImageFilter IN D:\Scripts\HCIBGA\HMAPP\AppScope\resources\base\media\icon.png
+
+[2025-11-19T14:12:18.045] [DEBUG] debug-file - 11-19 14:12:18.046 53512  5768 E C01400/ImageTranscoder: TranscodeSLR Only zoom-out is supported.
+
+[2025-11-19T14:12:18.046] [DEBUG] debug-file - Warning: ScaleImage failed, error message: INVALID_PARAMETERS, file path = D:\Scripts\HCIBGA\HMAPP\AppScope\resources\base\media\icon.png
+
+[2025-11-19T14:12:18.046] [DEBUG] debug-file - Warning: The width or height of the png file referenced by the icon exceeds the limit (41 pixels)
+at D:\Scripts\HCIBGA\HMAPP\AppScope\resources\base\media\icon.png
+
+[2025-11-19T14:12:18.047] [DEBUG] debug-file - Info: restool resources compile success.
+
+[2025-11-19T14:12:18.047] [DEBUG] debug-file - Info: thread pool is stopped
+
+[2025-11-19T14:12:18.104] [DEBUG] debug-file - entry : default@CompileResource cost memory -13.720962524414062
+[2025-11-19T14:12:18.104] [DEBUG] debug-file - runTaskFromQueue task cost before running: 41 s 508 ms 
+[2025-11-19T14:12:18.105] [INFO] debug-file - Finished :entry:default@CompileResource... after 1 s 693 ms 
+[2025-11-19T14:12:18.106] [DEBUG] debug-file - Executing task :entry:default@DoNativeStrip
+[2025-11-19T14:12:18.106] [DEBUG] debug-file - Task 'entry:default@DoNativeStrip' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:18.107] [DEBUG] debug-file - Incremental task entry:default@DoNativeStrip pre-execution cost: 1 ms .
+[2025-11-19T14:12:18.107] [DEBUG] debug-file - entry : default@DoNativeStrip cost memory 0.08982086181640625
+[2025-11-19T14:12:18.107] [INFO] debug-file - UP-TO-DATE :entry:default@DoNativeStrip...  
+[2025-11-19T14:12:18.108] [DEBUG] debug-file - Executing task :entry:default@CompileArkTS
+[2025-11-19T14:12:18.108] [DEBUG] debug-file - obfuscationOptions: undefined
+[2025-11-19T14:12:18.112] [DEBUG] debug-file - entry:default@CompileArkTS is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default' has been changed.
+[2025-11-19T14:12:18.112] [DEBUG] debug-file - Incremental task entry:default@CompileArkTS pre-execution cost: 2 ms .
+[2025-11-19T14:12:18.127] [DEBUG] debug-file - build config:
+[2025-11-19T14:12:18.127] [DEBUG] debug-file - {
+  moduleType: 'entry',
+  perf: 0,
+  targetName: '.default',
+  packageManagerType: 'ohpm',
+  localPropertiesPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\local.properties',
+  isPreview: false,
+  isOhosTest: false,
+  isLocalTest: false,
+  buildMode: 'Debug',
+  hotReloadBuild: undefined,
+  watchMode: 'false',
+  aceProfilePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resources\\base\\profile',
+  etsLoaderPath: 'D:\\Software\\Huawei\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader',
+  modulePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+  testFrameworkPar: {
+    testMode: undefined,
+    coveragePathFilter: undefined,
+    coverageMode: undefined
+  },
+  needCoverageInsert: false,
+  debugLine: false,
+  projectTopDir: 'D:\\Scripts\\HCIBGA\\HMAPP',
+  compileSdkVersion: 20,
+  compatibleSdkVersion: 15,
+  compatibleSdkVersionStage: undefined,
+  bundleName: 'c***A',
+  etsLoaderVersion: '6.0.0.47',
+  etsLoaderReleaseType: 'Release',
+  aotCompileMode: 'type',
+  apPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\modules.ap',
+  entryModuleName: 'entry',
+  entryModuleVersion: '1.0.0',
+  entryPackageName: 'entry',
+  allModuleNameHash: '09e1872cece30d186932e7ebb026d0a9',
+  externalApiPaths: [ 'D:\\Software\\Huawei\\DevEco Studio\\sdk\\default\\hms\\ets' ],
+  compilerTypes: [],
+  isCrossplatform: false,
+  hvigorPluginFile: undefined,
+  compilePluginPath: undefined,
+  buildGeneratedProfilePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\generated\\profile\\default',
+  bundleType: 'app',
+  arkTSVersion: undefined,
+  apiVersion: 20,
+  needCompleteSourcesMap: false,
+  isFaMode: false,
+  strictMode: {
+    caseSensitiveCheck: true,
+    useNormalizedOHMUrl: true,
+    noExternalImportByPath: true
+  },
+  buildDir: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build',
+  deviceTypes: [ 'phone', 'tablet', '2in1', 'wearable' ],
+  useNormalizedOHMUrl: true,
+  pkgContextInfo: {
+    '@ohos/hypium': {
+      packageName: '@ohos/hypium',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.21',
+      entryPath: 'index.js',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    '@ohos/hamock': {
+      packageName: '@ohos/hamock',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.0',
+      entryPath: 'index.ets',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    entry: {
+      packageName: 'entry',
+      bundleName: '*****',
+      moduleName: '',
+      version: '',
+      entryPath: 'src/main/',
+      isSO: false,
+      dependencyAlias: ''
+    }
+  },
+  ohPackagePathMap: {},
+  dependencyAliasMap: {},
+  permission: {
+    requestPermissions: [ [Object], [Object], [Object] ],
+    definePermissions: undefined
+  },
+  integratedHsp: false,
+  projectArkOption: undefined,
+  sourceMapDir: undefined,
+  branchElimination: false,
+  transformLib: undefined,
+  caseSensitiveCheck: true,
+  tsImportSendable: false,
+  resolveConflictMode: true,
+  depName2RootPath: {},
+  depName2DepInfo: {},
+  rootPathSet: [ 'D:\\Scripts\\HCIBGA\\HMAPP' ],
+  useNativeResolver: true,
+  shouldEmitJs: true,
+  useTscResolve: false,
+  singleFileEmit: false,
+  userProjectConfig: {
+    autoLazyImport: false,
+    allowEmptyBundleName: false,
+    reExportCheckMode: 'noCheck',
+    executionMode: 'memory',
+    usePathPlaceholder: false,
+    writeRollupCache: true,
+    isExpandImportEnabled: false,
+    expandImportExclude: '',
+    ignoreCrossplatformCheck: false,
+    isPreloadSoEnabled: false
+  },
+  skipOhModulesLint: false,
+  executionMode: 'memory',
+  autoLazyImport: false,
+  allowEmptyBundleName: false,
+  reExportCheckMode: 'noCheck',
+  usePathPlaceholder: false,
+  writeRollupCache: true,
+  isExpandImportEnabled: false,
+  expandImportExclude: '',
+  ignoreCrossplatformCheck: false,
+  isPreloadSoEnabled: false,
+  arkCompileCachePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule',
+  aceModuleJsonPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\ark_module.json',
+  appResource: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\ResourceTable.txt',
+  rawFileResource: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resources\\rawfile',
+  resourceTableHash: 'ebd6bf25fc27cffde567ec5b7a7b4837',
+  runtimeOS: 'HarmonyOS',
+  sdkInfo: 'false:20:6.0.0.47:Release',
+  aceModuleRoot: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\main\\ets',
+  compileMode: 'esmodule',
+  aceSuperVisualPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\main\\supervisual',
+  aceBuildJson: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\loader\\default\\loader.json',
+  cachePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule\\debug',
+  aceModuleBuild: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\loader_out\\default\\ets',
+  supportChunks: true,
+  declaredFilesPath: undefined,
+  shouldCollectDirectImportees: false,
+  isByteCodeHarOptimize: false,
+  expandImportPath: undefined,
+  pkgNameToPkgBriefInfo: {
+    entry: {
+      pkgRoot: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      originalSourceRoots: undefined,
+      sourceRoots: [Array],
+      pkgName: 'entry'
+    }
+  },
+  projectModel: {
+    'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\main': {
+      moduleName: 'entry',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    },
+    'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\src\\ohosTest\\ets': {
+      moduleName: 'entry_test',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    },
+    'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\ohosTest': {
+      moduleName: 'entry_test',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    },
+    'D:\\Scripts\\HCIBGA\\HMAPP\\entry': {
+      moduleName: 'entry',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    },
+    'D:\\Scripts\\HCIBGA\\HMAPP': {
+      moduleName: 'HMAPP',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    }
+  },
+  pkgJsonFileHash: '6a064a0450523b67c5ac0ad9931b82a3',
+  allModulePaths: [ 'D:\\Scripts\\HCIBGA\\HMAPP\\entry' ],
+  routerMap: {},
+  obfuscationOptions: undefined,
+  byteCodeHarToDependencyKeys: undefined,
+  compileBlockPkg: [],
+  mockParams: {
+    decorator: '@MockSetup',
+    packageName: '@ohos/hamock',
+    etsSourceRootPath: 'src/main/ets',
+    mockConfigPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\mock\\mock-config.json5',
+    mockConfigKey2ModuleInfo: {},
+    source2ModuleIdMap: {}
+  },
+  copyCodeResourceEnable: true,
+  copyCodeResourceExcludes: [],
+  copyCodeResourceIncludes: undefined,
+  uiTransformOptimization: false,
+  sdkPath: 'D:/Software/Huawei/DevEco Studio/sdk',
+  needPreloadSoFileSet: {},
+  preloadSoFilePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\preload\\default\\preload.json',
+  useSourceHash: false,
+  localModuleParamMap: {},
+  otherPaths: {
+    'entry/*': [
+      '..\\*',
+      '..\\..\\..\\build\\default\\generated\\profile\\default\\*'
+    ]
+  },
+  collectImportersConfig: undefined
+}
+[2025-11-19T14:12:18.128] [DEBUG] debug-file - Compile arkts with external api path: D:\Software\Huawei\DevEco Studio\sdk\default\hms\ets
+[2025-11-19T14:12:18.128] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2025-11-19T14:12:18.128] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2025-11-19T14:12:18.129] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2025-11-19T14:12:18.131] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2025-11-19T14:12:18.132] [DEBUG] debug-file - default@CompileArkTS work[0] is submitted.
+[2025-11-19T14:12:18.133] [DEBUG] debug-file - default@CompileArkTS work[0] is pushed to ready queue.
+[2025-11-19T14:12:18.133] [DEBUG] debug-file - A work dispatched to worker[15] failed because unable to get work from ready queue.
+[2025-11-19T14:12:18.133] [DEBUG] debug-file - A work dispatched to worker[14] failed because unable to get work from ready queue.
+[2025-11-19T14:12:18.133] [DEBUG] debug-file - A work dispatched to worker[13] failed because unable to get work from ready queue.
+[2025-11-19T14:12:18.133] [DEBUG] debug-file - A work dispatched to worker[12] failed because unable to get work from ready queue.
+[2025-11-19T14:12:18.133] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2025-11-19T14:12:18.133] [DEBUG] debug-file - A work dispatched to worker[10] failed because unable to get work from ready queue.
+[2025-11-19T14:12:18.133] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2025-11-19T14:12:18.133] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2025-11-19T14:12:18.133] [DEBUG] debug-file - A work dispatched to worker[7] failed because unable to get work from ready queue.
+[2025-11-19T14:12:18.133] [DEBUG] debug-file - A work dispatched to worker[6] failed because unable to get work from ready queue.
+[2025-11-19T14:12:18.133] [DEBUG] debug-file - A work dispatched to worker[5] failed because unable to get work from ready queue.
+[2025-11-19T14:12:18.133] [DEBUG] debug-file - Create  resident worker with id: 4.
+[2025-11-19T14:12:18.134] [DEBUG] debug-file - default@CompileArkTS work[0] has been dispatched to worker[4].
+[2025-11-19T14:12:18.134] [DEBUG] debug-file - default@CompileArkTS work[0] is dispatched.
+[2025-11-19T14:12:18.134] [DEBUG] debug-file - CopyResources startTime: 356278631789600
+[2025-11-19T14:12:18.134] [DEBUG] debug-file - default@CompileArkTS work[1] is submitted.
+[2025-11-19T14:12:18.135] [DEBUG] debug-file - default@CompileArkTS work[1] is pushed to ready queue.
+[2025-11-19T14:12:18.135] [DEBUG] debug-file - A work dispatched to worker[15] failed because unable to get work from ready queue.
+[2025-11-19T14:12:18.135] [DEBUG] debug-file - Create  resident worker with id: 14.
+[2025-11-19T14:12:18.135] [DEBUG] debug-file - default@CompileArkTS work[1] has been dispatched to worker[14].
+[2025-11-19T14:12:18.135] [DEBUG] debug-file - default@CompileArkTS work[1] is dispatched.
+[2025-11-19T14:12:18.136] [DEBUG] debug-file - entry : default@CompileArkTS cost memory 2.24639892578125
+[2025-11-19T14:12:18.137] [DEBUG] debug-file - Executing task :entry:default@BuildJS
+[2025-11-19T14:12:18.138] [DEBUG] debug-file - entry : default@BuildJS cost memory 0.13297271728515625
+[2025-11-19T14:12:18.138] [DEBUG] debug-file - runTaskFromQueue task cost before running: 41 s 542 ms 
+[2025-11-19T14:12:18.138] [INFO] debug-file - Finished :entry:default@BuildJS... after 2 ms 
+[2025-11-19T14:12:18.139] [DEBUG] debug-file - Executing task :entry:default@CacheNativeLibs
+[2025-11-19T14:12:18.140] [DEBUG] debug-file - Task 'entry:default@CacheNativeLibs' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:18.141] [DEBUG] debug-file - Incremental task entry:default@CacheNativeLibs pre-execution cost: 2 ms .
+[2025-11-19T14:12:18.141] [DEBUG] debug-file - entry : default@CacheNativeLibs cost memory 0.0994720458984375
+[2025-11-19T14:12:18.141] [INFO] debug-file - UP-TO-DATE :entry:default@CacheNativeLibs...  
+[2025-11-19T14:12:18.941] [DEBUG] debug-file - worker[14] has one work done.
+[2025-11-19T14:12:18.941] [DEBUG] debug-file - CopyResources is end, endTime: 356279438563000
+[2025-11-19T14:12:18.942] [DEBUG] debug-file - default@CompileArkTS work[1] done.
+[2025-11-19T14:12:18.942] [DEBUG] debug-file - A work dispatched to worker[14] failed because unable to get work from ready queue.
+[2025-11-19T14:12:45.925] [WARN] debug-file - [33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/entryability/EntryAbility.ets:12:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:65:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:93:21
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:95:29
+ The system capacity of this api 'picker' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:95:36
+ The system capacity of this api 'DocumentSaveOptions' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:96:17
+ The system capacity of this api 'newFileNames' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:99:44
+ The system capacity of this api 'picker' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:99:51
+ The system capacity of this api 'DocumentViewPicker' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:99:79
+ The system capacity of this api 'save' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:137:27
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:208:28
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:209:24
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:212:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:213:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:215:22
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:216:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:217:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:50:27
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:59:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:59:18
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:66:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:66:18
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:101:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:101:20
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/pages/Index.ets:189:9
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/pages/Index.ets:190:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/pages/Index.ets:200:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+
+[2025-11-19T14:12:45.926] [DEBUG] debug-file - Ark compile task finished.finished time is 356306422620500
+[2025-11-19T14:12:45.926] [DEBUG] debug-file - worker[4] has one work done.
+[2025-11-19T14:12:45.927] [DEBUG] debug-file - default@CompileArkTS work[0] done.
+[2025-11-19T14:12:45.928] [DEBUG] debug-file - A work dispatched to worker[4] failed because unable to get work from ready queue.
+[2025-11-19T14:12:45.929] [INFO] debug-file - Finished :entry:default@CompileArkTS... after 26 s 6 ms 
+[2025-11-19T14:12:45.929] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgModuleJson
+[2025-11-19T14:12:45.930] [DEBUG] debug-file - File: 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\preload\default\preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2025-11-19T14:12:45.930] [DEBUG] debug-file - Task 'entry:default@GeneratePkgModuleJson' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:45.930] [DEBUG] debug-file - entry:default@GeneratePkgModuleJson is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\module.json' has been changed.
+[2025-11-19T14:12:45.930] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgModuleJson pre-execution cost: 1 ms .
+[2025-11-19T14:12:45.932] [DEBUG] debug-file - entry : default@GeneratePkgModuleJson cost memory 0.10943603515625
+[2025-11-19T14:12:45.932] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 min 9 s 336 ms 
+[2025-11-19T14:12:45.933] [INFO] debug-file - Finished :entry:default@GeneratePkgModuleJson... after 4 ms 
+[2025-11-19T14:12:45.934] [DEBUG] debug-file - Executing task :entry:default@ProcessCompiledResources
+[2025-11-19T14:12:45.934] [DEBUG] debug-file - File: 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\preload\default\preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2025-11-19T14:12:45.934] [DEBUG] debug-file - Task 'entry:default@ProcessCompiledResources' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:12:45.934] [DEBUG] debug-file - entry : default@ProcessCompiledResources cost memory 0.06354522705078125
+[2025-11-19T14:12:45.934] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 min 9 s 338 ms 
+[2025-11-19T14:12:45.934] [INFO] debug-file - Finished :entry:default@ProcessCompiledResources... after 1 ms 
+[2025-11-19T14:12:45.936] [DEBUG] debug-file - Executing task :entry:default@PackageHap
+[2025-11-19T14:12:45.940] [DEBUG] debug-file - entry:default@PackageHap is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\module.json' has been changed.
+[2025-11-19T14:12:45.941] [DEBUG] debug-file - Incremental task entry:default@PackageHap pre-execution cost: 4 ms .
+[2025-11-19T14:12:45.942] [DEBUG] debug-file - Use tool [D:\Software\Huawei\DevEco Studio\sdk\default\openharmony\toolchains\lib\app_packing_tool.jar]
+ [
+  'java',
+  '-Dfile.encoding=GBK',
+  '-jar',
+  'D:\\Software\\Huawei\\DevEco Studio\\sdk\\default\\openharmony\\toolchains\\lib\\app_packing_tool.jar',
+  '--mode',
+  'hap',
+  '--force',
+  'true',
+  '--lib-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\stripped_native_libs\\default',
+  '--json-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\package\\default\\module.json',
+  '--resources-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resources',
+  '--index-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resources.index',
+  '--pack-info-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\outputs\\default\\pack.info',
+  '--out-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\outputs\\default\\entry-default-unsigned.hap',
+  '--ets-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\loader_out\\default\\ets',
+  '--pkg-context-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\loader\\default\\pkgContextInfo.json'
+]
+[2025-11-19T14:12:46.249] [DEBUG] debug-file - java daemon socket received message:{"code":0,"message":"pack success"}
+[2025-11-19T14:12:46.253] [DEBUG] debug-file - entry : default@PackageHap cost memory -0.0948028564453125
+[2025-11-19T14:12:46.253] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 min 9 s 657 ms 
+[2025-11-19T14:12:46.254] [INFO] debug-file - Finished :entry:default@PackageHap... after 318 ms 
+[2025-11-19T14:12:46.255] [DEBUG] debug-file - Executing task :entry:default@PackingCheck
+[2025-11-19T14:12:46.260] [DEBUG] debug-file - entry : default@PackingCheck cost memory -0.2339935302734375
+[2025-11-19T14:12:46.261] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 min 9 s 664 ms 
+[2025-11-19T14:12:46.261] [INFO] debug-file - Finished :entry:default@PackingCheck... after 6 ms 
+[2025-11-19T14:12:46.262] [DEBUG] debug-file - Executing task :entry:default@SignHap
+[2025-11-19T14:12:46.264] [DEBUG] debug-file - entry:default@SignHap is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\entry-default-unsigned.hap' has been changed.
+[2025-11-19T14:12:46.264] [DEBUG] debug-file - Incremental task entry:default@SignHap pre-execution cost: 2 ms .
+[2025-11-19T14:12:46.301] [DEBUG] debug-file - java daemon socket close code:1000 reason:close by user
+[2025-11-19T14:12:47.018] [DEBUG] debug-file - java daemon socket received message:{"code":0,"message":"verify profile success"}
+[2025-11-19T14:12:47.023] [DEBUG] debug-file - java daemon socket close code:1000 reason:close by user
+[2025-11-19T14:12:47.306] [DEBUG] debug-file - java daemon socket received message:{"code":0,"message":"sign app success"}
+[2025-11-19T14:12:47.306] [DEBUG] debug-file - entry : default@SignHap cost memory 0.6501541137695312
+[2025-11-19T14:12:47.307] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 min 10 s 710 ms 
+[2025-11-19T14:12:47.308] [INFO] debug-file - Finished :entry:default@SignHap... after 1 s 45 ms 
+[2025-11-19T14:12:47.309] [DEBUG] debug-file - Executing task :entry:default@CollectDebugSymbol
+[2025-11-19T14:12:47.310] [DEBUG] debug-file - entry : default@CollectDebugSymbol cost memory 0.1005859375
+[2025-11-19T14:12:47.310] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 min 10 s 714 ms 
+[2025-11-19T14:12:47.310] [INFO] debug-file - Finished :entry:default@CollectDebugSymbol... after 2 ms 
+[2025-11-19T14:12:47.311] [DEBUG] debug-file - Executing task :entry:assembleHap
+[2025-11-19T14:12:47.311] [DEBUG] debug-file - entry : assembleHap cost memory 0.01448822021484375
+[2025-11-19T14:12:47.311] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 min 10 s 714 ms 
+[2025-11-19T14:12:47.311] [INFO] debug-file - Finished :entry:assembleHap... after 1 ms 
+[2025-11-19T14:12:47.329] [INFO] debug-file - BUILD SUCCESSFUL in 1 min 10 s 732 ms 
+[2025-11-19T14:12:47.331] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\Scripts\HCIBGA\HMAPP\AppScope\app.json5 cache from map.
+[2025-11-19T14:12:47.332] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\module.json5 cache by regenerate.
+[2025-11-19T14:12:47.332] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\Scripts\HCIBGA\HMAPP\build-profile.json5 cache by regenerate.
+[2025-11-19T14:12:47.332] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\Scripts\HCIBGA\HMAPP\entry\build-profile.json5 cache by regenerate.
+[2025-11-19T14:12:47.332] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\resources\base\profile\main_pages.json cache by regenerate.
+[2025-11-19T14:12:47.332] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\Scripts\HCIBGA\HMAPP\hvigor\hvigor-config.json5 cache by regenerate.
+[2025-11-19T14:12:47.332] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\Scripts\HCIBGA\HMAPP\entry\src\mock\mock-config.json5 cache by regenerate.
+[2025-11-19T14:12:47.332] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\Scripts\HCIBGA\HMAPP\entry\oh-package.json5 cache by regenerate.
+[2025-11-19T14:12:47.333] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\Scripts\HCIBGA\HMAPP\oh-package.json5 cache by regenerate.
+[2025-11-19T14:12:47.333] [DEBUG] debug-file - Incremental task entry:default@PreBuild post-execution cost:3 ms .
+[2025-11-19T14:12:47.333] [DEBUG] debug-file - Update task entry:default@CreateModuleInfo output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\profile\default\ModuleInfo.ts cache.
+[2025-11-19T14:12:47.333] [DEBUG] debug-file - Incremental task entry:default@CreateModuleInfo post-execution cost:1 ms .
+[2025-11-19T14:12:47.333] [DEBUG] debug-file - Update task entry:default@GenerateMetadata input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\module.json5 cache from map.
+[2025-11-19T14:12:47.333] [DEBUG] debug-file - Update task entry:default@GenerateMetadata output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\hap_metadata\default\output_metadata.json cache.
+[2025-11-19T14:12:47.334] [DEBUG] debug-file - Incremental task entry:default@GenerateMetadata post-execution cost:1 ms .
+[2025-11-19T14:12:47.334] [DEBUG] debug-file - Update task entry:default@MergeProfile input file:D:\Scripts\HCIBGA\HMAPP\AppScope\app.json5 cache from map.
+[2025-11-19T14:12:47.334] [DEBUG] debug-file - Update task entry:default@MergeProfile input file:D:\Scripts\HCIBGA\HMAPP\build-profile.json5 cache by regenerate.
+[2025-11-19T14:12:47.334] [DEBUG] debug-file - Update task entry:default@MergeProfile input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\module.json5 cache by regenerate.
+[2025-11-19T14:12:47.334] [DEBUG] debug-file - Update task entry:default@MergeProfile output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\merge_profile\default\module.json cache.
+[2025-11-19T14:12:47.334] [DEBUG] debug-file - Incremental task entry:default@MergeProfile post-execution cost:1 ms .
+[2025-11-19T14:12:47.334] [DEBUG] debug-file - Update task entry:default@CreateBuildProfile input file:D:\Scripts\HCIBGA\HMAPP\AppScope\app.json5 cache from map.
+[2025-11-19T14:12:47.334] [DEBUG] debug-file - Update task entry:default@CreateBuildProfile input file:D:\Scripts\HCIBGA\HMAPP\build-profile.json5 cache by regenerate.
+[2025-11-19T14:12:47.334] [DEBUG] debug-file - Update task entry:default@CreateBuildProfile output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\profile\default\BuildProfile.ets cache.
+[2025-11-19T14:12:47.334] [DEBUG] debug-file - Incremental task entry:default@CreateBuildProfile post-execution cost:1 ms .
+[2025-11-19T14:12:47.335] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GeneratePkgContextInfo is up-to-date.
+[2025-11-19T14:12:47.335] [DEBUG] debug-file - Update task entry:default@ProcessIntegratedHsp output file:D:\Scripts\HCIBGA\HMAPP\build\cache\default\integrated_hsp\integratedHspCache.json cache.
+[2025-11-19T14:12:47.335] [DEBUG] debug-file - Incremental task entry:default@ProcessIntegratedHsp post-execution cost:1 ms .
+[2025-11-19T14:12:47.335] [DEBUG] debug-file - Update task entry:default@MakePackInfo input file:D:\Scripts\HCIBGA\HMAPP\AppScope\app.json5 cache from map.
+[2025-11-19T14:12:47.335] [DEBUG] debug-file - Update task entry:default@MakePackInfo input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\module.json5 cache by regenerate.
+[2025-11-19T14:12:47.336] [DEBUG] debug-file - Update task entry:default@MakePackInfo input file:D:\Scripts\HCIBGA\HMAPP\build-profile.json5 cache by regenerate.
+[2025-11-19T14:12:47.336] [DEBUG] debug-file - Update task entry:default@MakePackInfo input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\resources\base\profile\backup_config.json cache by regenerate.
+[2025-11-19T14:12:47.336] [DEBUG] debug-file - Update task entry:default@MakePackInfo output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\pack.info cache.
+[2025-11-19T14:12:47.336] [DEBUG] debug-file - Incremental task entry:default@MakePackInfo post-execution cost:2 ms .
+[2025-11-19T14:12:47.336] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:D:\Software\Huawei\DevEco Studio\sdk\default\openharmony\toolchains\syscap_tool.exe cache by regenerate.
+[2025-11-19T14:12:47.337] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:D:\Software\Huawei\DevEco Studio\sdk\default\openharmony\ets\api\device-define cache by regenerate.
+[2025-11-19T14:12:47.337] [DEBUG] debug-file - Update task entry:default@SyscapTransform output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\syscap\default\rpcid.sc cache.
+[2025-11-19T14:12:47.337] [DEBUG] debug-file - Incremental task entry:default@SyscapTransform post-execution cost:1 ms .
+[2025-11-19T14:12:47.337] [DEBUG] debug-file - Update task entry:default@ProcessProfile input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\merge_profile\default\module.json cache from map.
+[2025-11-19T14:12:47.338] [DEBUG] debug-file - Update task entry:default@ProcessProfile output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\process_profile\default\module.json cache.
+[2025-11-19T14:12:47.338] [DEBUG] debug-file - Incremental task entry:default@ProcessProfile post-execution cost:1 ms .
+[2025-11-19T14:12:47.338] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap input file:D:\Scripts\HCIBGA\HMAPP\entry\oh-package.json5 cache by regenerate.
+[2025-11-19T14:12:47.338] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap input file:D:\Scripts\HCIBGA\HMAPP\oh-package.json5 cache by regenerate.
+[2025-11-19T14:12:47.338] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\module.json5 cache from map.
+[2025-11-19T14:12:47.338] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:12:47.338] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\router_map\default\temp-router-map.json cache.
+[2025-11-19T14:12:47.339] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\router_map\default\loader-router-map.json cache.
+[2025-11-19T14:12:47.339] [DEBUG] debug-file - Incremental task entry:default@ProcessRouterMap post-execution cost:1 ms .
+[2025-11-19T14:12:47.339] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig input file:D:\Scripts\HCIBGA\HMAPP\entry\oh-package.json5 cache by regenerate.
+[2025-11-19T14:12:47.339] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig input file:D:\Scripts\HCIBGA\HMAPP\oh-package.json5 cache by regenerate.
+[2025-11-19T14:12:47.339] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\module.json5 cache from map.
+[2025-11-19T14:12:47.339] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:12:47.340] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\share_config\default\temp-share-config.json cache.
+[2025-11-19T14:12:47.340] [DEBUG] debug-file - Incremental task entry:default@ProcessShareConfig post-execution cost:1 ms .
+[2025-11-19T14:12:47.340] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:12:47.340] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\startup\default\startup_config.json cache.
+[2025-11-19T14:12:47.340] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig post-execution cost:1 ms .
+[2025-11-19T14:12:47.340] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessResource is up-to-date.
+[2025-11-19T14:12:47.341] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson input file:D:\Scripts\HCIBGA\HMAPP\entry\src\mock\mock-config.json5 cache by regenerate.
+[2025-11-19T14:12:47.341] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:12:47.341] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\router_map\default\temp-router-map.json cache from map.
+[2025-11-19T14:12:47.341] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\loader.json cache.
+[2025-11-19T14:12:47.341] [DEBUG] debug-file - Incremental task entry:default@GenerateLoaderJson post-execution cost:2 ms .
+[2025-11-19T14:12:47.342] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessLibs is up-to-date.
+[2025-11-19T14:12:47.342] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\resources cache from map.
+[2025-11-19T14:12:47.342] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\Scripts\HCIBGA\HMAPP\AppScope\resources cache by regenerate.
+[2025-11-19T14:12:47.343] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\process_profile\default\module.json cache by regenerate.
+[2025-11-19T14:12:47.344] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resConfig.json cache by regenerate.
+[2025-11-19T14:12:47.344] [DEBUG] debug-file - Update task entry:default@CompileResource output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default cache.
+[2025-11-19T14:12:47.347] [DEBUG] debug-file - Update task entry:default@CompileResource output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\r\default\ResourceTable.h cache.
+[2025-11-19T14:12:47.347] [DEBUG] debug-file - Update task entry:default@CompileResource output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\r\default cache.
+[2025-11-19T14:12:47.348] [DEBUG] debug-file - Incremental task entry:default@CompileResource post-execution cost:7 ms .
+[2025-11-19T14:12:47.348] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@DoNativeStrip is up-to-date.
+[2025-11-19T14:12:47.349] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default cache from map.
+[2025-11-19T14:12:47.350] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ResourceTable.txt cache by regenerate.
+[2025-11-19T14:12:47.350] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ark_module.json cache by regenerate.
+[2025-11-19T14:12:47.350] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2025-11-19T14:12:47.350] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\ets cache by regenerate.
+[2025-11-19T14:12:47.352] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:12:47.352] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\profile\default\BuildProfile.ets cache by regenerate.
+[2025-11-19T14:12:47.352] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\src\mock\mock-config.json5 cache by regenerate.
+[2025-11-19T14:12:47.352] [DEBUG] debug-file - Update task entry:default@CompileArkTS output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\ets cache.
+[2025-11-19T14:12:47.352] [DEBUG] debug-file - Incremental task entry:default@CompileArkTS post-execution cost:5 ms .
+[2025-11-19T14:12:47.353] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default cache by regenerate.
+[2025-11-19T14:12:47.353] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ResourceTable.txt cache by regenerate.
+[2025-11-19T14:12:47.354] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ark_module.json cache by regenerate.
+[2025-11-19T14:12:47.355] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2025-11-19T14:12:47.355] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:12:47.356] [DEBUG] debug-file - Update task entry:default@BuildJS output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\js cache.
+[2025-11-19T14:12:47.356] [DEBUG] debug-file - Incremental task entry:default@BuildJS post-execution cost:4 ms .
+[2025-11-19T14:12:47.356] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CacheNativeLibs is up-to-date.
+[2025-11-19T14:12:47.356] [DEBUG] debug-file - Update task entry:default@GeneratePkgModuleJson input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\module.json cache from map.
+[2025-11-19T14:12:47.356] [DEBUG] debug-file - Update task entry:default@GeneratePkgModuleJson output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\package\default\module.json cache.
+[2025-11-19T14:12:47.356] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgModuleJson post-execution cost:1 ms .
+[2025-11-19T14:12:47.356] [DEBUG] debug-file - Incremental task entry:default@ProcessCompiledResources post-execution cost:1 ms .
+[2025-11-19T14:12:47.357] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\stripped_native_libs\default cache by regenerate.
+[2025-11-19T14:12:47.357] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\module.json cache from map.
+[2025-11-19T14:12:47.357] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resources cache by regenerate.
+[2025-11-19T14:12:47.358] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resources.index cache by regenerate.
+[2025-11-19T14:12:47.358] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\pack.info cache by regenerate.
+[2025-11-19T14:12:47.358] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\ets cache by regenerate.
+[2025-11-19T14:12:47.359] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:12:47.359] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\ets\sourceMaps.map cache by regenerate.
+[2025-11-19T14:12:47.359] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\profile\default\BuildProfile.ets cache by regenerate.
+[2025-11-19T14:12:47.359] [DEBUG] debug-file - Update task entry:default@PackageHap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\entry-default-unsigned.hap cache.
+[2025-11-19T14:12:47.359] [DEBUG] debug-file - Update task entry:default@PackageHap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\source_map\default\sourceMaps.map cache.
+[2025-11-19T14:12:47.359] [DEBUG] debug-file - Update task entry:default@PackageHap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\mapping\sourceMaps.map cache.
+[2025-11-19T14:12:47.359] [DEBUG] debug-file - Incremental task entry:default@PackageHap post-execution cost:4 ms .
+[2025-11-19T14:12:47.360] [DEBUG] debug-file - Update task entry:default@SignHap input file:C:\Users\vintces\.ohos\config\default_HMAPP_lAjQ22zugR-lh__rJk9Kt3FJfN7o2g2Rw9IDiRDGB34=.cer cache by regenerate.
+[2025-11-19T14:12:47.360] [DEBUG] debug-file - Update task entry:default@SignHap input file:C:\Users\vintces\.ohos\config\default_HMAPP_lAjQ22zugR-lh__rJk9Kt3FJfN7o2g2Rw9IDiRDGB34=.p7b cache by regenerate.
+[2025-11-19T14:12:47.360] [DEBUG] debug-file - Update task entry:default@SignHap input file:C:\Users\vintces\.ohos\config\default_HMAPP_lAjQ22zugR-lh__rJk9Kt3FJfN7o2g2Rw9IDiRDGB34=.p12 cache by regenerate.
+[2025-11-19T14:12:47.361] [DEBUG] debug-file - Update task entry:default@SignHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\entry-default-unsigned.hap cache from map.
+[2025-11-19T14:12:47.361] [DEBUG] debug-file - Update task entry:default@SignHap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\entry-default-signed.hap cache.
+[2025-11-19T14:12:47.361] [DEBUG] debug-file - Incremental task entry:default@SignHap post-execution cost:2 ms .
+[2025-11-19T14:12:47.362] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\ets\sourceMaps.map cache by regenerate.
+[2025-11-19T14:12:47.362] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\libs\default cache by regenerate.
+[2025-11-19T14:12:47.362] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\symbol cache.
+[2025-11-19T14:12:47.362] [DEBUG] debug-file - Incremental task entry:default@CollectDebugSymbol post-execution cost:1 ms .
+[2025-11-19T14:12:47.393] [DEBUG] debug-file - Cleanup worker 0.
+[2025-11-19T14:12:47.393] [DEBUG] debug-file - Worker 0 has been cleaned up.
+[2025-11-19T14:12:47.393] [DEBUG] debug-file - Current idle worker size: 3.
+[2025-11-19T14:12:47.393] [DEBUG] debug-file - Current resident worker size: 4.
+[2025-11-19T14:12:47.393] [DEBUG] debug-file - Cleanup worker 1.
+[2025-11-19T14:12:47.393] [DEBUG] debug-file - Worker 1 has been cleaned up.
+[2025-11-19T14:12:47.393] [DEBUG] debug-file - Current idle worker size: 2.
+[2025-11-19T14:12:47.393] [DEBUG] debug-file - Current resident worker size: 4.
+[2025-11-19T14:12:47.393] [DEBUG] debug-file - Cleanup worker 14.
+[2025-11-19T14:12:47.393] [DEBUG] debug-file - Worker 14 has been cleaned up.
+[2025-11-19T14:12:47.393] [DEBUG] debug-file - Current idle worker size: 1.
+[2025-11-19T14:12:47.393] [DEBUG] debug-file - Current resident worker size: 4.
+[2025-11-19T14:12:47.394] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-11-19T14:12:47.395] [DEBUG] debug-file - java daemon socket close code:1000 reason:close by user
+[2025-11-19T14:12:47.398] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-11-19T14:12:47.398] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-11-19T14:12:47.396] [DEBUG] debug-file - worker[0] exits with exit code 1.
+[2025-11-19T14:12:47.397] [DEBUG] debug-file - worker[1] exits with exit code 1.
+[2025-11-19T14:12:47.398] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-11-19T14:12:47.399] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-11-19T14:12:47.401] [DEBUG] debug-file - worker[14] exits with exit code 1.
+[2025-11-19T14:13:57.153] [DEBUG] debug-file - session manager: set active socket. socketId=wNwK5LQsN4ZIfmKdAAAD
+[2025-11-19T14:13:57.165] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-11-19T14:13:57.170] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined
+}
+[2025-11-19T14:13:57.173] [DEBUG] debug-file - Cache service initialization finished in 3 ms 
+[2025-11-19T14:13:57.174] [DEBUG] debug-file - hvigorfile, resolving D:\Scripts\HCIBGA\HMAPP\hvigorfile.ts
+[2025-11-19T14:13:57.179] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-11-19T14:13:57.179] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-11-19T14:13:57.190] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-11-19T14:13:57.190] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-11-19T14:13:57.190] [DEBUG] debug-file - Product 'default' build option initialized
+[2025-11-19T14:13:57.190] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-11-19T14:13:57.191] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2025-11-19T14:13:57.193] [DEBUG] debug-file - D:\Scripts\HCIBGA\HMAPP\build\cache\default\remote_hsp\remoteHspCache.json not exists.
+[2025-11-19T14:13:57.196] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-11-19T14:13:57.220] [DEBUG] debug-file - Sdk init in 26 ms 
+[2025-11-19T14:13:57.222] [DEBUG] debug-file - Project task initialization takes 2 ms 
+[2025-11-19T14:13:57.222] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-11-19T14:13:57.222] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\Scripts\HCIBGA\HMAPP\hvigorfile.ts
+[2025-11-19T14:13:57.222] [DEBUG] debug-file - hvigorfile, resolve finished D:\Scripts\HCIBGA\HMAPP\hvigorfile.ts
+[2025-11-19T14:13:57.222] [DEBUG] debug-file - hvigorfile, resolving D:\Scripts\HCIBGA\HMAPP\entry\hvigorfile.ts
+[2025-11-19T14:13:57.225] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-11-19T14:13:57.225] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-11-19T14:13:57.226] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js
+- D:\Scripts\HCIBGA\HMAPP\hvigorfile.ts
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor\src\base\boot\index.js
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\cluster\worker-process-lifecycle.js
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\process\daemon-process-boot-script.js
+[2025-11-19T14:13:57.231] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-11-19T14:13:57.231] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-19T14:13:57.231] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2025-11-19T14:13:57.231] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-11-19T14:13:57.231] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2025-11-19T14:13:57.231] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-11-19T14:13:57.231] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2025-11-19T14:13:57.231] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-19T14:13:57.232] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2025-11-19T14:13:57.232] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-11-19T14:13:57.232] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2025-11-19T14:13:57.232] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-11-19T14:13:57.232] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-11-19T14:13:57.232] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-19T14:13:57.232] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2025-11-19T14:13:57.232] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-11-19T14:13:57.232] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2025-11-19T14:13:57.232] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-11-19T14:13:57.233] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2025-11-19T14:13:57.234] [DEBUG] debug-file - Module entry task initialization takes 1 ms 
+[2025-11-19T14:13:57.234] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-11-19T14:13:57.234] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\Scripts\HCIBGA\HMAPP\entry\hvigorfile.ts
+[2025-11-19T14:13:57.234] [DEBUG] debug-file - hvigorfile, resolve finished D:\Scripts\HCIBGA\HMAPP\entry\hvigorfile.ts
+[2025-11-19T14:13:57.247] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 13 ms 
+[2025-11-19T14:13:57.247] [DEBUG] debug-file - project has submodules:entry
+[2025-11-19T14:13:57.247] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-11-19T14:13:57.250] [DEBUG] debug-file - load to the disk finished
+[2025-11-19T14:13:57.251] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-11-19T14:13:57.254] [DEBUG] debug-file - Module HMAPP Collected Dependency: 
+[2025-11-19T14:13:57.254] [DEBUG] debug-file - Module HMAPP's total dependency: 0
+[2025-11-19T14:13:57.255] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-11-19T14:13:57.256] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2025-11-19T14:13:57.256] [DEBUG] debug-file - Module entry's total dependency: 0
+[2025-11-19T14:13:57.258] [DEBUG] debug-file - Configuration phase cost:85 ms 
+[2025-11-19T14:13:57.258] [DEBUG] debug-file - Configuration task cost before running: 91 ms 
+[2025-11-19T14:13:57.261] [DEBUG] debug-file - Executing task :entry:default@PreBuild
+[2025-11-19T14:13:57.261] [DEBUG] debug-file - Task 'entry:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:57.265] [DEBUG] debug-file - Incremental task entry:default@PreBuild pre-execution cost: 3 ms .
+[2025-11-19T14:13:57.265] [DEBUG] debug-file - entry : default@PreBuild cost memory 0.3330841064453125
+[2025-11-19T14:13:57.266] [INFO] debug-file - UP-TO-DATE :entry:default@PreBuild...  
+[2025-11-19T14:13:57.266] [DEBUG] debug-file - Executing task :entry:default@CreateModuleInfo
+[2025-11-19T14:13:57.266] [DEBUG] debug-file - Task 'entry:default@CreateModuleInfo' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:57.267] [DEBUG] debug-file - entry : default@CreateModuleInfo cost memory 0.04154205322265625
+[2025-11-19T14:13:57.267] [DEBUG] debug-file - runTaskFromQueue task cost before running: 100 ms 
+[2025-11-19T14:13:57.267] [INFO] debug-file - Finished :entry:default@CreateModuleInfo... after 1 ms 
+[2025-11-19T14:13:57.269] [DEBUG] debug-file - Executing task :entry:default@GenerateMetadata
+[2025-11-19T14:13:57.270] [DEBUG] debug-file - Task 'entry:default@GenerateMetadata' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:57.270] [DEBUG] debug-file - Incremental task entry:default@GenerateMetadata pre-execution cost: 1 ms .
+[2025-11-19T14:13:57.270] [DEBUG] debug-file - entry : default@GenerateMetadata cost memory 0.0936126708984375
+[2025-11-19T14:13:57.270] [INFO] debug-file - UP-TO-DATE :entry:default@GenerateMetadata...  
+[2025-11-19T14:13:57.271] [DEBUG] debug-file - Executing task :entry:default@ConfigureCmake
+[2025-11-19T14:13:57.271] [DEBUG] debug-file - entry : default@ConfigureCmake cost memory 0.016265869140625
+[2025-11-19T14:13:57.271] [DEBUG] debug-file - runTaskFromQueue task cost before running: 104 ms 
+[2025-11-19T14:13:57.271] [INFO] debug-file - Finished :entry:default@ConfigureCmake... after 1 ms 
+[2025-11-19T14:13:57.271] [DEBUG] debug-file - Executing task :entry:default@MergeProfile
+[2025-11-19T14:13:57.272] [DEBUG] debug-file - Task 'entry:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:57.272] [DEBUG] debug-file - Incremental task entry:default@MergeProfile pre-execution cost: 1 ms .
+[2025-11-19T14:13:57.272] [DEBUG] debug-file - entry : default@MergeProfile cost memory 0.1390228271484375
+[2025-11-19T14:13:57.273] [INFO] debug-file - UP-TO-DATE :entry:default@MergeProfile...  
+[2025-11-19T14:13:57.273] [DEBUG] debug-file - Executing task :entry:default@CreateBuildProfile
+[2025-11-19T14:13:57.273] [DEBUG] debug-file - Task 'entry:default@CreateBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:57.274] [DEBUG] debug-file - Incremental task entry:default@CreateBuildProfile pre-execution cost: 1 ms .
+[2025-11-19T14:13:57.274] [DEBUG] debug-file - entry : default@CreateBuildProfile cost memory 0.09798431396484375
+[2025-11-19T14:13:57.274] [INFO] debug-file - UP-TO-DATE :entry:default@CreateBuildProfile...  
+[2025-11-19T14:13:57.275] [DEBUG] debug-file - Executing task :entry:default@PreCheckSyscap
+[2025-11-19T14:13:57.275] [DEBUG] debug-file - entry : default@PreCheckSyscap cost memory 0.01633453369140625
+[2025-11-19T14:13:57.276] [DEBUG] debug-file - runTaskFromQueue task cost before running: 108 ms 
+[2025-11-19T14:13:57.276] [INFO] debug-file - Finished :entry:default@PreCheckSyscap... after 1 ms 
+[2025-11-19T14:13:57.276] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgContextInfo
+[2025-11-19T14:13:57.278] [DEBUG] debug-file - Task 'entry:default@GeneratePkgContextInfo' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:57.279] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgContextInfo pre-execution cost: 1 ms .
+[2025-11-19T14:13:57.279] [DEBUG] debug-file - entry : default@GeneratePkgContextInfo cost memory 0.2195281982421875
+[2025-11-19T14:13:57.279] [INFO] debug-file - UP-TO-DATE :entry:default@GeneratePkgContextInfo...  
+[2025-11-19T14:13:57.281] [DEBUG] debug-file - Executing task :entry:default@ProcessIntegratedHsp
+[2025-11-19T14:13:57.281] [DEBUG] debug-file - entry:default@ProcessIntegratedHsp is not up-to-date, since the output file 'D:\Scripts\HCIBGA\HMAPP\build\cache\default\integrated_hsp\integratedHspCache.json' does not exist.
+[2025-11-19T14:13:57.281] [DEBUG] debug-file - Incremental task entry:default@ProcessIntegratedHsp pre-execution cost: 1 ms .
+[2025-11-19T14:13:57.282] [DEBUG] debug-file - entry : default@ProcessIntegratedHsp cost memory 0.06113433837890625
+[2025-11-19T14:13:57.282] [DEBUG] debug-file - runTaskFromQueue task cost before running: 114 ms 
+[2025-11-19T14:13:57.282] [INFO] debug-file - Finished :entry:default@ProcessIntegratedHsp... after 1 ms 
+[2025-11-19T14:13:57.283] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithCmake
+[2025-11-19T14:13:57.283] [DEBUG] debug-file - entry : default@BuildNativeWithCmake cost memory 0.1559295654296875
+[2025-11-19T14:13:57.283] [DEBUG] debug-file - runTaskFromQueue task cost before running: 116 ms 
+[2025-11-19T14:13:57.283] [INFO] debug-file - Finished :entry:default@BuildNativeWithCmake... after 1 ms 
+[2025-11-19T14:13:57.285] [DEBUG] debug-file - Executing task :entry:default@MakePackInfo
+[2025-11-19T14:13:57.289] [DEBUG] debug-file - Incremental task entry:default@MakePackInfo pre-execution cost: 3 ms .
+[2025-11-19T14:13:57.289] [DEBUG] debug-file - entry : default@MakePackInfo cost memory 0.13356781005859375
+[2025-11-19T14:13:57.290] [INFO] debug-file - UP-TO-DATE :entry:default@MakePackInfo...  
+[2025-11-19T14:13:57.291] [DEBUG] debug-file - Executing task :entry:default@SyscapTransform
+[2025-11-19T14:13:57.291] [DEBUG] debug-file - File: 'D:\Scripts\HCIBGA\HMAPP\entry\src\main\syscap.json' from 'sysCapJsonPath' is not exists, just ignore.
+[2025-11-19T14:13:57.292] [DEBUG] debug-file - Task 'entry:default@SyscapTransform' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:57.293] [DEBUG] debug-file - entry:default@SyscapTransform is not up-to-date, since the output file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\syscap\default\rpcid.sc' does not exist.
+[2025-11-19T14:13:57.293] [DEBUG] debug-file - Incremental task entry:default@SyscapTransform pre-execution cost: 2 ms .
+[2025-11-19T14:13:57.293] [DEBUG] debug-file - entry : default@SyscapTransform cost memory 0.16048431396484375
+[2025-11-19T14:13:57.293] [DEBUG] debug-file - runTaskFromQueue task cost before running: 126 ms 
+[2025-11-19T14:13:57.293] [INFO] debug-file - Finished :entry:default@SyscapTransform... after 3 ms 
+[2025-11-19T14:13:57.295] [DEBUG] debug-file - Executing task :entry:default@ProcessProfile
+[2025-11-19T14:13:57.295] [DEBUG] debug-file - Task 'entry:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:57.296] [DEBUG] debug-file - Incremental task entry:default@ProcessProfile pre-execution cost: 1 ms .
+[2025-11-19T14:13:57.296] [DEBUG] debug-file - entry : default@ProcessProfile cost memory 0.1453399658203125
+[2025-11-19T14:13:57.297] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessProfile...  
+[2025-11-19T14:13:57.298] [DEBUG] debug-file - Executing task :entry:default@ProcessRouterMap
+[2025-11-19T14:13:57.300] [DEBUG] debug-file - Incremental task entry:default@ProcessRouterMap pre-execution cost: 1 ms .
+[2025-11-19T14:13:57.300] [DEBUG] debug-file - entry : default@ProcessRouterMap cost memory 0.1524810791015625
+[2025-11-19T14:13:57.300] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessRouterMap...  
+[2025-11-19T14:13:57.301] [DEBUG] debug-file - Executing task :entry:default@ProcessShareConfig
+[2025-11-19T14:13:57.301] [DEBUG] debug-file - Incremental task entry:default@ProcessShareConfig pre-execution cost: 1 ms .
+[2025-11-19T14:13:57.302] [DEBUG] debug-file - entry : default@ProcessShareConfig cost memory 0.1365509033203125
+[2025-11-19T14:13:57.302] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessShareConfig...  
+[2025-11-19T14:13:57.302] [DEBUG] debug-file - Executing task :entry:default@ProcessStartupConfig
+[2025-11-19T14:13:57.302] [DEBUG] debug-file - Task 'entry:default@ProcessStartupConfig' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:57.303] [DEBUG] debug-file - entry:default@ProcessStartupConfig is not up-to-date, since the output file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\startup\default\startup_config.json' does not exist.
+[2025-11-19T14:13:57.303] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig pre-execution cost: 1 ms .
+[2025-11-19T14:13:57.303] [DEBUG] debug-file - entry : default@ProcessStartupConfig cost memory 0.14189910888671875
+[2025-11-19T14:13:57.303] [DEBUG] debug-file - runTaskFromQueue task cost before running: 136 ms 
+[2025-11-19T14:13:57.304] [INFO] debug-file - Finished :entry:default@ProcessStartupConfig... after 2 ms 
+[2025-11-19T14:13:57.304] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithNinja
+[2025-11-19T14:13:57.305] [DEBUG] debug-file - entry : default@BuildNativeWithNinja cost memory 0.02318572998046875
+[2025-11-19T14:13:57.305] [DEBUG] debug-file - runTaskFromQueue task cost before running: 138 ms 
+[2025-11-19T14:13:57.305] [INFO] debug-file - Finished :entry:default@BuildNativeWithNinja... after 1 ms 
+[2025-11-19T14:13:57.306] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@ProcessResource
+[2025-11-19T14:13:57.306] [DEBUG] debug-file - Executing task :entry:default@ProcessResource
+[2025-11-19T14:13:57.306] [DEBUG] debug-file - Task 'entry:default@ProcessResource' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:57.307] [DEBUG] debug-file - Incremental task entry:default@ProcessResource pre-execution cost: 1 ms .
+[2025-11-19T14:13:57.307] [DEBUG] debug-file - entry : default@ProcessResource cost memory 0.13295745849609375
+[2025-11-19T14:13:57.308] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessResource...  
+[2025-11-19T14:13:57.309] [DEBUG] debug-file - Executing task :entry:default@GenerateLoaderJson
+[2025-11-19T14:13:57.309] [DEBUG] debug-file - Task 'entry:default@GenerateLoaderJson' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:57.314] [DEBUG] debug-file - Incremental task entry:default@GenerateLoaderJson pre-execution cost: 4 ms .
+[2025-11-19T14:13:57.314] [DEBUG] debug-file - entry : default@GenerateLoaderJson cost memory -1.1683807373046875
+[2025-11-19T14:13:57.316] [INFO] debug-file - UP-TO-DATE :entry:default@GenerateLoaderJson...  
+[2025-11-19T14:13:57.317] [DEBUG] debug-file - Executing task :entry:default@ProcessLibs
+[2025-11-19T14:13:57.318] [DEBUG] debug-file - Incremental task entry:default@ProcessLibs pre-execution cost: 1 ms .
+[2025-11-19T14:13:57.318] [DEBUG] debug-file - entry : default@ProcessLibs cost memory 0.101654052734375
+[2025-11-19T14:13:57.318] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessLibs...  
+[2025-11-19T14:13:57.319] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@CompileResource
+[2025-11-19T14:13:57.319] [DEBUG] debug-file - Executing task :entry:default@CompileResource
+[2025-11-19T14:13:57.323] [DEBUG] debug-file - entry:default@CompileResource is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\AppScope\resources' has been changed.
+[2025-11-19T14:13:57.323] [DEBUG] debug-file - Incremental task entry:default@CompileResource pre-execution cost: 4 ms .
+[2025-11-19T14:13:57.324] [DEBUG] debug-file - Use tool [D:\Software\Huawei\DevEco Studio\sdk\default\openharmony\toolchains\restool.exe]
+ [
+  'D:\\Software\\Huawei\\DevEco Studio\\sdk\\default\\openharmony\\toolchains\\restool.exe',
+  '-l',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resConfig.json'
+]
+[2025-11-19T14:13:57.324] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 452448256,
+  heapTotal: 120156160,
+  heapUsed: 113178856,
+  external: 3139847,
+  arrayBuffers: 112188
+} os memoryUsage :40.273712158203125
+[2025-11-19T14:13:57.425] [DEBUG] debug-file - Info: Pack: normal pack mode
+
+[2025-11-19T14:13:57.461] [DEBUG] debug-file - Info: hardware concurrency count is : 16
+Info: thread count is : 16
+
+[2025-11-19T14:13:57.461] [DEBUG] debug-file - Info: thread pool is started
+
+[2025-11-19T14:13:57.462] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2025-11-19T14:13:57.465] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2025-11-19T14:13:57.465] [DEBUG] debug-file - Warning: 'D:\Scripts\HCIBGA\HMAPP\entry\src\main\resources\base\media\icon.png' is defined repeatedly.
+
+[2025-11-19T14:13:57.468] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2025-11-19T14:13:57.472] [DEBUG] debug-file - 11-19 14:13:57.472 43136 50292 E C01400/ImageTranscoderUtils: DecodeToRGBA IN
+11-19 14:13:57.472 43136 50292 E C01400/ImageTranscoderUtils: ImageFilter IN D:\Scripts\HCIBGA\HMAPP\AppScope\resources\base\media\icon.png
+
+[2025-11-19T14:13:57.472] [DEBUG] debug-file - 11-19 14:13:57.473 43136 50292 E C01400/ImageTranscoder: TranscodeSLR Only zoom-out is supported.
+
+[2025-11-19T14:13:57.472] [DEBUG] debug-file - Warning: ScaleImage failed, error message: INVALID_PARAMETERS, file path = D:\Scripts\HCIBGA\HMAPP\AppScope\resources\base\media\icon.png
+
+[2025-11-19T14:13:57.475] [DEBUG] debug-file - Warning: The width or height of the png file referenced by the icon exceeds the limit (41 pixels)
+at D:\Scripts\HCIBGA\HMAPP\AppScope\resources\base\media\icon.png
+
+[2025-11-19T14:13:57.475] [DEBUG] debug-file - Info: restool resources compile success.
+
+[2025-11-19T14:13:57.475] [DEBUG] debug-file - Info: thread pool is stopped
+
+[2025-11-19T14:13:57.533] [DEBUG] debug-file - entry : default@CompileResource cost memory 0.8681640625
+[2025-11-19T14:13:57.533] [DEBUG] debug-file - runTaskFromQueue task cost before running: 366 ms 
+[2025-11-19T14:13:57.534] [INFO] debug-file - Finished :entry:default@CompileResource... after 215 ms 
+[2025-11-19T14:13:57.535] [DEBUG] debug-file - Executing task :entry:default@DoNativeStrip
+[2025-11-19T14:13:57.535] [DEBUG] debug-file - Task 'entry:default@DoNativeStrip' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:57.535] [DEBUG] debug-file - Incremental task entry:default@DoNativeStrip pre-execution cost: 1 ms .
+[2025-11-19T14:13:57.535] [DEBUG] debug-file - entry : default@DoNativeStrip cost memory 0.08344268798828125
+[2025-11-19T14:13:57.535] [INFO] debug-file - UP-TO-DATE :entry:default@DoNativeStrip...  
+[2025-11-19T14:13:57.537] [DEBUG] debug-file - Executing task :entry:default@CompileArkTS
+[2025-11-19T14:13:57.537] [DEBUG] debug-file - obfuscationOptions: undefined
+[2025-11-19T14:13:57.540] [DEBUG] debug-file - entry:default@CompileArkTS is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ResourceTable.txt' has been changed.
+[2025-11-19T14:13:57.540] [DEBUG] debug-file - Incremental task entry:default@CompileArkTS pre-execution cost: 2 ms .
+[2025-11-19T14:13:57.545] [DEBUG] debug-file - build config:
+[2025-11-19T14:13:57.546] [DEBUG] debug-file - {
+  moduleType: 'entry',
+  perf: 0,
+  targetName: '.default',
+  packageManagerType: 'ohpm',
+  localPropertiesPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\local.properties',
+  isPreview: false,
+  isOhosTest: false,
+  isLocalTest: false,
+  buildMode: 'Debug',
+  hotReloadBuild: undefined,
+  watchMode: 'false',
+  aceProfilePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resources\\base\\profile',
+  etsLoaderPath: 'D:\\Software\\Huawei\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader',
+  modulePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+  testFrameworkPar: {
+    testMode: undefined,
+    coveragePathFilter: undefined,
+    coverageMode: undefined
+  },
+  needCoverageInsert: false,
+  debugLine: false,
+  projectTopDir: 'D:\\Scripts\\HCIBGA\\HMAPP',
+  compileSdkVersion: 20,
+  compatibleSdkVersion: 15,
+  compatibleSdkVersionStage: undefined,
+  bundleName: 'c***A',
+  etsLoaderVersion: '6.0.0.47',
+  etsLoaderReleaseType: 'Release',
+  aotCompileMode: 'type',
+  apPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\modules.ap',
+  entryModuleName: 'entry',
+  entryModuleVersion: '1.0.0',
+  entryPackageName: 'entry',
+  allModuleNameHash: '09e1872cece30d186932e7ebb026d0a9',
+  externalApiPaths: [ 'D:\\Software\\Huawei\\DevEco Studio\\sdk\\default\\hms\\ets' ],
+  compilerTypes: [],
+  isCrossplatform: false,
+  hvigorPluginFile: undefined,
+  compilePluginPath: undefined,
+  buildGeneratedProfilePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\generated\\profile\\default',
+  bundleType: 'app',
+  arkTSVersion: undefined,
+  apiVersion: 20,
+  needCompleteSourcesMap: false,
+  isFaMode: false,
+  strictMode: {
+    caseSensitiveCheck: true,
+    useNormalizedOHMUrl: true,
+    noExternalImportByPath: true
+  },
+  buildDir: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build',
+  deviceTypes: [ 'phone', 'tablet', '2in1', 'wearable' ],
+  useNormalizedOHMUrl: true,
+  pkgContextInfo: {
+    '@ohos/hypium': {
+      packageName: '@ohos/hypium',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.21',
+      entryPath: 'index.js',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    '@ohos/hamock': {
+      packageName: '@ohos/hamock',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.0',
+      entryPath: 'index.ets',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    entry: {
+      packageName: 'entry',
+      bundleName: '*****',
+      moduleName: '',
+      version: '',
+      entryPath: 'src/main/',
+      isSO: false,
+      dependencyAlias: ''
+    }
+  },
+  ohPackagePathMap: {},
+  dependencyAliasMap: {},
+  permission: {
+    requestPermissions: [ [Object], [Object], [Object] ],
+    definePermissions: undefined
+  },
+  integratedHsp: false,
+  projectArkOption: undefined,
+  sourceMapDir: undefined,
+  branchElimination: false,
+  transformLib: undefined,
+  caseSensitiveCheck: true,
+  tsImportSendable: false,
+  resolveConflictMode: true,
+  depName2RootPath: {},
+  depName2DepInfo: {},
+  rootPathSet: [ 'D:\\Scripts\\HCIBGA\\HMAPP' ],
+  useNativeResolver: true,
+  shouldEmitJs: true,
+  useTscResolve: false,
+  singleFileEmit: false,
+  userProjectConfig: {
+    autoLazyImport: false,
+    allowEmptyBundleName: false,
+    reExportCheckMode: 'noCheck',
+    executionMode: 'memory',
+    usePathPlaceholder: false,
+    writeRollupCache: true,
+    isExpandImportEnabled: false,
+    expandImportExclude: '',
+    ignoreCrossplatformCheck: false,
+    isPreloadSoEnabled: false
+  },
+  skipOhModulesLint: false,
+  executionMode: 'memory',
+  autoLazyImport: false,
+  allowEmptyBundleName: false,
+  reExportCheckMode: 'noCheck',
+  usePathPlaceholder: false,
+  writeRollupCache: true,
+  isExpandImportEnabled: false,
+  expandImportExclude: '',
+  ignoreCrossplatformCheck: false,
+  isPreloadSoEnabled: false,
+  arkCompileCachePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule',
+  aceModuleJsonPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\ark_module.json',
+  appResource: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\ResourceTable.txt',
+  rawFileResource: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resources\\rawfile',
+  resourceTableHash: 'ebd6bf25fc27cffde567ec5b7a7b4837',
+  runtimeOS: 'HarmonyOS',
+  sdkInfo: 'false:20:6.0.0.47:Release',
+  aceModuleRoot: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\main\\ets',
+  compileMode: 'esmodule',
+  aceSuperVisualPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\main\\supervisual',
+  aceBuildJson: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\loader\\default\\loader.json',
+  cachePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule\\debug',
+  aceModuleBuild: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\loader_out\\default\\ets',
+  supportChunks: true,
+  declaredFilesPath: undefined,
+  shouldCollectDirectImportees: false,
+  isByteCodeHarOptimize: false,
+  expandImportPath: undefined,
+  pkgNameToPkgBriefInfo: {
+    entry: {
+      pkgRoot: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      originalSourceRoots: undefined,
+      sourceRoots: [Array],
+      pkgName: 'entry'
+    }
+  },
+  projectModel: {
+    'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\main': {
+      moduleName: 'entry',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    },
+    'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\src\\ohosTest\\ets': {
+      moduleName: 'entry_test',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    },
+    'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\ohosTest': {
+      moduleName: 'entry_test',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    },
+    'D:\\Scripts\\HCIBGA\\HMAPP\\entry': {
+      moduleName: 'entry',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    },
+    'D:\\Scripts\\HCIBGA\\HMAPP': {
+      moduleName: 'HMAPP',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    }
+  },
+  pkgJsonFileHash: '6a064a0450523b67c5ac0ad9931b82a3',
+  allModulePaths: [ 'D:\\Scripts\\HCIBGA\\HMAPP\\entry' ],
+  routerMap: {},
+  obfuscationOptions: undefined,
+  byteCodeHarToDependencyKeys: undefined,
+  compileBlockPkg: [],
+  mockParams: {
+    decorator: '@MockSetup',
+    packageName: '@ohos/hamock',
+    etsSourceRootPath: 'src/main/ets',
+    mockConfigPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\mock\\mock-config.json5',
+    mockConfigKey2ModuleInfo: {},
+    source2ModuleIdMap: {}
+  },
+  copyCodeResourceEnable: true,
+  copyCodeResourceExcludes: [],
+  copyCodeResourceIncludes: undefined,
+  uiTransformOptimization: false,
+  sdkPath: 'D:/Software/Huawei/DevEco Studio/sdk',
+  needPreloadSoFileSet: {},
+  preloadSoFilePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\preload\\default\\preload.json',
+  useSourceHash: false,
+  localModuleParamMap: {},
+  otherPaths: {
+    'entry/*': [
+      '..\\*',
+      '..\\..\\..\\build\\default\\generated\\profile\\default\\*'
+    ]
+  },
+  collectImportersConfig: undefined
+}
+[2025-11-19T14:13:57.546] [DEBUG] debug-file - Compile arkts with external api path: D:\Software\Huawei\DevEco Studio\sdk\default\hms\ets
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - default@CompileArkTS work[2] is submitted.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - default@CompileArkTS work[2] is pushed to ready queue.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - A work dispatched to worker[15] failed because unable to get work from ready queue.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - A work dispatched to worker[14] failed because unable to get work from ready queue.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - A work dispatched to worker[13] failed because unable to get work from ready queue.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - A work dispatched to worker[12] failed because unable to get work from ready queue.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - A work dispatched to worker[10] failed because unable to get work from ready queue.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - A work dispatched to worker[7] failed because unable to get work from ready queue.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - A work dispatched to worker[6] failed because unable to get work from ready queue.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - A work dispatched to worker[5] failed because unable to get work from ready queue.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - default@CompileArkTS work[2] has been dispatched to worker[4].
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - default@CompileArkTS work[2] is dispatched.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - CopyResources startTime: 356378044715000
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - default@CompileArkTS work[3] is submitted.
+[2025-11-19T14:13:57.547] [DEBUG] debug-file - default@CompileArkTS work[3] is pushed to ready queue.
+[2025-11-19T14:13:57.548] [DEBUG] debug-file - A work dispatched to worker[15] failed because unable to get work from ready queue.
+[2025-11-19T14:13:57.548] [DEBUG] debug-file - Create  resident worker with id: 14.
+[2025-11-19T14:13:57.548] [DEBUG] debug-file - default@CompileArkTS work[3] has been dispatched to worker[14].
+[2025-11-19T14:13:57.548] [DEBUG] debug-file - default@CompileArkTS work[3] is dispatched.
+[2025-11-19T14:13:57.548] [DEBUG] debug-file - entry : default@CompileArkTS cost memory 1.3450698852539062
+[2025-11-19T14:13:57.549] [DEBUG] debug-file - Executing task :entry:default@BuildJS
+[2025-11-19T14:13:57.551] [DEBUG] debug-file - entry : default@BuildJS cost memory 0.1283416748046875
+[2025-11-19T14:13:57.551] [DEBUG] debug-file - runTaskFromQueue task cost before running: 384 ms 
+[2025-11-19T14:13:57.551] [INFO] debug-file - Finished :entry:default@BuildJS... after 2 ms 
+[2025-11-19T14:13:57.552] [DEBUG] debug-file - Executing task :entry:default@CacheNativeLibs
+[2025-11-19T14:13:57.552] [DEBUG] debug-file - Task 'entry:default@CacheNativeLibs' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:57.553] [DEBUG] debug-file - Incremental task entry:default@CacheNativeLibs pre-execution cost: 2 ms .
+[2025-11-19T14:13:57.553] [DEBUG] debug-file - entry : default@CacheNativeLibs cost memory -1.58917236328125
+[2025-11-19T14:13:57.553] [INFO] debug-file - UP-TO-DATE :entry:default@CacheNativeLibs...  
+[2025-11-19T14:13:57.862] [WARN] debug-file - [33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/entryability/EntryAbility.ets:12:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:65:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:93:21
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:95:29
+ The system capacity of this api 'picker' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:95:36
+ The system capacity of this api 'DocumentSaveOptions' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:96:17
+ The system capacity of this api 'newFileNames' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:99:44
+ The system capacity of this api 'picker' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:99:51
+ The system capacity of this api 'DocumentViewPicker' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:99:79
+ The system capacity of this api 'save' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:137:27
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:208:28
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:209:24
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:212:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:213:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:215:22
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:216:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:217:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:50:27
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:59:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:59:18
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:66:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:66:18
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:101:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:101:20
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/pages/Index.ets:189:9
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/pages/Index.ets:190:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/pages/Index.ets:200:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+
+[2025-11-19T14:13:57.862] [DEBUG] debug-file - Ark compile task finished.finished time is 356378359079100
+[2025-11-19T14:13:57.862] [DEBUG] debug-file - worker[4] has one work done.
+[2025-11-19T14:13:57.863] [DEBUG] debug-file - default@CompileArkTS work[2] done.
+[2025-11-19T14:13:57.863] [DEBUG] debug-file - A work dispatched to worker[4] failed because unable to get work from ready queue.
+[2025-11-19T14:13:58.228] [DEBUG] debug-file - worker[14] has one work done.
+[2025-11-19T14:13:58.229] [DEBUG] debug-file - CopyResources is end, endTime: 356378725886300
+[2025-11-19T14:13:58.229] [DEBUG] debug-file - default@CompileArkTS work[3] done.
+[2025-11-19T14:13:58.229] [DEBUG] debug-file - A work dispatched to worker[14] failed because unable to get work from ready queue.
+[2025-11-19T14:13:58.230] [INFO] debug-file - Finished :entry:default@CompileArkTS... after 334 ms 
+[2025-11-19T14:13:58.231] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgModuleJson
+[2025-11-19T14:13:58.231] [DEBUG] debug-file - File: 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\preload\default\preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2025-11-19T14:13:58.231] [DEBUG] debug-file - Task 'entry:default@GeneratePkgModuleJson' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:58.231] [DEBUG] debug-file - entry:default@GeneratePkgModuleJson is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\module.json' has been changed.
+[2025-11-19T14:13:58.232] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgModuleJson pre-execution cost: 1 ms .
+[2025-11-19T14:13:58.232] [DEBUG] debug-file - entry : default@GeneratePkgModuleJson cost memory 0.10523223876953125
+[2025-11-19T14:13:58.232] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 65 ms 
+[2025-11-19T14:13:58.232] [INFO] debug-file - Finished :entry:default@GeneratePkgModuleJson... after 2 ms 
+[2025-11-19T14:13:58.233] [DEBUG] debug-file - Executing task :entry:default@ProcessCompiledResources
+[2025-11-19T14:13:58.233] [DEBUG] debug-file - File: 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\preload\default\preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2025-11-19T14:13:58.233] [DEBUG] debug-file - Task 'entry:default@ProcessCompiledResources' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:13:58.233] [DEBUG] debug-file - entry : default@ProcessCompiledResources cost memory 0.19891357421875
+[2025-11-19T14:13:58.233] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 66 ms 
+[2025-11-19T14:13:58.233] [INFO] debug-file - Finished :entry:default@ProcessCompiledResources... after 1 ms 
+[2025-11-19T14:13:58.234] [DEBUG] debug-file - Executing task :entry:default@PackageHap
+[2025-11-19T14:13:58.236] [DEBUG] debug-file - entry:default@PackageHap is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\module.json' has been changed.
+[2025-11-19T14:13:58.236] [DEBUG] debug-file - Incremental task entry:default@PackageHap pre-execution cost: 2 ms .
+[2025-11-19T14:13:58.236] [DEBUG] debug-file - Use tool [D:\Software\Huawei\DevEco Studio\sdk\default\openharmony\toolchains\lib\app_packing_tool.jar]
+ [
+  'java',
+  '-Dfile.encoding=GBK',
+  '-jar',
+  'D:\\Software\\Huawei\\DevEco Studio\\sdk\\default\\openharmony\\toolchains\\lib\\app_packing_tool.jar',
+  '--mode',
+  'hap',
+  '--force',
+  'true',
+  '--lib-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\stripped_native_libs\\default',
+  '--json-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\package\\default\\module.json',
+  '--resources-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resources',
+  '--index-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resources.index',
+  '--pack-info-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\outputs\\default\\pack.info',
+  '--out-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\outputs\\default\\entry-default-unsigned.hap',
+  '--ets-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\loader_out\\default\\ets',
+  '--pkg-context-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\loader\\default\\pkgContextInfo.json'
+]
+[2025-11-19T14:13:58.259] [DEBUG] debug-file - java daemon socket received message:{"code":0,"message":"pack success"}
+[2025-11-19T14:13:58.262] [DEBUG] debug-file - entry : default@PackageHap cost memory 0.38297271728515625
+[2025-11-19T14:13:58.262] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 95 ms 
+[2025-11-19T14:13:58.262] [INFO] debug-file - Finished :entry:default@PackageHap... after 28 ms 
+[2025-11-19T14:13:58.263] [DEBUG] debug-file - Executing task :entry:default@PackingCheck
+[2025-11-19T14:13:58.266] [DEBUG] debug-file - entry : default@PackingCheck cost memory 0.35031890869140625
+[2025-11-19T14:13:58.266] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 99 ms 
+[2025-11-19T14:13:58.266] [INFO] debug-file - Finished :entry:default@PackingCheck... after 3 ms 
+[2025-11-19T14:13:58.268] [DEBUG] debug-file - Executing task :entry:default@SignHap
+[2025-11-19T14:13:58.269] [DEBUG] debug-file - entry:default@SignHap is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\entry-default-unsigned.hap' has been changed.
+[2025-11-19T14:13:58.269] [DEBUG] debug-file - Incremental task entry:default@SignHap pre-execution cost: 1 ms .
+[2025-11-19T14:13:58.283] [DEBUG] debug-file - java daemon socket close code:1000 reason:close by user
+[2025-11-19T14:13:58.312] [DEBUG] debug-file - java daemon socket received message:{"code":0,"message":"verify profile success"}
+[2025-11-19T14:13:58.315] [DEBUG] debug-file - java daemon socket close code:1000 reason:close by user
+[2025-11-19T14:13:58.401] [DEBUG] debug-file - java daemon socket received message:{"code":0,"message":"sign app success"}
+[2025-11-19T14:13:58.402] [DEBUG] debug-file - entry : default@SignHap cost memory 0.5525741577148438
+[2025-11-19T14:13:58.402] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 235 ms 
+[2025-11-19T14:13:58.402] [INFO] debug-file - Finished :entry:default@SignHap... after 135 ms 
+[2025-11-19T14:13:58.403] [DEBUG] debug-file - Executing task :entry:default@CollectDebugSymbol
+[2025-11-19T14:13:58.404] [DEBUG] debug-file - entry : default@CollectDebugSymbol cost memory 0.08990478515625
+[2025-11-19T14:13:58.404] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 237 ms 
+[2025-11-19T14:13:58.404] [INFO] debug-file - Finished :entry:default@CollectDebugSymbol... after 1 ms 
+[2025-11-19T14:13:58.404] [DEBUG] debug-file - Executing task :entry:assembleHap
+[2025-11-19T14:13:58.404] [DEBUG] debug-file - entry : assembleHap cost memory 0.01428985595703125
+[2025-11-19T14:13:58.404] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 237 ms 
+[2025-11-19T14:13:58.404] [INFO] debug-file - Finished :entry:assembleHap... after 1 ms 
+[2025-11-19T14:13:58.417] [INFO] debug-file - BUILD SUCCESSFUL in 1 s 249 ms 
+[2025-11-19T14:13:58.417] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@PreBuild is up-to-date.
+[2025-11-19T14:13:58.417] [DEBUG] debug-file - Update task entry:default@CreateModuleInfo output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\profile\default\ModuleInfo.ts cache.
+[2025-11-19T14:13:58.417] [DEBUG] debug-file - Incremental task entry:default@CreateModuleInfo post-execution cost:1 ms .
+[2025-11-19T14:13:58.417] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GenerateMetadata is up-to-date.
+[2025-11-19T14:13:58.417] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@MergeProfile is up-to-date.
+[2025-11-19T14:13:58.417] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CreateBuildProfile is up-to-date.
+[2025-11-19T14:13:58.417] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GeneratePkgContextInfo is up-to-date.
+[2025-11-19T14:13:58.417] [DEBUG] debug-file - Update task entry:default@ProcessIntegratedHsp output file:D:\Scripts\HCIBGA\HMAPP\build\cache\default\integrated_hsp\integratedHspCache.json cache.
+[2025-11-19T14:13:58.417] [DEBUG] debug-file - Incremental task entry:default@ProcessIntegratedHsp post-execution cost:1 ms .
+[2025-11-19T14:13:58.417] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@MakePackInfo is up-to-date.
+[2025-11-19T14:13:58.417] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:D:\Software\Huawei\DevEco Studio\sdk\default\openharmony\toolchains\syscap_tool.exe cache by regenerate.
+[2025-11-19T14:13:58.418] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:D:\Software\Huawei\DevEco Studio\sdk\default\openharmony\ets\api\device-define cache by regenerate.
+[2025-11-19T14:13:58.418] [DEBUG] debug-file - Update task entry:default@SyscapTransform output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\syscap\default\rpcid.sc cache.
+[2025-11-19T14:13:58.418] [DEBUG] debug-file - Incremental task entry:default@SyscapTransform post-execution cost:1 ms .
+[2025-11-19T14:13:58.418] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessProfile is up-to-date.
+[2025-11-19T14:13:58.418] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessRouterMap is up-to-date.
+[2025-11-19T14:13:58.418] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessShareConfig is up-to-date.
+[2025-11-19T14:13:58.418] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:13:58.419] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\startup\default\startup_config.json cache.
+[2025-11-19T14:13:58.419] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig post-execution cost:1 ms .
+[2025-11-19T14:13:58.419] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessResource is up-to-date.
+[2025-11-19T14:13:58.419] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GenerateLoaderJson is up-to-date.
+[2025-11-19T14:13:58.419] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessLibs is up-to-date.
+[2025-11-19T14:13:58.420] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\resources cache by regenerate.
+[2025-11-19T14:13:58.421] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\Scripts\HCIBGA\HMAPP\AppScope\resources cache from map.
+[2025-11-19T14:13:58.421] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\process_profile\default\module.json cache by regenerate.
+[2025-11-19T14:13:58.421] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resConfig.json cache by regenerate.
+[2025-11-19T14:13:58.422] [DEBUG] debug-file - Update task entry:default@CompileResource output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default cache.
+[2025-11-19T14:13:58.424] [DEBUG] debug-file - Update task entry:default@CompileResource output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\r\default\ResourceTable.h cache.
+[2025-11-19T14:13:58.424] [DEBUG] debug-file - Update task entry:default@CompileResource output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\r\default cache.
+[2025-11-19T14:13:58.425] [DEBUG] debug-file - Incremental task entry:default@CompileResource post-execution cost:6 ms .
+[2025-11-19T14:13:58.425] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@DoNativeStrip is up-to-date.
+[2025-11-19T14:13:58.426] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default cache by regenerate.
+[2025-11-19T14:13:58.426] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ResourceTable.txt cache from map.
+[2025-11-19T14:13:58.426] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ark_module.json cache by regenerate.
+[2025-11-19T14:13:58.426] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2025-11-19T14:13:58.427] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\ets cache by regenerate.
+[2025-11-19T14:13:58.428] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:13:58.428] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\profile\default\BuildProfile.ets cache by regenerate.
+[2025-11-19T14:13:58.428] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\src\mock\mock-config.json5 cache by regenerate.
+[2025-11-19T14:13:58.428] [DEBUG] debug-file - Update task entry:default@CompileArkTS output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\ets cache.
+[2025-11-19T14:13:58.429] [DEBUG] debug-file - Incremental task entry:default@CompileArkTS post-execution cost:4 ms .
+[2025-11-19T14:13:58.429] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default cache by regenerate.
+[2025-11-19T14:13:58.430] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ResourceTable.txt cache by regenerate.
+[2025-11-19T14:13:58.430] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ark_module.json cache by regenerate.
+[2025-11-19T14:13:58.430] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2025-11-19T14:13:58.431] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:13:58.431] [DEBUG] debug-file - Update task entry:default@BuildJS output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\js cache.
+[2025-11-19T14:13:58.431] [DEBUG] debug-file - Incremental task entry:default@BuildJS post-execution cost:3 ms .
+[2025-11-19T14:13:58.431] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CacheNativeLibs is up-to-date.
+[2025-11-19T14:13:58.431] [DEBUG] debug-file - Update task entry:default@GeneratePkgModuleJson input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\module.json cache from map.
+[2025-11-19T14:13:58.431] [DEBUG] debug-file - Update task entry:default@GeneratePkgModuleJson output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\package\default\module.json cache.
+[2025-11-19T14:13:58.432] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgModuleJson post-execution cost:1 ms .
+[2025-11-19T14:13:58.432] [DEBUG] debug-file - Incremental task entry:default@ProcessCompiledResources post-execution cost:1 ms .
+[2025-11-19T14:13:58.432] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\stripped_native_libs\default cache by regenerate.
+[2025-11-19T14:13:58.432] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\module.json cache from map.
+[2025-11-19T14:13:58.432] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resources cache by regenerate.
+[2025-11-19T14:13:58.434] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resources.index cache by regenerate.
+[2025-11-19T14:13:58.434] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\pack.info cache by regenerate.
+[2025-11-19T14:13:58.434] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\ets cache by regenerate.
+[2025-11-19T14:13:58.435] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:13:58.435] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\ets\sourceMaps.map cache by regenerate.
+[2025-11-19T14:13:58.435] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\profile\default\BuildProfile.ets cache by regenerate.
+[2025-11-19T14:13:58.435] [DEBUG] debug-file - Update task entry:default@PackageHap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\entry-default-unsigned.hap cache.
+[2025-11-19T14:13:58.435] [DEBUG] debug-file - Update task entry:default@PackageHap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\source_map\default\sourceMaps.map cache.
+[2025-11-19T14:13:58.435] [DEBUG] debug-file - Update task entry:default@PackageHap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\mapping\sourceMaps.map cache.
+[2025-11-19T14:13:58.435] [DEBUG] debug-file - Incremental task entry:default@PackageHap post-execution cost:4 ms .
+[2025-11-19T14:13:58.436] [DEBUG] debug-file - Update task entry:default@SignHap input file:C:\Users\vintces\.ohos\config\default_HMAPP_lAjQ22zugR-lh__rJk9Kt3FJfN7o2g2Rw9IDiRDGB34=.cer cache by regenerate.
+[2025-11-19T14:13:58.436] [DEBUG] debug-file - Update task entry:default@SignHap input file:C:\Users\vintces\.ohos\config\default_HMAPP_lAjQ22zugR-lh__rJk9Kt3FJfN7o2g2Rw9IDiRDGB34=.p7b cache by regenerate.
+[2025-11-19T14:13:58.436] [DEBUG] debug-file - Update task entry:default@SignHap input file:C:\Users\vintces\.ohos\config\default_HMAPP_lAjQ22zugR-lh__rJk9Kt3FJfN7o2g2Rw9IDiRDGB34=.p12 cache by regenerate.
+[2025-11-19T14:13:58.436] [DEBUG] debug-file - Update task entry:default@SignHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\entry-default-unsigned.hap cache from map.
+[2025-11-19T14:13:58.436] [DEBUG] debug-file - Update task entry:default@SignHap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\entry-default-signed.hap cache.
+[2025-11-19T14:13:58.436] [DEBUG] debug-file - Incremental task entry:default@SignHap post-execution cost:1 ms .
+[2025-11-19T14:13:58.436] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\ets\sourceMaps.map cache by regenerate.
+[2025-11-19T14:13:58.437] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\libs\default cache by regenerate.
+[2025-11-19T14:13:58.437] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\symbol cache.
+[2025-11-19T14:13:58.438] [DEBUG] debug-file - Incremental task entry:default@CollectDebugSymbol post-execution cost:2 ms .
+[2025-11-19T14:13:58.457] [DEBUG] debug-file - Cleanup worker 14.
+[2025-11-19T14:13:58.457] [DEBUG] debug-file - Worker 14 has been cleaned up.
+[2025-11-19T14:13:58.457] [DEBUG] debug-file - Current idle worker size: 1.
+[2025-11-19T14:13:58.457] [DEBUG] debug-file - Current resident worker size: 2.
+[2025-11-19T14:13:58.457] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-11-19T14:13:58.457] [DEBUG] debug-file - java daemon socket close code:1000 reason:close by user
+[2025-11-19T14:13:58.462] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-11-19T14:13:58.463] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-11-19T14:13:58.463] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-11-19T14:13:58.463] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-11-19T14:13:58.465] [DEBUG] debug-file - worker[14] exits with exit code 1.
+[2025-11-19T14:14:26.263] [DEBUG] debug-file - session manager: set active socket. socketId=GfZkkGnL1E0b7FN6AAAF
+[2025-11-19T14:14:26.278] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-11-19T14:14:26.281] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined
+}
+[2025-11-19T14:14:26.283] [DEBUG] debug-file - Cache service initialization finished in 2 ms 
+[2025-11-19T14:14:26.283] [DEBUG] debug-file - hvigorfile, resolving D:\Scripts\HCIBGA\HMAPP\hvigorfile.ts
+[2025-11-19T14:14:26.287] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-11-19T14:14:26.287] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-11-19T14:14:26.291] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-11-19T14:14:26.291] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-11-19T14:14:26.291] [DEBUG] debug-file - Product 'default' build option initialized
+[2025-11-19T14:14:26.291] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-11-19T14:14:26.292] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2025-11-19T14:14:26.294] [DEBUG] debug-file - D:\Scripts\HCIBGA\HMAPP\build\cache\default\remote_hsp\remoteHspCache.json not exists.
+[2025-11-19T14:14:26.296] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-11-19T14:14:26.316] [DEBUG] debug-file - Sdk init in 22 ms 
+[2025-11-19T14:14:26.318] [DEBUG] debug-file - Project task initialization takes 2 ms 
+[2025-11-19T14:14:26.318] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-11-19T14:14:26.318] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\Scripts\HCIBGA\HMAPP\hvigorfile.ts
+[2025-11-19T14:14:26.318] [DEBUG] debug-file - hvigorfile, resolve finished D:\Scripts\HCIBGA\HMAPP\hvigorfile.ts
+[2025-11-19T14:14:26.319] [DEBUG] debug-file - hvigorfile, resolving D:\Scripts\HCIBGA\HMAPP\entry\hvigorfile.ts
+[2025-11-19T14:14:26.322] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-11-19T14:14:26.322] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-11-19T14:14:26.323] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js
+- D:\Scripts\HCIBGA\HMAPP\hvigorfile.ts
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor\src\base\boot\index.js
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\cluster\worker-process-lifecycle.js
+- D:\Software\Huawei\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\process\daemon-process-boot-script.js
+[2025-11-19T14:14:26.325] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-11-19T14:14:26.325] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-19T14:14:26.325] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2025-11-19T14:14:26.325] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-11-19T14:14:26.325] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2025-11-19T14:14:26.325] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-11-19T14:14:26.325] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2025-11-19T14:14:26.325] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-19T14:14:26.326] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2025-11-19T14:14:26.326] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-11-19T14:14:26.326] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2025-11-19T14:14:26.326] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-11-19T14:14:26.326] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-11-19T14:14:26.326] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-19T14:14:26.326] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2025-11-19T14:14:26.327] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-11-19T14:14:26.327] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2025-11-19T14:14:26.327] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-11-19T14:14:26.327] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2025-11-19T14:14:26.328] [DEBUG] debug-file - Module entry task initialization takes 1 ms 
+[2025-11-19T14:14:26.328] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-11-19T14:14:26.328] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\Scripts\HCIBGA\HMAPP\entry\hvigorfile.ts
+[2025-11-19T14:14:26.328] [DEBUG] debug-file - hvigorfile, resolve finished D:\Scripts\HCIBGA\HMAPP\entry\hvigorfile.ts
+[2025-11-19T14:14:26.340] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 12 ms 
+[2025-11-19T14:14:26.340] [DEBUG] debug-file - project has submodules:entry
+[2025-11-19T14:14:26.341] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-11-19T14:14:26.343] [DEBUG] debug-file - load to the disk finished
+[2025-11-19T14:14:26.343] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-11-19T14:14:26.346] [DEBUG] debug-file - Module HMAPP Collected Dependency: 
+[2025-11-19T14:14:26.346] [DEBUG] debug-file - Module HMAPP's total dependency: 0
+[2025-11-19T14:14:26.346] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-11-19T14:14:26.347] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2025-11-19T14:14:26.347] [DEBUG] debug-file - Module entry's total dependency: 0
+[2025-11-19T14:14:26.349] [DEBUG] debug-file - Configuration phase cost:66 ms 
+[2025-11-19T14:14:26.349] [DEBUG] debug-file - Configuration task cost before running: 71 ms 
+[2025-11-19T14:14:26.352] [DEBUG] debug-file - Executing task :entry:default@PreBuild
+[2025-11-19T14:14:26.352] [DEBUG] debug-file - Task 'entry:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:26.356] [DEBUG] debug-file - Incremental task entry:default@PreBuild pre-execution cost: 3 ms .
+[2025-11-19T14:14:26.357] [DEBUG] debug-file - entry : default@PreBuild cost memory 0.32221221923828125
+[2025-11-19T14:14:26.358] [INFO] debug-file - UP-TO-DATE :entry:default@PreBuild...  
+[2025-11-19T14:14:26.359] [DEBUG] debug-file - Executing task :entry:default@CreateModuleInfo
+[2025-11-19T14:14:26.359] [DEBUG] debug-file - Task 'entry:default@CreateModuleInfo' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:26.359] [DEBUG] debug-file - entry : default@CreateModuleInfo cost memory 0.041046142578125
+[2025-11-19T14:14:26.359] [DEBUG] debug-file - runTaskFromQueue task cost before running: 80 ms 
+[2025-11-19T14:14:26.359] [INFO] debug-file - Finished :entry:default@CreateModuleInfo... after 1 ms 
+[2025-11-19T14:14:26.361] [DEBUG] debug-file - Executing task :entry:default@GenerateMetadata
+[2025-11-19T14:14:26.361] [DEBUG] debug-file - Task 'entry:default@GenerateMetadata' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:26.362] [DEBUG] debug-file - Incremental task entry:default@GenerateMetadata pre-execution cost: 1 ms .
+[2025-11-19T14:14:26.362] [DEBUG] debug-file - entry : default@GenerateMetadata cost memory -1.6738967895507812
+[2025-11-19T14:14:26.362] [INFO] debug-file - UP-TO-DATE :entry:default@GenerateMetadata...  
+[2025-11-19T14:14:26.363] [DEBUG] debug-file - Executing task :entry:default@ConfigureCmake
+[2025-11-19T14:14:26.363] [DEBUG] debug-file - entry : default@ConfigureCmake cost memory 0.01611328125
+[2025-11-19T14:14:26.363] [DEBUG] debug-file - runTaskFromQueue task cost before running: 84 ms 
+[2025-11-19T14:14:26.363] [INFO] debug-file - Finished :entry:default@ConfigureCmake... after 1 ms 
+[2025-11-19T14:14:26.364] [DEBUG] debug-file - Executing task :entry:default@MergeProfile
+[2025-11-19T14:14:26.364] [DEBUG] debug-file - Task 'entry:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:26.365] [DEBUG] debug-file - Incremental task entry:default@MergeProfile pre-execution cost: 1 ms .
+[2025-11-19T14:14:26.365] [DEBUG] debug-file - entry : default@MergeProfile cost memory 0.1389617919921875
+[2025-11-19T14:14:26.365] [INFO] debug-file - UP-TO-DATE :entry:default@MergeProfile...  
+[2025-11-19T14:14:26.366] [DEBUG] debug-file - Executing task :entry:default@CreateBuildProfile
+[2025-11-19T14:14:26.366] [DEBUG] debug-file - Task 'entry:default@CreateBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:26.367] [DEBUG] debug-file - Incremental task entry:default@CreateBuildProfile pre-execution cost: 1 ms .
+[2025-11-19T14:14:26.367] [DEBUG] debug-file - entry : default@CreateBuildProfile cost memory 0.09775543212890625
+[2025-11-19T14:14:26.367] [INFO] debug-file - UP-TO-DATE :entry:default@CreateBuildProfile...  
+[2025-11-19T14:14:26.367] [DEBUG] debug-file - Executing task :entry:default@PreCheckSyscap
+[2025-11-19T14:14:26.367] [DEBUG] debug-file - entry : default@PreCheckSyscap cost memory 0.01633453369140625
+[2025-11-19T14:14:26.367] [DEBUG] debug-file - runTaskFromQueue task cost before running: 89 ms 
+[2025-11-19T14:14:26.368] [INFO] debug-file - Finished :entry:default@PreCheckSyscap... after 1 ms 
+[2025-11-19T14:14:26.368] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgContextInfo
+[2025-11-19T14:14:26.371] [DEBUG] debug-file - Task 'entry:default@GeneratePkgContextInfo' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:26.372] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgContextInfo pre-execution cost: 1 ms .
+[2025-11-19T14:14:26.372] [DEBUG] debug-file - entry : default@GeneratePkgContextInfo cost memory 0.4634552001953125
+[2025-11-19T14:14:26.372] [INFO] debug-file - UP-TO-DATE :entry:default@GeneratePkgContextInfo...  
+[2025-11-19T14:14:26.374] [DEBUG] debug-file - Executing task :entry:default@ProcessIntegratedHsp
+[2025-11-19T14:14:26.374] [DEBUG] debug-file - entry:default@ProcessIntegratedHsp is not up-to-date, since the output file 'D:\Scripts\HCIBGA\HMAPP\build\cache\default\integrated_hsp\integratedHspCache.json' does not exist.
+[2025-11-19T14:14:26.374] [DEBUG] debug-file - Incremental task entry:default@ProcessIntegratedHsp pre-execution cost: 1 ms .
+[2025-11-19T14:14:26.374] [DEBUG] debug-file - entry : default@ProcessIntegratedHsp cost memory 0.0612945556640625
+[2025-11-19T14:14:26.374] [DEBUG] debug-file - runTaskFromQueue task cost before running: 96 ms 
+[2025-11-19T14:14:26.374] [INFO] debug-file - Finished :entry:default@ProcessIntegratedHsp... after 1 ms 
+[2025-11-19T14:14:26.375] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithCmake
+[2025-11-19T14:14:26.375] [DEBUG] debug-file - entry : default@BuildNativeWithCmake cost memory 0.01715850830078125
+[2025-11-19T14:14:26.375] [DEBUG] debug-file - runTaskFromQueue task cost before running: 97 ms 
+[2025-11-19T14:14:26.375] [INFO] debug-file - Finished :entry:default@BuildNativeWithCmake... after 1 ms 
+[2025-11-19T14:14:26.376] [DEBUG] debug-file - Executing task :entry:default@MakePackInfo
+[2025-11-19T14:14:26.378] [DEBUG] debug-file - Incremental task entry:default@MakePackInfo pre-execution cost: 2 ms .
+[2025-11-19T14:14:26.378] [DEBUG] debug-file - entry : default@MakePackInfo cost memory 0.1351470947265625
+[2025-11-19T14:14:26.378] [INFO] debug-file - UP-TO-DATE :entry:default@MakePackInfo...  
+[2025-11-19T14:14:26.380] [DEBUG] debug-file - Executing task :entry:default@SyscapTransform
+[2025-11-19T14:14:26.380] [DEBUG] debug-file - File: 'D:\Scripts\HCIBGA\HMAPP\entry\src\main\syscap.json' from 'sysCapJsonPath' is not exists, just ignore.
+[2025-11-19T14:14:26.380] [DEBUG] debug-file - Task 'entry:default@SyscapTransform' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:26.381] [DEBUG] debug-file - entry:default@SyscapTransform is not up-to-date, since the output file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\syscap\default\rpcid.sc' does not exist.
+[2025-11-19T14:14:26.381] [DEBUG] debug-file - Incremental task entry:default@SyscapTransform pre-execution cost: 1 ms .
+[2025-11-19T14:14:26.381] [DEBUG] debug-file - entry : default@SyscapTransform cost memory 0.16066741943359375
+[2025-11-19T14:14:26.381] [DEBUG] debug-file - runTaskFromQueue task cost before running: 102 ms 
+[2025-11-19T14:14:26.381] [INFO] debug-file - Finished :entry:default@SyscapTransform... after 2 ms 
+[2025-11-19T14:14:26.382] [DEBUG] debug-file - Executing task :entry:default@ProcessProfile
+[2025-11-19T14:14:26.382] [DEBUG] debug-file - Task 'entry:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:26.382] [DEBUG] debug-file - Incremental task entry:default@ProcessProfile pre-execution cost: 1 ms .
+[2025-11-19T14:14:26.383] [DEBUG] debug-file - entry : default@ProcessProfile cost memory 0.1427154541015625
+[2025-11-19T14:14:26.383] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessProfile...  
+[2025-11-19T14:14:26.383] [DEBUG] debug-file - Executing task :entry:default@ProcessRouterMap
+[2025-11-19T14:14:26.385] [DEBUG] debug-file - Incremental task entry:default@ProcessRouterMap pre-execution cost: 2 ms .
+[2025-11-19T14:14:26.385] [DEBUG] debug-file - entry : default@ProcessRouterMap cost memory 0.15314483642578125
+[2025-11-19T14:14:26.386] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessRouterMap...  
+[2025-11-19T14:14:26.386] [DEBUG] debug-file - Executing task :entry:default@ProcessShareConfig
+[2025-11-19T14:14:26.388] [DEBUG] debug-file - Incremental task entry:default@ProcessShareConfig pre-execution cost: 1 ms .
+[2025-11-19T14:14:26.388] [DEBUG] debug-file - entry : default@ProcessShareConfig cost memory 0.136749267578125
+[2025-11-19T14:14:26.388] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessShareConfig...  
+[2025-11-19T14:14:26.389] [DEBUG] debug-file - Executing task :entry:default@ProcessStartupConfig
+[2025-11-19T14:14:26.389] [DEBUG] debug-file - Task 'entry:default@ProcessStartupConfig' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:26.390] [DEBUG] debug-file - entry:default@ProcessStartupConfig is not up-to-date, since the output file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\startup\default\startup_config.json' does not exist.
+[2025-11-19T14:14:26.390] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig pre-execution cost: 1 ms .
+[2025-11-19T14:14:26.390] [DEBUG] debug-file - entry : default@ProcessStartupConfig cost memory 0.14111328125
+[2025-11-19T14:14:26.390] [DEBUG] debug-file - runTaskFromQueue task cost before running: 112 ms 
+[2025-11-19T14:14:26.390] [INFO] debug-file - Finished :entry:default@ProcessStartupConfig... after 2 ms 
+[2025-11-19T14:14:26.391] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithNinja
+[2025-11-19T14:14:26.391] [DEBUG] debug-file - entry : default@BuildNativeWithNinja cost memory 0.02318572998046875
+[2025-11-19T14:14:26.391] [DEBUG] debug-file - runTaskFromQueue task cost before running: 113 ms 
+[2025-11-19T14:14:26.391] [INFO] debug-file - Finished :entry:default@BuildNativeWithNinja... after 1 ms 
+[2025-11-19T14:14:26.392] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@ProcessResource
+[2025-11-19T14:14:26.393] [DEBUG] debug-file - Executing task :entry:default@ProcessResource
+[2025-11-19T14:14:26.393] [DEBUG] debug-file - Task 'entry:default@ProcessResource' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:26.393] [DEBUG] debug-file - Incremental task entry:default@ProcessResource pre-execution cost: 1 ms .
+[2025-11-19T14:14:26.394] [DEBUG] debug-file - entry : default@ProcessResource cost memory 0.132781982421875
+[2025-11-19T14:14:26.395] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessResource...  
+[2025-11-19T14:14:26.396] [DEBUG] debug-file - Executing task :entry:default@GenerateLoaderJson
+[2025-11-19T14:14:26.396] [DEBUG] debug-file - Task 'entry:default@GenerateLoaderJson' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:26.401] [DEBUG] debug-file - Incremental task entry:default@GenerateLoaderJson pre-execution cost: 4 ms .
+[2025-11-19T14:14:26.401] [DEBUG] debug-file - entry : default@GenerateLoaderJson cost memory 0.4913177490234375
+[2025-11-19T14:14:26.403] [INFO] debug-file - UP-TO-DATE :entry:default@GenerateLoaderJson...  
+[2025-11-19T14:14:26.403] [DEBUG] debug-file - Executing task :entry:default@ProcessLibs
+[2025-11-19T14:14:26.404] [DEBUG] debug-file - Incremental task entry:default@ProcessLibs pre-execution cost: 1 ms .
+[2025-11-19T14:14:26.404] [DEBUG] debug-file - entry : default@ProcessLibs cost memory 0.1015625
+[2025-11-19T14:14:26.405] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessLibs...  
+[2025-11-19T14:14:26.406] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@CompileResource
+[2025-11-19T14:14:26.406] [DEBUG] debug-file - Executing task :entry:default@CompileResource
+[2025-11-19T14:14:26.409] [DEBUG] debug-file - entry:default@CompileResource is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\src\main\resources' has been changed.
+[2025-11-19T14:14:26.409] [DEBUG] debug-file - Incremental task entry:default@CompileResource pre-execution cost: 3 ms .
+[2025-11-19T14:14:26.411] [DEBUG] debug-file - Use tool [D:\Software\Huawei\DevEco Studio\sdk\default\openharmony\toolchains\restool.exe]
+ [
+  'D:\\Software\\Huawei\\DevEco Studio\\sdk\\default\\openharmony\\toolchains\\restool.exe',
+  '-l',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resConfig.json'
+]
+[2025-11-19T14:14:26.412] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 467243008,
+  heapTotal: 124231680,
+  heapUsed: 116613096,
+  external: 3173506,
+  arrayBuffers: 145847
+} os memoryUsage :40.27307891845703
+[2025-11-19T14:14:26.538] [DEBUG] debug-file - Info: Pack: normal pack mode
+
+[2025-11-19T14:14:26.577] [DEBUG] debug-file - Info: hardware concurrency count is : 16
+Info: thread count is : 16
+
+[2025-11-19T14:14:26.577] [DEBUG] debug-file - Info: thread pool is started
+
+[2025-11-19T14:14:26.578] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2025-11-19T14:14:26.581] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2025-11-19T14:14:26.582] [DEBUG] debug-file - Warning: 'D:\Scripts\HCIBGA\HMAPP\entry\src\main\resources\base\media\icon.png' is defined repeatedly.
+
+[2025-11-19T14:14:26.586] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2025-11-19T14:14:26.589] [DEBUG] debug-file - 11-19 14:14:26.590 35240 25872 E C01400/ImageTranscoderUtils: DecodeToRGBA IN
+
+[2025-11-19T14:14:26.590] [DEBUG] debug-file - 11-19 14:14:26.590 35240 25872 E C01400/ImageTranscoderUtils: ImageFilter IN D:\Scripts\HCIBGA\HMAPP\AppScope\resources\base\media\icon.png
+
+[2025-11-19T14:14:26.590] [DEBUG] debug-file - 11-19 14:14:26.591 35240 25872 E C01400/ImageTranscoder: TranscodeSLR Only zoom-out is supported.
+
+[2025-11-19T14:14:26.590] [DEBUG] debug-file - Warning: ScaleImage failed, error message: INVALID_PARAMETERS, file path = D:\Scripts\HCIBGA\HMAPP\AppScope\resources\base\media\icon.png
+
+[2025-11-19T14:14:26.591] [DEBUG] debug-file - Warning: The width or height of the png file referenced by the icon exceeds the limit (41 pixels)
+at D:\Scripts\HCIBGA\HMAPP\AppScope\resources\base\media\icon.png
+
+[2025-11-19T14:14:26.591] [DEBUG] debug-file - Info: restool resources compile success.
+
+[2025-11-19T14:14:26.592] [DEBUG] debug-file - Info: thread pool is stopped
+
+[2025-11-19T14:14:26.660] [DEBUG] debug-file - entry : default@CompileResource cost memory -9.169105529785156
+[2025-11-19T14:14:26.660] [DEBUG] debug-file - runTaskFromQueue task cost before running: 382 ms 
+[2025-11-19T14:14:26.661] [INFO] debug-file - Finished :entry:default@CompileResource... after 255 ms 
+[2025-11-19T14:14:26.662] [DEBUG] debug-file - Executing task :entry:default@DoNativeStrip
+[2025-11-19T14:14:26.662] [DEBUG] debug-file - Task 'entry:default@DoNativeStrip' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:26.663] [DEBUG] debug-file - Incremental task entry:default@DoNativeStrip pre-execution cost: 1 ms .
+[2025-11-19T14:14:26.663] [DEBUG] debug-file - entry : default@DoNativeStrip cost memory 0.08219146728515625
+[2025-11-19T14:14:26.663] [INFO] debug-file - UP-TO-DATE :entry:default@DoNativeStrip...  
+[2025-11-19T14:14:26.664] [DEBUG] debug-file - Executing task :entry:default@CompileArkTS
+[2025-11-19T14:14:26.664] [DEBUG] debug-file - obfuscationOptions: undefined
+[2025-11-19T14:14:26.667] [DEBUG] debug-file - entry:default@CompileArkTS is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ResourceTable.txt' has been changed.
+[2025-11-19T14:14:26.667] [DEBUG] debug-file - Incremental task entry:default@CompileArkTS pre-execution cost: 2 ms .
+[2025-11-19T14:14:26.672] [DEBUG] debug-file - build config:
+[2025-11-19T14:14:26.672] [DEBUG] debug-file - {
+  moduleType: 'entry',
+  perf: 0,
+  targetName: '.default',
+  packageManagerType: 'ohpm',
+  localPropertiesPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\local.properties',
+  isPreview: false,
+  isOhosTest: false,
+  isLocalTest: false,
+  buildMode: 'Debug',
+  hotReloadBuild: undefined,
+  watchMode: 'false',
+  aceProfilePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resources\\base\\profile',
+  etsLoaderPath: 'D:\\Software\\Huawei\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader',
+  modulePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+  testFrameworkPar: {
+    testMode: undefined,
+    coveragePathFilter: undefined,
+    coverageMode: undefined
+  },
+  needCoverageInsert: false,
+  debugLine: false,
+  projectTopDir: 'D:\\Scripts\\HCIBGA\\HMAPP',
+  compileSdkVersion: 20,
+  compatibleSdkVersion: 15,
+  compatibleSdkVersionStage: undefined,
+  bundleName: 'c***A',
+  etsLoaderVersion: '6.0.0.47',
+  etsLoaderReleaseType: 'Release',
+  aotCompileMode: 'type',
+  apPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\modules.ap',
+  entryModuleName: 'entry',
+  entryModuleVersion: '1.0.0',
+  entryPackageName: 'entry',
+  allModuleNameHash: '09e1872cece30d186932e7ebb026d0a9',
+  externalApiPaths: [ 'D:\\Software\\Huawei\\DevEco Studio\\sdk\\default\\hms\\ets' ],
+  compilerTypes: [],
+  isCrossplatform: false,
+  hvigorPluginFile: undefined,
+  compilePluginPath: undefined,
+  buildGeneratedProfilePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\generated\\profile\\default',
+  bundleType: 'app',
+  arkTSVersion: undefined,
+  apiVersion: 20,
+  needCompleteSourcesMap: false,
+  isFaMode: false,
+  strictMode: {
+    caseSensitiveCheck: true,
+    useNormalizedOHMUrl: true,
+    noExternalImportByPath: true
+  },
+  buildDir: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build',
+  deviceTypes: [ 'phone', 'tablet', '2in1', 'wearable' ],
+  useNormalizedOHMUrl: true,
+  pkgContextInfo: {
+    '@ohos/hypium': {
+      packageName: '@ohos/hypium',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.21',
+      entryPath: 'index.js',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    '@ohos/hamock': {
+      packageName: '@ohos/hamock',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.0',
+      entryPath: 'index.ets',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    entry: {
+      packageName: 'entry',
+      bundleName: '*****',
+      moduleName: '',
+      version: '',
+      entryPath: 'src/main/',
+      isSO: false,
+      dependencyAlias: ''
+    }
+  },
+  ohPackagePathMap: {},
+  dependencyAliasMap: {},
+  permission: {
+    requestPermissions: [ [Object], [Object], [Object] ],
+    definePermissions: undefined
+  },
+  integratedHsp: false,
+  projectArkOption: undefined,
+  sourceMapDir: undefined,
+  branchElimination: false,
+  transformLib: undefined,
+  caseSensitiveCheck: true,
+  tsImportSendable: false,
+  resolveConflictMode: true,
+  depName2RootPath: {},
+  depName2DepInfo: {},
+  rootPathSet: [ 'D:\\Scripts\\HCIBGA\\HMAPP' ],
+  useNativeResolver: true,
+  shouldEmitJs: true,
+  useTscResolve: false,
+  singleFileEmit: false,
+  userProjectConfig: {
+    autoLazyImport: false,
+    allowEmptyBundleName: false,
+    reExportCheckMode: 'noCheck',
+    executionMode: 'memory',
+    usePathPlaceholder: false,
+    writeRollupCache: true,
+    isExpandImportEnabled: false,
+    expandImportExclude: '',
+    ignoreCrossplatformCheck: false,
+    isPreloadSoEnabled: false
+  },
+  skipOhModulesLint: false,
+  executionMode: 'memory',
+  autoLazyImport: false,
+  allowEmptyBundleName: false,
+  reExportCheckMode: 'noCheck',
+  usePathPlaceholder: false,
+  writeRollupCache: true,
+  isExpandImportEnabled: false,
+  expandImportExclude: '',
+  ignoreCrossplatformCheck: false,
+  isPreloadSoEnabled: false,
+  arkCompileCachePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule',
+  aceModuleJsonPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\ark_module.json',
+  appResource: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\ResourceTable.txt',
+  rawFileResource: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resources\\rawfile',
+  resourceTableHash: 'ebd6bf25fc27cffde567ec5b7a7b4837',
+  runtimeOS: 'HarmonyOS',
+  sdkInfo: 'false:20:6.0.0.47:Release',
+  aceModuleRoot: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\main\\ets',
+  compileMode: 'esmodule',
+  aceSuperVisualPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\main\\supervisual',
+  aceBuildJson: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\loader\\default\\loader.json',
+  cachePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule\\debug',
+  aceModuleBuild: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\loader_out\\default\\ets',
+  supportChunks: true,
+  declaredFilesPath: undefined,
+  shouldCollectDirectImportees: false,
+  isByteCodeHarOptimize: false,
+  expandImportPath: undefined,
+  pkgNameToPkgBriefInfo: {
+    entry: {
+      pkgRoot: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      originalSourceRoots: undefined,
+      sourceRoots: [Array],
+      pkgName: 'entry'
+    }
+  },
+  projectModel: {
+    'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\main': {
+      moduleName: 'entry',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    },
+    'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\src\\ohosTest\\ets': {
+      moduleName: 'entry_test',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    },
+    'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\ohosTest': {
+      moduleName: 'entry_test',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    },
+    'D:\\Scripts\\HCIBGA\\HMAPP\\entry': {
+      moduleName: 'entry',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    },
+    'D:\\Scripts\\HCIBGA\\HMAPP': {
+      moduleName: 'HMAPP',
+      modulePkgPath: 'D:\\Scripts\\HCIBGA\\HMAPP',
+      belongProjectPath: 'D:\\Scripts\\HCIBGA\\HMAPP'
+    }
+  },
+  pkgJsonFileHash: '6a064a0450523b67c5ac0ad9931b82a3',
+  allModulePaths: [ 'D:\\Scripts\\HCIBGA\\HMAPP\\entry' ],
+  routerMap: {},
+  obfuscationOptions: undefined,
+  byteCodeHarToDependencyKeys: undefined,
+  compileBlockPkg: [],
+  mockParams: {
+    decorator: '@MockSetup',
+    packageName: '@ohos/hamock',
+    etsSourceRootPath: 'src/main/ets',
+    mockConfigPath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\src\\mock\\mock-config.json5',
+    mockConfigKey2ModuleInfo: {},
+    source2ModuleIdMap: {}
+  },
+  copyCodeResourceEnable: true,
+  copyCodeResourceExcludes: [],
+  copyCodeResourceIncludes: undefined,
+  uiTransformOptimization: false,
+  sdkPath: 'D:/Software/Huawei/DevEco Studio/sdk',
+  needPreloadSoFileSet: {},
+  preloadSoFilePath: 'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\preload\\default\\preload.json',
+  useSourceHash: false,
+  localModuleParamMap: {},
+  otherPaths: {
+    'entry/*': [
+      '..\\*',
+      '..\\..\\..\\build\\default\\generated\\profile\\default\\*'
+    ]
+  },
+  collectImportersConfig: undefined
+}
+[2025-11-19T14:14:26.673] [DEBUG] debug-file - Compile arkts with external api path: D:\Software\Huawei\DevEco Studio\sdk\default\hms\ets
+[2025-11-19T14:14:26.673] [DEBUG] debug-file - default@CompileArkTS work[4] is submitted.
+[2025-11-19T14:14:26.673] [DEBUG] debug-file - default@CompileArkTS work[4] is pushed to ready queue.
+[2025-11-19T14:14:26.673] [DEBUG] debug-file - A work dispatched to worker[15] failed because unable to get work from ready queue.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - A work dispatched to worker[14] failed because unable to get work from ready queue.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - A work dispatched to worker[13] failed because unable to get work from ready queue.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - A work dispatched to worker[12] failed because unable to get work from ready queue.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - A work dispatched to worker[10] failed because unable to get work from ready queue.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - A work dispatched to worker[7] failed because unable to get work from ready queue.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - A work dispatched to worker[6] failed because unable to get work from ready queue.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - A work dispatched to worker[5] failed because unable to get work from ready queue.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - default@CompileArkTS work[4] has been dispatched to worker[4].
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - default@CompileArkTS work[4] is dispatched.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - CopyResources startTime: 356407171240400
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - default@CompileArkTS work[5] is submitted.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - default@CompileArkTS work[5] is pushed to ready queue.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - A work dispatched to worker[15] failed because unable to get work from ready queue.
+[2025-11-19T14:14:26.674] [DEBUG] debug-file - Create  resident worker with id: 14.
+[2025-11-19T14:14:26.675] [DEBUG] debug-file - default@CompileArkTS work[5] has been dispatched to worker[14].
+[2025-11-19T14:14:26.675] [DEBUG] debug-file - default@CompileArkTS work[5] is dispatched.
+[2025-11-19T14:14:26.675] [DEBUG] debug-file - entry : default@CompileArkTS cost memory -0.38451385498046875
+[2025-11-19T14:14:26.676] [DEBUG] debug-file - Executing task :entry:default@BuildJS
+[2025-11-19T14:14:26.677] [DEBUG] debug-file - entry : default@BuildJS cost memory 0.1737518310546875
+[2025-11-19T14:14:26.678] [DEBUG] debug-file - runTaskFromQueue task cost before running: 399 ms 
+[2025-11-19T14:14:26.678] [INFO] debug-file - Finished :entry:default@BuildJS... after 2 ms 
+[2025-11-19T14:14:26.678] [DEBUG] debug-file - Executing task :entry:default@CacheNativeLibs
+[2025-11-19T14:14:26.679] [DEBUG] debug-file - Task 'entry:default@CacheNativeLibs' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:26.680] [DEBUG] debug-file - Incremental task entry:default@CacheNativeLibs pre-execution cost: 1 ms .
+[2025-11-19T14:14:26.680] [DEBUG] debug-file - entry : default@CacheNativeLibs cost memory 0.09468841552734375
+[2025-11-19T14:14:26.680] [INFO] debug-file - UP-TO-DATE :entry:default@CacheNativeLibs...  
+[2025-11-19T14:14:26.973] [WARN] debug-file - [33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/entryability/EntryAbility.ets:12:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:65:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:93:21
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:95:29
+ The system capacity of this api 'picker' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:95:36
+ The system capacity of this api 'DocumentSaveOptions' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:96:17
+ The system capacity of this api 'newFileNames' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:99:44
+ The system capacity of this api 'picker' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:99:51
+ The system capacity of this api 'DocumentViewPicker' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:99:79
+ The system capacity of this api 'save' is not supported on all devices
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:137:27
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:208:28
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:209:24
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:212:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:213:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:215:22
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:216:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/IWebDownloadFile.ets:217:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:50:27
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:59:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:59:18
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:66:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:66:18
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:101:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/delegate/WebDownloadFileImpl.ets:101:20
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/pages/Index.ets:189:9
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/pages/Index.ets:190:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: D:/Scripts/HCIBGA/HMAPP/entry/src/main/ets/pages/Index.ets:200:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+
+[2025-11-19T14:14:26.973] [DEBUG] debug-file - Ark compile task finished.finished time is 356407470650000
+[2025-11-19T14:14:26.974] [DEBUG] debug-file - worker[4] has one work done.
+[2025-11-19T14:14:26.975] [DEBUG] debug-file - default@CompileArkTS work[4] done.
+[2025-11-19T14:14:26.975] [DEBUG] debug-file - A work dispatched to worker[4] failed because unable to get work from ready queue.
+[2025-11-19T14:14:27.445] [DEBUG] debug-file - worker[14] has one work done.
+[2025-11-19T14:14:27.445] [DEBUG] debug-file - CopyResources is end, endTime: 356407942445900
+[2025-11-19T14:14:27.445] [DEBUG] debug-file - default@CompileArkTS work[5] done.
+[2025-11-19T14:14:27.445] [DEBUG] debug-file - A work dispatched to worker[14] failed because unable to get work from ready queue.
+[2025-11-19T14:14:27.447] [INFO] debug-file - Finished :entry:default@CompileArkTS... after 322 ms 
+[2025-11-19T14:14:27.448] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgModuleJson
+[2025-11-19T14:14:27.448] [DEBUG] debug-file - File: 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\preload\default\preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2025-11-19T14:14:27.448] [DEBUG] debug-file - Task 'entry:default@GeneratePkgModuleJson' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:27.449] [DEBUG] debug-file - entry:default@GeneratePkgModuleJson is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\module.json' has been changed.
+[2025-11-19T14:14:27.449] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgModuleJson pre-execution cost: 1 ms .
+[2025-11-19T14:14:27.450] [DEBUG] debug-file - entry : default@GeneratePkgModuleJson cost memory 0.1076202392578125
+[2025-11-19T14:14:27.450] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 171 ms 
+[2025-11-19T14:14:27.450] [INFO] debug-file - Finished :entry:default@GeneratePkgModuleJson... after 3 ms 
+[2025-11-19T14:14:27.451] [DEBUG] debug-file - Executing task :entry:default@ProcessCompiledResources
+[2025-11-19T14:14:27.451] [DEBUG] debug-file - File: 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\preload\default\preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2025-11-19T14:14:27.451] [DEBUG] debug-file - Task 'entry:default@ProcessCompiledResources' cost while wrapping incremental declarations: 1 ms 
+[2025-11-19T14:14:27.451] [DEBUG] debug-file - entry : default@ProcessCompiledResources cost memory 0.0670623779296875
+[2025-11-19T14:14:27.451] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 172 ms 
+[2025-11-19T14:14:27.451] [INFO] debug-file - Finished :entry:default@ProcessCompiledResources... after 1 ms 
+[2025-11-19T14:14:27.452] [DEBUG] debug-file - Executing task :entry:default@PackageHap
+[2025-11-19T14:14:27.454] [DEBUG] debug-file - entry:default@PackageHap is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\module.json' has been changed.
+[2025-11-19T14:14:27.454] [DEBUG] debug-file - Incremental task entry:default@PackageHap pre-execution cost: 2 ms .
+[2025-11-19T14:14:27.455] [DEBUG] debug-file - Use tool [D:\Software\Huawei\DevEco Studio\sdk\default\openharmony\toolchains\lib\app_packing_tool.jar]
+ [
+  'java',
+  '-Dfile.encoding=GBK',
+  '-jar',
+  'D:\\Software\\Huawei\\DevEco Studio\\sdk\\default\\openharmony\\toolchains\\lib\\app_packing_tool.jar',
+  '--mode',
+  'hap',
+  '--force',
+  'true',
+  '--lib-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\stripped_native_libs\\default',
+  '--json-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\package\\default\\module.json',
+  '--resources-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resources',
+  '--index-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\res\\default\\resources.index',
+  '--pack-info-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\outputs\\default\\pack.info',
+  '--out-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\outputs\\default\\entry-default-unsigned.hap',
+  '--ets-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\loader_out\\default\\ets',
+  '--pkg-context-path',
+  'D:\\Scripts\\HCIBGA\\HMAPP\\entry\\build\\default\\intermediates\\loader\\default\\pkgContextInfo.json'
+]
+[2025-11-19T14:14:27.484] [DEBUG] debug-file - java daemon socket received message:{"code":0,"message":"pack success"}
+[2025-11-19T14:14:27.487] [DEBUG] debug-file - entry : default@PackageHap cost memory -1.0914993286132812
+[2025-11-19T14:14:27.487] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 209 ms 
+[2025-11-19T14:14:27.488] [INFO] debug-file - Finished :entry:default@PackageHap... after 35 ms 
+[2025-11-19T14:14:27.489] [DEBUG] debug-file - Executing task :entry:default@PackingCheck
+[2025-11-19T14:14:27.493] [DEBUG] debug-file - entry : default@PackingCheck cost memory 0.42962646484375
+[2025-11-19T14:14:27.493] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 215 ms 
+[2025-11-19T14:14:27.493] [INFO] debug-file - Finished :entry:default@PackingCheck... after 5 ms 
+[2025-11-19T14:14:27.494] [DEBUG] debug-file - Executing task :entry:default@SignHap
+[2025-11-19T14:14:27.495] [DEBUG] debug-file - entry:default@SignHap is not up-to-date, since the input file 'D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\entry-default-unsigned.hap' has been changed.
+[2025-11-19T14:14:27.496] [DEBUG] debug-file - Incremental task entry:default@SignHap pre-execution cost: 1 ms .
+[2025-11-19T14:14:27.509] [DEBUG] debug-file - java daemon socket close code:1000 reason:close by user
+[2025-11-19T14:14:27.540] [DEBUG] debug-file - java daemon socket received message:{"code":0,"message":"verify profile success"}
+[2025-11-19T14:14:27.543] [DEBUG] debug-file - java daemon socket close code:1000 reason:close by user
+[2025-11-19T14:14:27.629] [DEBUG] debug-file - java daemon socket received message:{"code":0,"message":"sign app success"}
+[2025-11-19T14:14:27.630] [DEBUG] debug-file - entry : default@SignHap cost memory 0.7531051635742188
+[2025-11-19T14:14:27.630] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 351 ms 
+[2025-11-19T14:14:27.631] [INFO] debug-file - Finished :entry:default@SignHap... after 136 ms 
+[2025-11-19T14:14:27.632] [DEBUG] debug-file - Executing task :entry:default@CollectDebugSymbol
+[2025-11-19T14:14:27.632] [DEBUG] debug-file - entry : default@CollectDebugSymbol cost memory 0.08990478515625
+[2025-11-19T14:14:27.633] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 354 ms 
+[2025-11-19T14:14:27.633] [INFO] debug-file - Finished :entry:default@CollectDebugSymbol... after 1 ms 
+[2025-11-19T14:14:27.633] [DEBUG] debug-file - Executing task :entry:assembleHap
+[2025-11-19T14:14:27.633] [DEBUG] debug-file - entry : assembleHap cost memory 0.01433563232421875
+[2025-11-19T14:14:27.633] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 354 ms 
+[2025-11-19T14:14:27.633] [INFO] debug-file - Finished :entry:assembleHap... after 1 ms 
+[2025-11-19T14:14:27.650] [INFO] debug-file - BUILD SUCCESSFUL in 1 s 371 ms 
+[2025-11-19T14:14:27.650] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@PreBuild is up-to-date.
+[2025-11-19T14:14:27.650] [DEBUG] debug-file - Update task entry:default@CreateModuleInfo output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\profile\default\ModuleInfo.ts cache.
+[2025-11-19T14:14:27.650] [DEBUG] debug-file - Incremental task entry:default@CreateModuleInfo post-execution cost:1 ms .
+[2025-11-19T14:14:27.650] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GenerateMetadata is up-to-date.
+[2025-11-19T14:14:27.651] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@MergeProfile is up-to-date.
+[2025-11-19T14:14:27.651] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CreateBuildProfile is up-to-date.
+[2025-11-19T14:14:27.651] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GeneratePkgContextInfo is up-to-date.
+[2025-11-19T14:14:27.651] [DEBUG] debug-file - Update task entry:default@ProcessIntegratedHsp output file:D:\Scripts\HCIBGA\HMAPP\build\cache\default\integrated_hsp\integratedHspCache.json cache.
+[2025-11-19T14:14:27.651] [DEBUG] debug-file - Incremental task entry:default@ProcessIntegratedHsp post-execution cost:1 ms .
+[2025-11-19T14:14:27.651] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@MakePackInfo is up-to-date.
+[2025-11-19T14:14:27.651] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:D:\Software\Huawei\DevEco Studio\sdk\default\openharmony\toolchains\syscap_tool.exe cache by regenerate.
+[2025-11-19T14:14:27.651] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:D:\Software\Huawei\DevEco Studio\sdk\default\openharmony\ets\api\device-define cache by regenerate.
+[2025-11-19T14:14:27.652] [DEBUG] debug-file - Update task entry:default@SyscapTransform output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\syscap\default\rpcid.sc cache.
+[2025-11-19T14:14:27.653] [DEBUG] debug-file - Incremental task entry:default@SyscapTransform post-execution cost:2 ms .
+[2025-11-19T14:14:27.653] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessProfile is up-to-date.
+[2025-11-19T14:14:27.653] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessRouterMap is up-to-date.
+[2025-11-19T14:14:27.653] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessShareConfig is up-to-date.
+[2025-11-19T14:14:27.653] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:14:27.653] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\startup\default\startup_config.json cache.
+[2025-11-19T14:14:27.653] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig post-execution cost:1 ms .
+[2025-11-19T14:14:27.654] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessResource is up-to-date.
+[2025-11-19T14:14:27.654] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GenerateLoaderJson is up-to-date.
+[2025-11-19T14:14:27.654] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessLibs is up-to-date.
+[2025-11-19T14:14:27.655] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\resources cache from map.
+[2025-11-19T14:14:27.655] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\Scripts\HCIBGA\HMAPP\AppScope\resources cache by regenerate.
+[2025-11-19T14:14:27.656] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\process_profile\default\module.json cache by regenerate.
+[2025-11-19T14:14:27.656] [DEBUG] debug-file - Update task entry:default@CompileResource input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resConfig.json cache by regenerate.
+[2025-11-19T14:14:27.657] [DEBUG] debug-file - Update task entry:default@CompileResource output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default cache.
+[2025-11-19T14:14:27.659] [DEBUG] debug-file - Update task entry:default@CompileResource output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\r\default\ResourceTable.h cache.
+[2025-11-19T14:14:27.660] [DEBUG] debug-file - Update task entry:default@CompileResource output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\r\default cache.
+[2025-11-19T14:14:27.660] [DEBUG] debug-file - Incremental task entry:default@CompileResource post-execution cost:7 ms .
+[2025-11-19T14:14:27.660] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@DoNativeStrip is up-to-date.
+[2025-11-19T14:14:27.662] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default cache by regenerate.
+[2025-11-19T14:14:27.662] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ResourceTable.txt cache from map.
+[2025-11-19T14:14:27.663] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ark_module.json cache by regenerate.
+[2025-11-19T14:14:27.663] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2025-11-19T14:14:27.663] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\src\main\ets cache by regenerate.
+[2025-11-19T14:14:27.665] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:14:27.665] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\profile\default\BuildProfile.ets cache by regenerate.
+[2025-11-19T14:14:27.665] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:D:\Scripts\HCIBGA\HMAPP\entry\src\mock\mock-config.json5 cache by regenerate.
+[2025-11-19T14:14:27.665] [DEBUG] debug-file - Update task entry:default@CompileArkTS output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\ets cache.
+[2025-11-19T14:14:27.666] [DEBUG] debug-file - Incremental task entry:default@CompileArkTS post-execution cost:6 ms .
+[2025-11-19T14:14:27.667] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default cache by regenerate.
+[2025-11-19T14:14:27.668] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ResourceTable.txt cache by regenerate.
+[2025-11-19T14:14:27.668] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\ark_module.json cache by regenerate.
+[2025-11-19T14:14:27.668] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2025-11-19T14:14:27.669] [DEBUG] debug-file - Update task entry:default@BuildJS input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:14:27.669] [DEBUG] debug-file - Update task entry:default@BuildJS output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\js cache.
+[2025-11-19T14:14:27.669] [DEBUG] debug-file - Incremental task entry:default@BuildJS post-execution cost:4 ms .
+[2025-11-19T14:14:27.669] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CacheNativeLibs is up-to-date.
+[2025-11-19T14:14:27.669] [DEBUG] debug-file - Update task entry:default@GeneratePkgModuleJson input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\module.json cache from map.
+[2025-11-19T14:14:27.670] [DEBUG] debug-file - Update task entry:default@GeneratePkgModuleJson output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\package\default\module.json cache.
+[2025-11-19T14:14:27.670] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgModuleJson post-execution cost:1 ms .
+[2025-11-19T14:14:27.670] [DEBUG] debug-file - Incremental task entry:default@ProcessCompiledResources post-execution cost:1 ms .
+[2025-11-19T14:14:27.670] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\stripped_native_libs\default cache by regenerate.
+[2025-11-19T14:14:27.671] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\module.json cache from map.
+[2025-11-19T14:14:27.671] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resources cache by regenerate.
+[2025-11-19T14:14:27.674] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\res\default\resources.index cache by regenerate.
+[2025-11-19T14:14:27.674] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\pack.info cache by regenerate.
+[2025-11-19T14:14:27.674] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\ets cache by regenerate.
+[2025-11-19T14:14:27.675] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-11-19T14:14:27.675] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\ets\sourceMaps.map cache by regenerate.
+[2025-11-19T14:14:27.675] [DEBUG] debug-file - Update task entry:default@PackageHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\generated\profile\default\BuildProfile.ets cache by regenerate.
+[2025-11-19T14:14:27.675] [DEBUG] debug-file - Update task entry:default@PackageHap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\entry-default-unsigned.hap cache.
+[2025-11-19T14:14:27.676] [DEBUG] debug-file - Update task entry:default@PackageHap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\source_map\default\sourceMaps.map cache.
+[2025-11-19T14:14:27.676] [DEBUG] debug-file - Update task entry:default@PackageHap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\mapping\sourceMaps.map cache.
+[2025-11-19T14:14:27.676] [DEBUG] debug-file - Incremental task entry:default@PackageHap post-execution cost:7 ms .
+[2025-11-19T14:14:27.676] [DEBUG] debug-file - Update task entry:default@SignHap input file:C:\Users\vintces\.ohos\config\default_HMAPP_lAjQ22zugR-lh__rJk9Kt3FJfN7o2g2Rw9IDiRDGB34=.cer cache by regenerate.
+[2025-11-19T14:14:27.677] [DEBUG] debug-file - Update task entry:default@SignHap input file:C:\Users\vintces\.ohos\config\default_HMAPP_lAjQ22zugR-lh__rJk9Kt3FJfN7o2g2Rw9IDiRDGB34=.p7b cache by regenerate.
+[2025-11-19T14:14:27.677] [DEBUG] debug-file - Update task entry:default@SignHap input file:C:\Users\vintces\.ohos\config\default_HMAPP_lAjQ22zugR-lh__rJk9Kt3FJfN7o2g2Rw9IDiRDGB34=.p12 cache by regenerate.
+[2025-11-19T14:14:27.677] [DEBUG] debug-file - Update task entry:default@SignHap input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\entry-default-unsigned.hap cache from map.
+[2025-11-19T14:14:27.677] [DEBUG] debug-file - Update task entry:default@SignHap output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\entry-default-signed.hap cache.
+[2025-11-19T14:14:27.677] [DEBUG] debug-file - Incremental task entry:default@SignHap post-execution cost:2 ms .
+[2025-11-19T14:14:27.678] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\loader_out\default\ets\sourceMaps.map cache by regenerate.
+[2025-11-19T14:14:27.678] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\intermediates\libs\default cache by regenerate.
+[2025-11-19T14:14:27.678] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol output file:D:\Scripts\HCIBGA\HMAPP\entry\build\default\outputs\default\symbol cache.
+[2025-11-19T14:14:27.679] [DEBUG] debug-file - Incremental task entry:default@CollectDebugSymbol post-execution cost:2 ms .
+[2025-11-19T14:14:27.711] [DEBUG] debug-file - Cleanup worker 14.
+[2025-11-19T14:14:27.711] [DEBUG] debug-file - Worker 14 has been cleaned up.
+[2025-11-19T14:14:27.711] [DEBUG] debug-file - Current idle worker size: 1.
+[2025-11-19T14:14:27.711] [DEBUG] debug-file - Current resident worker size: 2.
+[2025-11-19T14:14:27.712] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-11-19T14:14:27.712] [DEBUG] debug-file - java daemon socket close code:1000 reason:close by user
+[2025-11-19T14:14:27.716] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-11-19T14:14:27.716] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-11-19T14:14:27.717] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-11-19T14:14:27.717] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-11-19T14:14:27.722] [DEBUG] debug-file - worker[14] exits with exit code 1.

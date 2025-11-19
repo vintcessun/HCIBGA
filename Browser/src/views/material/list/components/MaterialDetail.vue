@@ -112,14 +112,7 @@ export default defineComponent({
   },
   setup(props) {
     const getCategoryText = (category: string) => {
-      const categoryMap: Record<string, string> = {
-        document: '文档',
-        image: '图片',
-        video: '视频',
-        audio: '音频',
-        other: '其他',
-      }
-      return categoryMap[category] || category
+      return category
     }
 
     const getStatusColor = (status: string) => {

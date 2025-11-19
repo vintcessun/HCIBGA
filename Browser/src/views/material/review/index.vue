@@ -11,7 +11,7 @@
         @page-size-change="handlePageSizeChange"
       >
         <template #status>
-          <a-tag color="orange">待审核</a-tag>
+          <a-tag color="orange">{{ $t('material.review.status.pending') }}</a-tag>
         </template>
 
         <template #uploadTime="{ record }">
@@ -24,28 +24,28 @@
               <template #icon>
                 <icon-eye />
               </template>
-              查看详情
+              {{ $t('material.review.action.view') }}
             </a-button>
 
             <a-button type="text" size="small" status="success" @click="handleQuickApprove(record)">
               <template #icon>
                 <icon-check />
               </template>
-              快速通过
+              {{ $t('material.review.action.quickApprove') }}
             </a-button>
 
             <a-button type="text" size="small" status="warning" @click="handleReview(record, 'rejected')">
               <template #icon>
                 <icon-close />
               </template>
-              拒绝
+              {{ $t('material.review.action.reject') }}
             </a-button>
 
             <a-button type="text" size="small" @click="handleReview(record, 'approved')">
               <template #icon>
                 <icon-edit />
               </template>
-              详细审核
+              {{ $t('material.review.action.detailReview') }}
             </a-button>
           </a-space>
         </template>
@@ -60,58 +60,65 @@
         </div>
         <div class="detail-footer">
           <a-space size="large">
-            <a-button type="secondary" @click="viewPrevious">上一条</a-button>
-            <a-button type="primary" @click="approveCurrent">同意</a-button>
-            <a-button status="danger" @click="rejectCurrent">拒绝</a-button>
-            <a-button type="secondary" @click="viewNext">下一条</a-button>
+            <a-button type="secondary" @click="viewPrevious">{{ $t('material.review.detail.prev') }}</a-button>
+            <a-button type="primary" @click="approveCurrent">{{ $t('material.review.detail.approve') }}</a-button>
+            <a-button status="danger" @click="rejectCurrent">{{ $t('material.review.detail.reject') }}</a-button>
+            <a-button type="secondary" @click="viewNext">{{ $t('material.review.detail.next') }}</a-button>
           </a-space>
         </div>
       </template>
       <template v-else>
-        <a-empty description="暂无材料" />
+        <a-empty :description="$t('material.review.empty')" />
       </template>
     </a-modal>
 
     <!-- 审核模态框 -->
     <a-modal
       v-model:visible="showReviewModal"
-      :title="`审核材料 - ${currentMaterial?.title}`"
+      :title="$t('material.review.modal.title', { title: currentMaterial?.title })"
       @ok="handleConfirmReview"
       @cancel="showReviewModal = false"
       width="500px"
     >
       <a-form :model="reviewForm" layout="vertical">
-        <a-form-item label="审核结果" field="status" required>
+        <a-form-item :label="$t('material.review.form.result')" field="status" required>
           <a-radio-group v-model="reviewForm.status">
-            <a-radio value="approved">通过</a-radio>
-            <a-radio value="rejected">拒绝</a-radio>
+            <a-radio value="approved">{{ $t('material.review.form.approved') }}</a-radio>
+            <a-radio value="rejected">{{ $t('material.review.form.rejected') }}</a-radio>
           </a-radio-group>
         </a-form-item>
 
-        <a-form-item label="审核意见" field="comment">
+        <a-form-item :label="$t('material.review.form.comment')" field="comment">
           <a-textarea
             v-model="reviewForm.comment"
-            :placeholder="reviewForm.status === 'approved' ? '请输入通过意见（可选）' : '请输入拒绝原因'"
+            :placeholder="
+              reviewForm.status === 'approved' ? $t('material.review.placeholder.approved') : $t('material.review.placeholder.rejected')
+            "
             :auto-size="{ minRows: 3, maxRows: 6 }"
           />
         </a-form-item>
 
-        <a-form-item v-if="reviewForm.status === 'rejected'" label="拒绝原因模板">
-          <a-select v-model="selectedTemplate" placeholder="选择拒绝原因模板" @change="applyTemplate" allow-clear>
-            <a-option value="content_issue">内容不符合要求</a-option>
-            <a-option value="quality_issue">材料质量不达标</a-option>
-            <a-option value="format_issue">格式不正确</a-option>
-            <a-option value="copyright_issue">版权问题</a-option>
-            <a-option value="other">其他原因</a-option>
+        <a-form-item v-if="reviewForm.status === 'rejected'" :label="$t('material.review.form.template')">
+          <a-select
+            v-model="selectedTemplate"
+            :placeholder="$t('material.review.placeholder.template')"
+            @change="applyTemplate"
+            allow-clear
+          >
+            <a-option value="content_issue">{{ $t('material.review.template.content') }}</a-option>
+            <a-option value="quality_issue">{{ $t('material.review.template.quality') }}</a-option>
+            <a-option value="format_issue">{{ $t('material.review.template.format') }}</a-option>
+            <a-option value="copyright_issue">{{ $t('material.review.template.copyright') }}</a-option>
+            <a-option value="other">{{ $t('material.review.template.other') }}</a-option>
           </a-select>
         </a-form-item>
 
         <!-- 审核信息 -->
-        <a-form-item label="审核人" v-if="userStore.userInfo">
+        <a-form-item :label="$t('material.review.form.reviewer')" v-if="userStore.userInfo">
           <a-input :value="userStore.userInfo.name" disabled />
         </a-form-item>
 
-        <a-form-item label="审核时间">
+        <a-form-item :label="$t('material.review.form.time')">
           <a-input :value="new Date().toLocaleString('zh-CN')" disabled />
         </a-form-item>
       </a-form>
@@ -120,30 +127,30 @@
     <!-- 预览抽屉 -->
     <a-drawer v-model:visible="showPreviewDrawer" :title="currentMaterial?.title" :width="drawerWidth" placement="right">
       <iframe v-if="currentMaterial && previewFileUrl" :src="previewFileUrl" style="width: 100%; height: 100%; border: none"></iframe>
-      <a-empty v-else description="暂无可预览文件" />
+      <a-empty v-else :description="$t('material.review.preview.empty')" />
     </a-drawer>
 
     <!-- 批量操作区域 -->
     <div class="batch-actions" v-if="selectedMaterials.length > 0">
       <a-space>
-        <span>已选择 {{ selectedMaterials.length }} 个材料</span>
+        <span>{{ $t('material.review.batch.selected', { count: selectedMaterials.length }) }}</span>
         <a-button type="primary" @click="handleBatchApprove">
           <template #icon>
             <icon-check />
           </template>
-          批量通过
+          {{ $t('material.review.batch.approve') }}
         </a-button>
         <a-button status="warning" @click="handleBatchReject">
           <template #icon>
             <icon-close />
           </template>
-          批量拒绝
+          {{ $t('material.review.batch.reject') }}
         </a-button>
         <a-button @click="clearSelection">
           <template #icon>
             <icon-close-circle />
           </template>
-          取消选择
+          {{ $t('material.review.batch.cancel') }}
         </a-button>
       </a-space>
     </div>
@@ -155,8 +162,10 @@ import { batchReviewMaterials, getPendingMaterials, reviewMaterial, type Materia
 import { useUserStore } from '@/store'
 import { Message } from '@arco-design/web-vue'
 import { computed, onMounted, onUnmounted, reactive, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import MaterialDetail from '../list/components/MaterialDetail.vue'
 
+const { t } = useI18n()
 const userStore = useUserStore()
 const loading = ref(false)
 const pendingMaterials = ref<Material[]>([])
@@ -179,6 +188,21 @@ const reviewForm = reactive({
   comment: '',
 })
 
+const getCategoryText = (category: string) => {
+  const categoryMap: Record<string, string> = {
+    '学术专长成绩-科研成果': t('material.category.academic.research'),
+    '学术专长成绩-学业竞赛': t('material.category.academic.competition'),
+    '学术专长成绩-创新创业训练': t('material.category.academic.innovation'),
+    '综合表现加分-国际组织实习': t('material.category.comprehensive.internship'),
+    '综合表现加分-参军入伍服兵役': t('material.category.comprehensive.military'),
+    '综合表现加分-志愿服务': t('material.category.comprehensive.volunteer'),
+    '综合表现加分-荣誉称号': t('material.category.comprehensive.honor'),
+    '综合表现加分-社会工作': t('material.category.comprehensive.social'),
+    '综合表现加分-体育比赛': t('material.category.comprehensive.sports'),
+  }
+  return categoryMap[category] || category
+}
+
 const detailModalWidth = computed(() => {
   return window.innerWidth < 768 ? '95%' : '600px'
 })
@@ -189,50 +213,44 @@ const drawerWidth = computed(() => {
 
 const columns = computed(() => [
   {
-    title: '选择',
+    title: t('material.review.column.selection'),
     type: 'checkbox',
-    width: 60,
+    width: 30,
   },
   {
-    title: '标题',
+    title: t('material.review.column.title'),
     dataIndex: 'title',
     ellipsis: true,
     tooltip: true,
+    width: 80,
   },
   {
-    title: '分类',
+    title: t('material.review.column.category'),
     dataIndex: 'category',
     width: 100,
     render: ({ record }: { record: Material }) => {
-      const categoryMap: Record<string, string> = {
-        document: '文档',
-        image: '图片',
-        video: '视频',
-        audio: '音频',
-        other: '其他',
-      }
-      return categoryMap[record.category] || record.category
+      return getCategoryText(record.category)
     },
   },
   {
-    title: '状态',
+    title: t('material.review.column.status'),
     dataIndex: 'status',
-    width: 100,
+    width: 60,
     slotName: 'status',
   },
   {
-    title: '上传者',
+    title: t('material.review.column.uploader'),
     dataIndex: 'uploader',
-    width: 120,
+    width: 90,
   },
   {
-    title: '上传时间',
+    title: t('material.review.column.uploadTime'),
     dataIndex: 'uploadTime',
-    width: 180,
+    width: 110,
     slotName: 'uploadTime',
   },
   {
-    title: '操作',
+    title: t('material.review.column.actions'),
     slotName: 'actions',
     width: 300,
     fixed: 'right',
@@ -266,7 +284,7 @@ const fetchPendingMaterials = async () => {
     pendingMaterials.value = response.data
     pagination.total = pendingMaterials.value.length
   } catch (error) {
-    Message.error('获取待审核材料失败')
+    Message.error(t('material.review.message.fetchFailed'))
   } finally {
     loading.value = false
   }
@@ -291,12 +309,12 @@ const handleQuickApprove = async (material: Material) => {
     await reviewMaterial({
       materialId: material.id,
       status: 'approved',
-      comment: '快速审核通过',
+      comment: t('material.review.comment.quickApprove'),
     })
-    Message.success('审核通过')
+    Message.success(t('material.review.message.approveSuccess'))
     fetchPendingMaterials()
   } catch (error) {
-    Message.error('审核失败')
+    Message.error(t('material.review.message.failed'))
   }
 }
 
@@ -310,11 +328,11 @@ const handleReview = (material: Material, status: 'approved' | 'rejected') => {
 
 const applyTemplate = (template: string) => {
   const templates: Record<string, string> = {
-    content_issue: '内容不符合平台要求，请修改后重新提交',
-    quality_issue: '材料质量不达标，无法通过审核',
-    format_issue: '文件格式不正确，请使用支持的格式',
-    copyright_issue: '存在版权问题，请确保拥有合法授权',
-    other: '其他原因，请详细说明',
+    content_issue: t('material.review.template.content.detail'),
+    quality_issue: t('material.review.template.quality.detail'),
+    format_issue: t('material.review.template.format.detail'),
+    copyright_issue: t('material.review.template.copyright.detail'),
+    other: t('material.review.template.other.detail'),
   }
   reviewForm.comment = templates[template] || ''
 }
@@ -328,11 +346,11 @@ const handleConfirmReview = async () => {
       status: reviewForm.status,
       comment: reviewForm.comment,
     })
-    Message.success('审核完成')
+    Message.success(t('material.review.message.complete'))
     showReviewModal.value = false
     fetchPendingMaterials()
   } catch (error) {
-    Message.error('审核失败')
+    Message.error(t('material.review.message.failed'))
   }
 }
 
@@ -344,12 +362,12 @@ const handleBatchApprove = async () => {
   if (selectedMaterials.value.length === 0) return
 
   try {
-    await batchReviewMaterials(selectedMaterials.value, 'approved', '批量审核通过')
-    Message.success(`已通过 ${selectedMaterials.value.length} 个材料`)
+    await batchReviewMaterials(selectedMaterials.value, 'approved', t('material.review.comment.batchApprove'))
+    Message.success(t('material.review.message.batchApproveSuccess', { count: selectedMaterials.value.length }))
     clearSelection()
     fetchPendingMaterials()
   } catch (error) {
-    Message.error('批量审核失败')
+    Message.error(t('material.review.message.batchFailed'))
   }
 }
 
@@ -357,12 +375,12 @@ const handleBatchReject = async () => {
   if (selectedMaterials.value.length === 0) return
 
   try {
-    await batchReviewMaterials(selectedMaterials.value, 'rejected', '批量审核拒绝')
-    Message.success(`已拒绝 ${selectedMaterials.value.length} 个材料`)
+    await batchReviewMaterials(selectedMaterials.value, 'rejected', t('material.review.comment.batchReject'))
+    Message.success(t('material.review.message.batchRejectSuccess', { count: selectedMaterials.value.length }))
     clearSelection()
     fetchPendingMaterials()
   } catch (error) {
-    Message.error('批量审核失败')
+    Message.error(t('material.review.message.batchFailed'))
   }
 }
 
@@ -401,12 +419,12 @@ const approveCurrent = async () => {
     await reviewMaterial({
       materialId: currentMaterial.value.id,
       status: 'approved',
-      comment: '同意审核',
+      comment: t('material.review.comment.agree'),
     })
-    Message.success('已同意该材料')
+    Message.success(t('material.review.message.agreeSuccess'))
     fetchPendingMaterials()
   } catch (error) {
-    Message.error('同意操作失败')
+    Message.error(t('material.review.message.agreeFailed'))
   }
 }
 

@@ -8,17 +8,17 @@
           <rect x="14" y="14" width="7" height="7" rx="2" fill="none" stroke="#00308f" stroke-width="2" />
           <rect x="3" y="14" width="7" height="7" rx="2" fill="none" stroke="#00308f" stroke-width="2" />
         </svg>
-        <span>扫码登录</span>
+        <span>{{ $t('login.scan.title') }}</span>
       </div>
-      <a-modal v-model:visible="showQr" title="扫码登录" :footer="false" width="320px">
+      <a-modal v-model:visible="showQr" :title="$t('login.scan.title')" :footer="false" width="320px">
         <div class="qr-modal-content">
           <img :src="qrUrl" alt="二维码" style="width: 200px; height: 200px; display: block; margin: 0 auto" />
-          <div style="text-align: center; margin-top: 12px; color: #888">请使用企业微信扫码登录</div>
+          <div style="text-align: center; margin-top: 12px; color: #888">{{ $t('login.scan.tip') }}</div>
         </div>
       </a-modal>
       <div class="logo">
         <img alt="logo" src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/dfdba5317c0c20ce20e64fac803d52bc.svg~tplv-49unhts6dw-image.image" />
-        <div class="logo-text">保研小助手</div>
+        <div class="logo-text">{{ $t('app.title') }}</div>
       </div>
       <LoginBanner />
       <div class="content">
@@ -34,6 +34,7 @@
 import { getQrAuthResult, getQrCode, pollQrStatus } from '@/api/user'
 import useUserStore from '@/store/modules/user'
 import { defineComponent, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import LoginBanner from './components/banner.vue'
 import LoginForm from './components/login-form.vue'
@@ -44,6 +45,7 @@ export default defineComponent({
     LoginForm,
   },
   setup() {
+    const { t } = useI18n()
     const showQr = ref(false)
     const qrUrl = ref('')
     const qrId = ref('')
@@ -88,7 +90,7 @@ export default defineComponent({
             showQr.value = false
           } else if (statusRes.data.status === 'expired') {
             clearInterval(pollingTimer as ReturnType<typeof setInterval>)
-            console.warn('二维码已过期，请重新扫码登录')
+            console.warn(t('login.scan.expired'))
             qrUrl.value = ''
             qrId.value = ''
             showQr.value = false

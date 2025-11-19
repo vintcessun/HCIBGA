@@ -26,7 +26,10 @@
 
       <!-- 根据角色显示不同标题 -->
       <div class="category-section">
-        <a-card :title="userStore.role === 'user' ? '加分统计' : '分类统计'" class="category-card">
+        <a-card
+          :title="userStore.role === 'user' ? $t('material.statistics.bonus') : $t('material.statistics.category')"
+          class="category-card"
+        >
           <a-row :gutter="16">
             <a-col :xs="24" :lg="12">
               <div class="chart-container">
@@ -38,7 +41,7 @@
                 <div v-for="category in categoryStats" :key="category.name" class="category-item">
                   <div class="category-info">
                     <div class="category-name">{{ category.name }}</div>
-                    <div class="category-count">{{ category.value }} 个</div>
+                    <div class="category-count">{{ category.value }} {{ $t('material.statistics.unit') }}</div>
                   </div>
                   <div class="category-percent">{{ category.percent }}%</div>
                 </div>
@@ -50,37 +53,37 @@
 
       <!-- 时间趋势 -->
       <div class="trend-section">
-        <a-card title="上传趋势" class="trend-card">
+        <a-card :title="$t('material.statistics.trend')" class="trend-card">
           <v-chart :option="trendChartOption" autoresize style="height: 300px" />
         </a-card>
       </div>
 
       <!-- 审核效率 -->
       <div class="efficiency-section">
-        <a-card title="审核效率" class="efficiency-card">
+        <a-card :title="$t('material.statistics.efficiency')" class="efficiency-card">
           <a-row :gutter="16">
             <a-col :xs="12" :lg="6">
               <div class="efficiency-item">
-                <div class="efficiency-value">{{ efficiencyStats.averageReviewTime }}</div>
-                <div class="efficiency-label">平均审核时间</div>
+                <div class="efficiency-value">{{ efficiencyStats.averageReviewTime }} {{ $t('material.statistics.hours') }}</div>
+                <div class="efficiency-label">{{ $t('material.statistics.avgReviewTime') }}</div>
               </div>
             </a-col>
             <a-col :xs="12" :lg="6">
               <div class="efficiency-item">
                 <div class="efficiency-value">{{ efficiencyStats.reviewCount }}</div>
-                <div class="efficiency-label">今日审核数量</div>
+                <div class="efficiency-label">{{ $t('material.statistics.todayReviewCount') }}</div>
               </div>
             </a-col>
             <a-col :xs="12" :lg="6">
               <div class="efficiency-item">
                 <div class="efficiency-value">{{ efficiencyStats.approvalRate }}%</div>
-                <div class="efficiency-label">通过率</div>
+                <div class="efficiency-label">{{ $t('material.statistics.approvalRate') }}</div>
               </div>
             </a-col>
             <a-col :xs="12" :lg="6">
               <div class="efficiency-item">
                 <div class="efficiency-value">{{ efficiencyStats.rejectionRate }}%</div>
-                <div class="efficiency-label">拒绝率</div>
+                <div class="efficiency-label">{{ $t('material.statistics.rejectionRate') }}</div>
               </div>
             </a-col>
           </a-row>
@@ -99,6 +102,7 @@ import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
 import { onMounted, ref } from 'vue'
 import VChart from 'vue-echarts'
+import { useI18n } from 'vue-i18n'
 
 use([CanvasRenderer, PieChart, LineChart, TitleComponent, TooltipComponent, LegendComponent, GridComponent])
 
@@ -117,17 +121,18 @@ interface CategoryStat {
 }
 
 interface EfficiencyStat {
-  averageReviewTime: string
+  averageReviewTime: number
   reviewCount: number
   approvalRate: number
   rejectionRate: number
 }
 
+const { t } = useI18n()
 const userStore = useUserStore()
 const overviewStats = ref<OverviewStat[]>([])
 const categoryStats = ref<CategoryStat[]>([])
 const efficiencyStats = ref<EfficiencyStat>({
-  averageReviewTime: '2.5小时',
+  averageReviewTime: 2.5,
   reviewCount: 0,
   approvalRate: 0,
   rejectionRate: 0,
@@ -136,15 +141,19 @@ const efficiencyStats = ref<EfficiencyStat>({
 const categoryChartOption = ref({})
 const trendChartOption = ref({})
 
-const getCategoryName = (key: string): string => {
+const getCategoryName = (category: string): string => {
   const categoryMap: Record<string, string> = {
-    document: '文档',
-    image: '图片',
-    video: '视频',
-    audio: '音频',
-    other: '其他',
+    '学术专长成绩-科研成果': t('material.category.academic.research'),
+    '学术专长成绩-学业竞赛': t('material.category.academic.competition'),
+    '学术专长成绩-创新创业训练': t('material.category.academic.innovation'),
+    '综合表现加分-国际组织实习': t('material.category.comprehensive.internship'),
+    '综合表现加分-参军入伍服兵役': t('material.category.comprehensive.military'),
+    '综合表现加分-志愿服务': t('material.category.comprehensive.volunteer'),
+    '综合表现加分-荣誉称号': t('material.category.comprehensive.honor'),
+    '综合表现加分-社会工作': t('material.category.comprehensive.social'),
+    '综合表现加分-体育比赛': t('material.category.comprehensive.sports'),
   }
-  return categoryMap[key] || key
+  return categoryMap[category] || category
 }
 
 const updateCategoryChart = () => {
@@ -161,7 +170,7 @@ const updateCategoryChart = () => {
     },
     series: [
       {
-        name: '材料分类',
+        name: t('material.statistics.chart.category'),
         type: 'pie',
         radius: ['50%', '70%'],
         avoidLabelOverlap: false,
@@ -213,11 +222,11 @@ const updateTrendChart = () => {
     },
     yAxis: {
       type: 'value',
-      name: '上传数量',
+      name: t('material.statistics.chart.uploadCount'),
     },
     series: [
       {
-        name: '每日上传',
+        name: t('material.statistics.chart.dailyUpload'),
         type: 'line',
         data: uploadData,
         smooth: true,
@@ -251,26 +260,26 @@ const fetchStatistics = async () => {
     // 更新概览统计
     overviewStats.value = [
       {
-        label: '总材料数',
+        label: t('material.statistics.total'),
         value: stats.total,
         color: '#165dff',
       },
       {
-        label: '待审核',
+        label: t('material.statistics.pending'),
         value: stats.pending,
         color: '#ff7d00',
         trend: stats.pending > 10 ? 'up' : 'down',
         percent: Math.round((stats.pending / stats.total) * 100),
       },
       {
-        label: '已通过',
+        label: t('material.statistics.approved'),
         value: stats.approved,
         color: '#00b42a',
         trend: 'up',
         percent: Math.round((stats.approved / stats.total) * 100),
       },
       {
-        label: '已拒绝',
+        label: t('material.statistics.rejected'),
         value: stats.rejected,
         color: '#f53f3f',
         trend: 'down',

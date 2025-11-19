@@ -27,7 +27,17 @@ const mockMaterials = Mock.mock({
       id: '@guid',
       title: '@ctitle(5, 20)',
       description: '@cparagraph(1, 3)',
-      'category|1': ['document', 'image', 'video', 'audio', 'other'],
+      'category|1': [
+        '学术专长成绩-科研成果',
+        '学术专长成绩-学业竞赛',
+        '学术专长成绩-创新创业训练',
+        '综合表现加分-国际组织实习',
+        '综合表现加分-参军入伍服兵役',
+        '综合表现加分-志愿服务',
+        '综合表现加分-荣誉称号',
+        '综合表现加分-社会工作',
+        '综合表现加分-体育比赛',
+      ],
       'tags|1-3': ['important', 'urgent', 'normal'],
       fileUrl: '@url',
       fileName: '@word(3, 10).@extension',
@@ -69,7 +79,7 @@ setupMock({
         id: Mock.mock('@guid'),
         title: data.title || '示例材料',
         description: data.description || '这是一个示例材料描述',
-        category: data.category || 'document',
+        category: data.category || '学术专长成绩-科研成果',
         tags: data.tags || ['normal'],
         fileUrl: Mock.mock('@url'),
         fileName: `material-${Date.now()}.pdf`,
@@ -119,7 +129,7 @@ setupMock({
       return successResponseWrap({
         title: metadata?.title || '项目申报材料（自动生成）',
         description: metadata?.description || '包含项目预算与团队信息，由LLM自动生成。',
-        category: metadata?.category || 'document',
+        category: metadata?.category || '学术专长成绩-科研成果',
         tags: metadata?.tags?.length ? metadata.tags : ['自动生成', '待确认'],
       })
     })
@@ -177,11 +187,18 @@ setupMock({
         approved: mockMaterials.list.filter((item: MaterialItem) => item.status === 'approved').length,
         rejected: mockMaterials.list.filter((item: MaterialItem) => item.status === 'rejected').length,
         byCategory: {
-          document: mockMaterials.list.filter((item: MaterialItem) => item.category === 'document').length,
-          image: mockMaterials.list.filter((item: MaterialItem) => item.category === 'image').length,
-          video: mockMaterials.list.filter((item: MaterialItem) => item.category === 'video').length,
-          audio: mockMaterials.list.filter((item: MaterialItem) => item.category === 'audio').length,
-          other: mockMaterials.list.filter((item: MaterialItem) => item.category === 'other').length,
+          '学术专长成绩-科研成果': mockMaterials.list.filter((item: MaterialItem) => item.category === '学术专长成绩-科研成果').length,
+          '学术专长成绩-学业竞赛': mockMaterials.list.filter((item: MaterialItem) => item.category === '学术专长成绩-学业竞赛').length,
+          '学术专长成绩-创新创业训练': mockMaterials.list.filter((item: MaterialItem) => item.category === '学术专长成绩-创新创业训练')
+            .length,
+          '综合表现加分-国际组织实习': mockMaterials.list.filter((item: MaterialItem) => item.category === '综合表现加分-国际组织实习')
+            .length,
+          '综合表现加分-参军入伍服兵役': mockMaterials.list.filter((item: MaterialItem) => item.category === '综合表现加分-参军入伍服兵役')
+            .length,
+          '综合表现加分-志愿服务': mockMaterials.list.filter((item: MaterialItem) => item.category === '综合表现加分-志愿服务').length,
+          '综合表现加分-荣誉称号': mockMaterials.list.filter((item: MaterialItem) => item.category === '综合表现加分-荣誉称号').length,
+          '综合表现加分-社会工作': mockMaterials.list.filter((item: MaterialItem) => item.category === '综合表现加分-社会工作').length,
+          '综合表现加分-体育比赛': mockMaterials.list.filter((item: MaterialItem) => item.category === '综合表现加分-体育比赛').length,
         },
       }
       return successResponseWrap(stats)

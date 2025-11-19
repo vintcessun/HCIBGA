@@ -6,19 +6,23 @@
         <a-form :model="filterForm" layout="inline" class="filter-form">
           <a-form-item :label="$t('material.list.status')">
             <a-select v-model="filterForm.status" :placeholder="$t('material.list.statusPlaceholder')" allow-clear style="width: 120px">
-              <a-option value="pending">待审核</a-option>
-              <a-option value="approved">已通过</a-option>
-              <a-option value="rejected">已拒绝</a-option>
+              <a-option value="pending">{{ $t('material.status.pending') }}</a-option>
+              <a-option value="approved">{{ $t('material.status.approved') }}</a-option>
+              <a-option value="rejected">{{ $t('material.status.rejected') }}</a-option>
             </a-select>
           </a-form-item>
 
           <a-form-item :label="$t('material.list.category')">
-            <a-select v-model="filterForm.category" :placeholder="$t('material.list.categoryPlaceholder')" allow-clear style="width: 120px">
-              <a-option value="document">文档</a-option>
-              <a-option value="image">图片</a-option>
-              <a-option value="video">视频</a-option>
-              <a-option value="audio">音频</a-option>
-              <a-option value="other">其他</a-option>
+            <a-select v-model="filterForm.category" :placeholder="$t('material.list.categoryPlaceholder')" allow-clear style="width: 240px">
+              <a-option value="学术专长成绩-科研成果">{{ $t('material.category.academic.research') }}</a-option>
+              <a-option value="学术专长成绩-学业竞赛">{{ $t('material.category.academic.competition') }}</a-option>
+              <a-option value="学术专长成绩-创新创业训练">{{ $t('material.category.academic.innovation') }}</a-option>
+              <a-option value="综合表现加分-国际组织实习">{{ $t('material.category.comprehensive.internship') }}</a-option>
+              <a-option value="综合表现加分-参军入伍服兵役">{{ $t('material.category.comprehensive.military') }}</a-option>
+              <a-option value="综合表现加分-志愿服务">{{ $t('material.category.comprehensive.volunteer') }}</a-option>
+              <a-option value="综合表现加分-荣誉称号">{{ $t('material.category.comprehensive.honor') }}</a-option>
+              <a-option value="综合表现加分-社会工作">{{ $t('material.category.comprehensive.social') }}</a-option>
+              <a-option value="综合表现加分-体育比赛">{{ $t('material.category.comprehensive.sports') }}</a-option>
             </a-select>
           </a-form-item>
 
@@ -96,7 +100,7 @@
               <template #icon>
                 <icon-eye />
               </template>
-              查看
+              {{ $t('material.list.actions.view') }}
             </a-button>
 
             <a-button
@@ -109,7 +113,7 @@
               <template #icon>
                 <icon-edit />
               </template>
-              修改
+              {{ $t('material.list.actions.edit') }}
             </a-button>
 
             <a-button
@@ -122,7 +126,7 @@
               <template #icon>
                 <icon-delete />
               </template>
-              删除
+              {{ $t('material.list.actions.delete') }}
             </a-button>
 
             <a-button
@@ -135,7 +139,7 @@
               <template #icon>
                 <icon-check />
               </template>
-              通过
+              {{ $t('material.list.actions.approve') }}
             </a-button>
 
             <a-button
@@ -148,7 +152,7 @@
               <template #icon>
                 <icon-close />
               </template>
-              拒绝
+              {{ $t('material.list.actions.reject') }}
             </a-button>
           </a-space>
         </template>
@@ -163,19 +167,23 @@
     <!-- 审核模态框 -->
     <a-modal
       v-model:visible="showReviewModal"
-      :title="`审核材料 - ${currentMaterial?.title}`"
+      :title="$t('material.review.modal.title', { title: currentMaterial?.title })"
       @ok="handleConfirmReview"
       @cancel="showReviewModal = false"
     >
       <a-form :model="reviewForm" layout="vertical">
-        <a-form-item label="审核结果" field="status">
+        <a-form-item :label="$t('material.review.modal.result')" field="status">
           <a-radio-group v-model="reviewForm.status">
-            <a-radio value="approved">通过</a-radio>
-            <a-radio value="rejected">拒绝</a-radio>
+            <a-radio value="approved">{{ $t('material.list.actions.approve') }}</a-radio>
+            <a-radio value="rejected">{{ $t('material.list.actions.reject') }}</a-radio>
           </a-radio-group>
         </a-form-item>
-        <a-form-item label="审核意见" field="comment">
-          <a-textarea v-model="reviewForm.comment" placeholder="请输入审核意见" :auto-size="{ minRows: 3 }" />
+        <a-form-item :label="$t('material.review.modal.comment')" field="comment">
+          <a-textarea
+            v-model="reviewForm.comment"
+            :placeholder="$t('material.review.modal.commentPlaceholder')"
+            :auto-size="{ minRows: 3 }"
+          />
         </a-form-item>
       </a-form>
     </a-modal>
@@ -195,8 +203,10 @@ import { deleteMaterial, getMaterialList, reviewMaterial, type Material } from '
 import { useUserStore } from '@/store'
 import { Message } from '@arco-design/web-vue'
 import { computed, onMounted, reactive, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import MaterialDetail from './components/MaterialDetail.vue'
 
+const { t } = useI18n()
 const userStore = useUserStore()
 const loading = ref(false)
 const materials = ref<Material[]>([])
@@ -235,11 +245,26 @@ const getStatusColor = (status: string) => {
 
 const getStatusText = (status: string) => {
   const texts: Record<string, string> = {
-    pending: '待审核',
-    approved: '已通过',
-    rejected: '已拒绝',
+    pending: t('material.status.pending'),
+    approved: t('material.status.approved'),
+    rejected: t('material.status.rejected'),
   }
   return texts[status] || status
+}
+
+const getCategoryText = (category: string) => {
+  const categoryMap: Record<string, string> = {
+    '学术专长成绩-科研成果': t('material.category.academic.research'),
+    '学术专长成绩-学业竞赛': t('material.category.academic.competition'),
+    '学术专长成绩-创新创业训练': t('material.category.academic.innovation'),
+    '综合表现加分-国际组织实习': t('material.category.comprehensive.internship'),
+    '综合表现加分-参军入伍服兵役': t('material.category.comprehensive.military'),
+    '综合表现加分-志愿服务': t('material.category.comprehensive.volunteer'),
+    '综合表现加分-荣誉称号': t('material.category.comprehensive.honor'),
+    '综合表现加分-社会工作': t('material.category.comprehensive.social'),
+    '综合表现加分-体育比赛': t('material.category.comprehensive.sports'),
+  }
+  return categoryMap[category] || category
 }
 
 const formatFileSize = (bytes: number) => {
@@ -256,60 +281,53 @@ const formatDate = (dateString: string) => {
 
 const columns = computed(() => [
   {
-    title: '选择',
+    title: t('material.list.columns.selection'),
     type: 'checkbox',
     width: 60,
   },
   {
-    title: '标题',
+    title: t('material.list.columns.title'),
     dataIndex: 'title',
     ellipsis: true,
     tooltip: true,
-    minWidth: 200,
+    minWidth: 100,
   },
   {
-    title: '分类',
+    title: t('material.list.columns.category'),
     dataIndex: 'category',
-    width: 100,
+    width: 200,
     render: ({ record }: { record: Material }) => {
-      const categoryMap: Record<string, string> = {
-        document: '文档',
-        image: '图片',
-        video: '视频',
-        audio: '音频',
-        other: '其他',
-      }
-      return categoryMap[record.category] || record.category
+      return getCategoryText(record.category)
     },
   },
   {
-    title: '状态',
+    title: t('material.list.columns.status'),
     dataIndex: 'status',
     width: 100,
     slotName: 'status',
   },
   // 已移除文件大小列
   {
-    title: '上传者',
+    title: t('material.list.columns.uploader'),
     dataIndex: 'uploader',
     width: 120,
   },
   {
-    title: '上传时间',
+    title: t('material.list.columns.uploadTime'),
     dataIndex: 'uploadTime',
     width: 180,
     slotName: 'uploadTime',
   },
   {
-    title: '审核人',
+    title: t('material.list.columns.reviewer'),
     dataIndex: 'reviewer',
-    width: 120,
+    width: 80,
     render: ({ record }: { record: Material }) => {
       return record.reviewer || '-'
     },
   },
   {
-    title: '审核时间',
+    title: t('material.list.columns.reviewTime'),
     dataIndex: 'reviewTime',
     width: 180,
     render: ({ record }: { record: Material }) => {
@@ -317,7 +335,7 @@ const columns = computed(() => [
     },
   },
   {
-    title: '操作',
+    title: t('material.list.columns.actions'),
     slotName: 'actions',
     width: userStore.role === 'admin' || userStore.role === 'user' ? 300 : 200,
     fixed: 'right',
@@ -353,7 +371,7 @@ const fetchMaterials = async () => {
     materials.value = response.data
     pagination.total = materials.value.length
   } catch (error) {
-    Message.error('获取材料列表失败')
+    Message.error(t('material.list.message.fetchFailed'))
   } finally {
     loading.value = false
   }
@@ -402,21 +420,21 @@ const handleEdit = (material: Material) => {
 const handleDelete = async (material: Material) => {
   try {
     await deleteMaterial(material.id)
-    Message.success('删除成功')
+    Message.success(t('material.list.message.deleteSuccess'))
     fetchMaterials()
   } catch (error) {
-    Message.error('删除失败')
+    Message.error(t('material.list.message.deleteFailed'))
   }
 }
 
 const handleBatchDelete = async () => {
   // 实现批量删除逻辑
-  Message.info('批量删除功能待实现')
+  Message.info(t('material.list.message.batchDeleteNotImplemented'))
 }
 
 const handleExport = () => {
   // 实现导出逻辑
-  Message.info('导出功能待实现')
+  Message.info(t('material.list.message.exportNotImplemented'))
 }
 
 const handleReview = (material: Material, status: 'approved' | 'rejected') => {
@@ -435,11 +453,11 @@ const handleConfirmReview = async () => {
       status: reviewForm.status,
       comment: reviewForm.comment,
     })
-    Message.success('审核成功')
+    Message.success(t('material.review.message.success'))
     showReviewModal.value = false
     fetchMaterials()
   } catch (error) {
-    Message.error('审核失败')
+    Message.error(t('material.review.message.failed'))
   }
 }
 
